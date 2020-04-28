@@ -1441,6 +1441,45 @@ console.log(b)
 [playground](https://www.typescriptlang.org/play/#code/MYewdgzgLgBAlhAcgQwE6pAdwMrFQU3zBgF4YAKASlID4YAzZAGwnwFgAofADwAcRUsegFcwwKHHAxMcACb4U6LAB4AKjXIz5ALhiqANDE4wTMMGgyZtqygG9jpglGGpiCRZdwEiVGAH4zCywYXS18AG5OAF9OTlBIWGRSaTkFIMxyAAZDAA5KOPBoGB4oInlZAEECZAAJfDgAcwALWDIAJgA2SI54ooAjZKSAamLuUrByqvxa+uaoAsgQJnwAOiYQBvI+-I4gA)
 
 
+**問62**
+
+下記のこちら
+
+```
+function test3(values) {
+    const result = {}
+    for (const key in values) {
+        result[key] = values[key].toUpperCase()
+    }
+    return result
+}
+
+test3({name: "kenji", address: "meguro"})
+```
+
+を型付けしてください
+
+```
+function test3<K extends string>(values: Record<K, string>): Record<K, string> {
+    const result: Partial<Record<K, string>> = {}
+    for (const key in values) {
+        result[key] = values[key].toUpperCase()
+    }
+    return result as Record<K, string>
+}
+
+const a = test3({name: "kenji", address: "meguro"})
+
+```
+
+
+[playground](https://www.typescriptlang.org/play/?ssl=9&ssc=52&pln=1&pc=1#code/GYVwdgxgLglg9mABFApgZygZgDwGlEoAeqYAJmohgE4xgDmAfABQBuAhgDYjoBciASighwqpPABpKUGvQYBKPoOGiJUmY0QBvALAAoRAcTCwGRFXQgOUPgAU2VWJ2xKRY3JOq1GDRAF4tAL56hojAIohMxqYA1igAnoi0iOxc6HJawSGG5miWUADasXEAun7JnNxohfHFAHRQcACqAA7NKFQAwmxoKExymQZB+tkoUCBUSDl5iN0CQq6qnrJ6Q3pRUDNlqBiYTJpgbAC2KHwARLFgAFYwp5JspKQ5aGfHdONwpwFyQA)
+
+
+
+
+**WIP**
+
 [playgrond](https://www.typescriptlang.org/play/index.html#code/JYOwLgpgTgZghgYwgAgMoHsC2EDyAjAKwgTGQG8BYAKGVuRmCgGcwBpCATwC46WpQA5gG5qdZE2LoQAE3bdafQSJp0wAC0azOPWmWTBpPPSDjYjAX3PJz1G1WrUwHAA4oASsQCuzYADcIAApwUGDAcAA2ADwAKgB8yAC85KJ0ANoB+iDIANac6DDI0QC6APw8HgjeTH6BwaERMelFscrmyk6uyEEhYeEAogAeSM5gMQA0yKzIEAOQMkw5eQVxicgVVTXd9VErAGRdwAjZ45MtDlQIUizIcDxbvYPDoxjY+EQkEwBE6ppyn-FJSgqWgMZhsbR0T6fMYpBSSGRyHRQmHA5A-KBaeS6fSGcjIExmciWay2c6XEDXPDlLw+fz3BovXCEYhgAFE6h4AB06MxqzIdkcLhQABEIBBnPSdmygWJ0plFhx8oVSjxReLJY0As1WspqOTrghVWKJXVepFGW8WdLYWiNBjEeQDEZ8aYIBZLKT7FQgA)
 
 
