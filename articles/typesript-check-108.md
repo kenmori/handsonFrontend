@@ -2,15 +2,16 @@
 
 # 徹底的にやるTypeSript108個のこと
 
-[caption id="attachment_21406" align="alignnone" width="1000"]<img src="https://kenjimorita.jp/wp-content/uploads/2020/03/typescript.png" alt="" width="300" class="size-full wp-image-21406" /> 青色[/caption]
 
 徹底的にやるTypeSript108個のこと。
+
+<img src="https://kenjimorita.jp/wp-content/uploads/2020/03/typescript.png" alt="" width="300"  class="size-full wp-image-21406" />
 
 [aboutme](https://kenjimorita.jp/typesript-check-108/)
 
 GW前にこんなこと
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GWは自分がTypeScriptに関して知らないこと108つ見つけ出して、解決、明けにブログで発表する刑<a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a></p>&mdash; 首から下がイケメン (@bukotsunikki) <a href="https://twitter.com/bukotsunikki/status/1254227069749223424?ref_src=twsrc%5Etfw">April 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<img src="https://kenjimorita.jp/wp-content/uploads/2020/05/スクリーンショット-2020-05-06-20.48.20-1024x385.png" alt="徹底的にやるTypeSript108個のこと" width="474" height="178" class="size-large wp-image-21909" />
 
 を発言してしまったために
 108個炙り出すことをしていた
