@@ -2,34 +2,30 @@
 
 # 徹底的にやるTypeSript108個のこと
 
-[caption id="attachment_21406" align="alignnone" width="1000"]<img src="https://kenjimorita.jp/wp-content/uploads/2020/03/typescript.png" alt="" width="300" class="size-full wp-image-21406" /> 青色[/caption]
 
 徹底的にやるTypeSript108個のこと。
+<img src="https://kenjimorita.jp/wp-content/uploads/2020/03/typescript.png" alt="" width="300"  class="size-full wp-image-21406" />
 
 [aboutme](https://kenjimorita.jp/typesript-check-108/)
 
 GW前にこんなこと
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">GWは自分がTypeScriptに関して知らないこと108つ見つけ出して、解決、明けにブログで発表する刑<a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a></p>&mdash; 首から下がイケメン (@bukotsunikki) <a href="https://twitter.com/bukotsunikki/status/1254227069749223424?ref_src=twsrc%5Etfw">April 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<img src="https://kenjimorita.jp/wp-content/uploads/2020/05/スクリーンショット-2020-05-06-20.48.20-1024x385.png" alt="徹底的にやるTypeSript108個のこと" width="474" height="178" class="size-large wp-image-21909" />
 
 を発言してしまったために
 108個炙り出すことをしていた
 
 結論、WIP(2020/5/7現在)。今のところ98個。
-ですが、後少しなのでこのページ自体を更新し続けます
+ですが、
+あと少しなのでこのページ自体を更新し続けます
 
 もちろん、自分が知らないのはこれだけしかないのではなく、
+
 今回はTSへの理解を深めるスタートという位置付けになりました
 
-自分は、業務で使っていますが、やはりまだまだ
-個人的にindex signatureやexcess property checkなどちょっと自信なかったところを
-強化したといった感じになりましたね
+まとめきれてないのでご覧いただくにはガチャガチャしていますが
 
-まとめきれてないのでみるにはガチャガチャしていますが
-以下
-こんな結果で申し訳なく、
-お恥ずかしいですけど成果物でございます
-
+以下メモです(syntax highlightどうにかならないか...)
 
 ## 1. Excess Property Check
 
@@ -123,6 +119,7 @@ TypeScript in general will not synthesize a union type during generic inference.
 ```ts
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 ```
+関数の引数は反変で、関数のUnionTypeはその引数をintersectionにする
 
 ## 6. 共変
 
@@ -194,7 +191,6 @@ capital: string
 
 https://katashin.info/2018/02/24/221
 
-
 ## 15 なぜこれがエラーになるのかを知りたかった
 
 ```ts
@@ -208,8 +204,9 @@ function test<T extends { [key: string]: string }>(map: T) {
 
 ジェネリクスで
 
-
 ## 16 TypeScirpt 3.81のインデックスシグネチャの動き
+
+WIP
 
 ## 17. TypeScript 3.9の変更点は?
 
@@ -219,7 +216,11 @@ if conditionの中でfunction callがされていない場合のerrorに続い�
 
 ## 18 unionTypeのindex signatureが絡んできた時の理解
 
+WIP
+
 ## 19 どのようにgenelicsはcompilerで解決されるか
+
+WIP
 
 ## 20. Tを同じ型として扱うにはどうしたらいいか
 
@@ -272,7 +273,6 @@ const b = (b: NotHumman) => {
 https://gist.github.com/kenmori/8cea4b82dd12ad31f565721c9c456662
 問39を修正
 
-
 ## 22. 配列がもつ要素にアクセスする方法で見たことなかったこれ
 
 ```ts
@@ -296,20 +296,12 @@ type: typeof type[number];
 
 [stackoverflow](https://www.typescriptlang.org/docs/handbook/utility-types.html#thisparametertype)
 
-## 25. Parameters
 
-```ts
-<T>
-```
-
-ていうのがあること
-
-
-## 26 inferを複数回使うところ
+## 25 inferを複数回使うところ
 
 [stackoverflow](https://artsy.github.io/blog/2018/11/21/conditional-types-in-typescript/)
 
-## 21. tsserverのこと
+## 26. tsserverのこと
 
 [stackoverflow](https://github.com/microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29)
 
@@ -329,7 +321,9 @@ let b: unknown
 
 未定義という意味ではanyよりunknownを使った方が型安全
 
-## 28 Genericsがbindするタイミング。
+## 28 Genericsがbindするタイミング
+
+WIP
 
 ## 29 distributive conditional type
 
@@ -381,7 +375,6 @@ assignability
 A <;B なら使うことができる
 列挙型以外
 
-
 ## 35 excess property checkingの深い理解
 
 オブジェクトリテラルに対して、targetの型にないプロパティをチェックすること
@@ -394,7 +387,7 @@ TypeScirptは過剰なプロパティチェックをしなくなる
 過剰なプロパティチェックはオブジェクトリテラルを直接渡した場合、判定されるがなぜ代入するとそれが「撤退する」のかとsubtypeになっていればそれでもいいのではないかと思っていた。
 なぜこんかことをしているか
 -> 可読性の観点からだという
-some({a: "a", b: "b"})
+`some({a: "a", b: "b"})`
 上のbが余分だとして、
 直接リテラルを渡した場合、
 このように書くと、開発者はbを渡しているので、
@@ -453,12 +446,16 @@ TypeScriptでも出てくる。
 
 - 式から新しい型を作成している時、余分な値が入ってくるのを避けるため。新しいプロパティが入ってくるのを避けるため
 
+```ts
 type User = { username: string, email: string }
 const user3: User = Object.assign({ username: ' x ' }, { email: ' y ', foo: ' z ' })
 const user4: User = { ...{ username: ' x ' }, ...{ email: ' y ', foo: ' z ' }}
+```
+
 これは現在エラーにならない
 これをエラーにしたいという議論
-40. リリースされた3.9.0 betaのこと
+
+## 40. リリースされた3.9.0 betaのこと
 
 - Promise.allとPromise.raceの型でnullとundefinedが入った場合の推論を改善した
 - awaited Operater(Promiseのawaite時の型)においてはまだ機能設計をする必要があるのでブランチを切った(testだけ入れた)
@@ -480,7 +477,6 @@ number型のインデックスシグネチャはJSでは文字列に変換され
 string型のプロパティが返す型。例の場合Dogのサブタイプでなければならない理解
 つまり、
 [playground](https://www.typescriptlang.org/play/index.html?ssl=17&ssc=1&pln=18&pc=1#code/C4TwDgpgBAggdgSwLYEMA2UC8UDeBYAKCmKjhSQgC4oBnYAJwTgHMBuQgX0NEigBEA9syy5CJKACN6ECABNqdRi3YEOUAGSxEqNIW7hoAOQHAA8gGsUIEfiIkA2gA8FDJswC61QczEPnpAFckCQh6Ty1kdE49AgB6eKhAZQZAGIZAKwZASIZABwYBc31eCysbX2InFyUPMrdiqFLA4NDwgCIAMxRWxuiCGPjYqEAghkB1BkB5BkB7BkTAMQY86AKQACYiuxL-RTdwlZYoAB8oFraUDsWa-zggkLDqXfbOwgTAfQZAAwYJ1MBohkALBhTAcwY+wBgVQA0GQHhDQDOKlMoDMAMwLcS1dYVOpnLY7VrtFRcLoEABuKHoUBQNjUKBooMsIDBMRQ9gAjO4RJdZO0oPFAAAMJ3q9EA1gyATQY3nDQgjLvtAEkMgCEbQCBDMlnjkgA)
-
 
 ## 42. ネストされたindexシグネチャに注意の意味
 
@@ -552,7 +548,6 @@ https://github.com/Microsoft/TypeScript/wiki/Compiler-Internals
 ソースコードからUMLdiagrams を生成する
 https://github.com/remojansen/TsUML
 
-
 ## 47. エラー処理の種類。使い分け
 null
 - cons 簡単
@@ -573,11 +568,10 @@ Option型
 - エラーが発生した理由を利用者に伝えない欠点
 -> ここ理解しようとすると深い
 
-
 ## 48 シグネチャの名前
 https://www.bookstack.cn/read/ts-spec/spilt.9.spilt.3.spec.md#5.2.2
 
-{ 
+{
  func1(num: number): number // メソッドシグネチャ
  func2: (num: number) => number //Function シグネチャ
  func3 : { (num: number ): number } // オブジェクトタイプリテラル
@@ -585,6 +579,7 @@ https://www.bookstack.cn/read/ts-spec/spilt.9.spilt.3.spec.md#5.2.2
 これらは全て同じ
 
 ## 49. 違いはあるのか
+
 [playground](https://www.typescriptlang.org/play/index.html?ssl=10&ssc=1&pln=10&pc=50#code/JYOwLgpgTgZghgYwgAgLIE8CS5rycgbwFgAoZcgeguUGaGQH4ZBrhkHaGQBoZBZhkEGGQY4ZTzkrkgKoZAawyAOhkDlDIHqGQBMMgfoZAJQyB1hkB2DIFDFQC4KgcwZA-vKB4hkAxDIGiGADTJARamAHU0AWEYD-nU5cDF2oAAo0xDAIAdF958AFAA8ALhAAVwBbACNoU3Rg8KioAEo4yOgAbmRSAF9SUgA3OChkMPQAeRAUQLQsHFhEFABeZADjdETkBoA+ZH9kAGpkdDSfARgQkAQwYAB7EEBo9XzC4vQAFQB3aeQqgJSEmN3odq7kUNSippa2ju7egaHMklHxyZmQZDB0AAcUYABnZBCvwgABNkKBkGMJlNZu8vigADbASBQODwoA)
 全く同じ
 
@@ -596,8 +591,9 @@ https://www.bookstack.cn/read/ts-spec/spilt.9.spilt.3.spec.md#5.2.2
 
 - keyがないため
 
-
 ## 51. 互換性のない型アサーションでエラー
+
+WIP
 
 ## 51
 
@@ -615,13 +611,11 @@ users.filter((e) => "id" in e ) // error
 
 [playground](https://www.typescriptlang.org/play/index.html#code/C4TwDgpgBAqgzhATlAvFA3lAdgQwLYQBcUcwiAllgOZQC+AsAFCiRQDq5wAFgJIAm8JKgzZ8REmUpUANFHJ9iWAK54ARkIbNw0Dt34B5RBAByAe2CDkaXbwEJkAH1j2mLHZ1uGT5ywBlypMI2BkZmFvYA2gC6TADGpliBSvZwwhGYuATEAEQ42bLyxACMdLIZYjmq2XQxjHEJgTjCyUhwAHQAZuQANsBIABT9EACUqAB8UNny1ZRQI1AA9AvsHiHe4Uj+pEz1icBQqs0pnT19iIPiwXxeYZZQw8TQASt6dkIoE1N8M1hz9214HBgIbjOZteSjJbYFTqRDRJhQ0zINxQKhKHCIPhQJhAA)
 
-
 ## 52 インデックスシグネチャで余分なプロパティを許容するにはundefinedも型に入れる。その後 unionTypeになる
 
 [stackoverflow](https://stackoverflow.com/questions/47037807/how-does-index-signature-in-typescript-works)
 
 [playground](https://www.typescriptlang.org/play/index.html#code/MYewdgzgLgBAZiEAuGBvARgQwE4vYgGwFNMwAaGLALz0JLAF8YBeNAWACgZKcUpsArkQqdu1FHEwEIwmKJgBHAQA8JUmTAD0mmEWzYQ2CkWX9MMAA4GLeqAE8YYELBM3gUIgBNODANycEEAA6LGx-DkCQzCpwyKVlXy0dPQMjRxAYAEtPEhgAdwALTFh4rIgYCAELCxAZTxgoDPQiAMQgpRVE7V19QwonLJzzQuLFARUyiqqauoamlo5ObWWV1bX11c5OUEhYQIAmFAxeSjpSCnFTkGJzmABtAGsUaGxMsABzAF1aa-oYAB8YAIwDk4G8vExWKgkjBMJ56sDQeDvFweLgGoJZPJLpJpFjUfE1HiYQMUoYfLFEPsomEYfhfqRWiBqdQujp6TcwEzqfE2VdOQCgSCiGCwF5ue1xgk6WcwILESLkVtFhwNutmgQQHlJhYCJg7O8DIi1StlfYbDAAGKCTKwVgAIgAgtViPbBfaAPLYUjvIj2s12C2OljsVHcO5vHKqCr8N5fFDWgS2nzKnbQWEoYNQ+TcTAoJ2Owtu7oAUV62BTKrTsHQmZD0LzMCdLr9MAY23A6fQ3drWbQjftJaIRBL9vbHGrlHQIfQd3tkgXmEX9s+JOcPVSMEAGtqACnVAOoMgCsGQAiDJxuzCFaLPIBzBkA9gzHju7GD1VjoIKYd-mbqJ5MqzjmohWjaUAAEIhs2uqtoCnreh8foBkG+z1jm9yRiYzyxh83yAUmIGVg+XaHI6iFQou+bOhBY74TWADMSBEfWpFNheyJjjCgDKDGxV6ABUMgCXDIAPwyANYMB6AMYMgBmDIA8gyADEMgDRDMJgC+DCeHDoNRQSLsqGwgA8Jp-oGAGOtRSFhihwrRi8cZYd+IHysKopeDCcIIjZSocEwgLQox9rMWKniUb+qqrIY6w6RaADSRAOA6mBulB6D+hw-4wAAwoZ3DhqhyhZHKYV2J8AD8CZAXhE6drA8IpalA7ka6RWTvCz5Pp4b5UQ1njEQ1c7Lqu3RktgQA)
-
 
 ## 53. Object.keyで推論されないことがある
 
@@ -636,7 +630,6 @@ JSは任意のプロパティを追加できる。keyofは同じものを返さ�
 
 アサーションを使って解決する
 [playground](https://www.typescriptlang.org/play?#code/MYewdgzgLgBAbjAvDA3gKBpmBDAXDARgBoMsAjfAJjQF800B5MgKwFNgoA6Aa1YE8IACjgBKTgCdWAEwCuwVoMHZgwGQFsZAG2xQQ4ojFXjJYKCKQA+VKUzLVG7bvGcADjIgALYQG0jJqAC6IgDcNjCSUDLiYDgq6lo6eqE0Bt5BoWgA9Nk5uTm6eXn0oJCwcJRI1lg4+MRhFDDUNBlw2OLw2JoyrBCVgkxsHDz8QuXm2L0AgsbYfAA8vHwgAGYwUHwurCvwlBZikrLyinbxjnoGfqym5ohW6NUnDonObp7ClL5R-ulhEVExjwSTmSqQCOF6gnWm22cG8i22UK2qzgQTSISAA)
-
 
 ## 54. WIP
 
@@ -680,7 +673,9 @@ propertyに対してはreadonly
 [playground](https://www.typescriptlang.org/play/index.html#code/LAKAlgdgLgpgTgMwIYGMYAIAK8DOB7CdAb1HXQiQFsYAudHKOSAcwG5T0lnbyBXSgEbx2IAL6hQUAJ4AHDJiRwoYJABtscfIQC8WRcrUAeDVoB8I0Al4QUygul4yAJklgmCACjmaCAFTwAqs6uPO4QADScUIxgArywOHQKSirquAQAlMQccDBQvHCEROgAdGXo3lr+QS6wkWUlrjFxCeiiIuIgoKp5FekQSf3ouiQgZBTUdADkAFJ4ABaEACJ4MFPhHFw8AByg7RJdIAD0R+hQ82A46ADueHAA1ldIVzAAHnK2ME6gKAQMUYwcABGJL6VJhYbZMacbh0ADMuzEFhAlXsukctRgYS8-UiTU0QIyrCA)
 
 ## 59 enumとconst enum どちらが使いやすいか
+
 書き出されるコード
+
 ```ts
 enum A {
 a = 1
@@ -709,6 +704,7 @@ A.a;
 /// B.a
 1 /* a */; // enumの定義すら書き出されない
 ```
+
 ## 60
 
 [TypeScript/issues](https://github.com/microsoft/TypeScript/issues/24300)
@@ -738,6 +734,7 @@ tt.asdf = 'foo';
 tt.foo = true;
 tt.bar = 3;
 ```
+
 https://qiita.com/kuy/items/f342fbd1737f557cf42a
 
 [playground](https://www.typescriptlang.org/play/?ssl=19&ssc=1&pln=24&pc=1#code/JYOwLgpgTgZghgYwgAgJLIN4FgBQz-IDaA1hAJ4BcyAzmFKAOYC6Vt9IDA3LgL666hIsRCgDCmXAWQwA9jID8VAEZyANhDghueAkrhRFyEAFcAtkuja+OXGDIAHFABVkAXjTIAZMlHbcAen9kMAALYGpkABMZCAiQGTBkAHcZKGIKXHVEsCoXd2wdfDhqSJgqAHJZGXKAGkkCKqo6Ywg6wuQ9KCoAZjaeTmR+HEDgsIjo2OTU9MyIbJzkPMx+2zAAOmLSt2RKuXLtMHWq7eaIA-XO7e7tIA)
@@ -1008,7 +1005,6 @@ capacity: number; // in tons
 - voidはその真偽を評価させることはできないところがundefinedとの違い
 - functionのcallbackで使う場合promptやalertなど実行するのみで何も返さない型のreturn型にvoidではなくundefinedを指定すると、明示的にundefinedを返さなくてはいけない。voidに指定すると、返す型に「意味がない」、「単に無視して」とTSに伝えることができる
 
-
 ## 73
 
 要素なしの配列(never[])にspreadingする
@@ -1266,6 +1262,8 @@ https://github.com/microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#fix
 
 ## 92 Grammar Ambiguities とは
 
+WIP
+
 ## 93 destructuring-assignment実行順をみる
 
 WIP
@@ -1337,51 +1335,6 @@ type UnionToIntersection<U> =
 反変が起こる箇所(関数の引数)はintersectionTypeになる
 
 [](https://stackoverflow.com/questions/54936474/typescript-how-to-explain-this-interaction-between-extends-and-function-type)
-
-## 98
-
-WIP
-
-## 99
-
-WIP
-
-## 100
-
-WIP
-
-## 101
-
-WIP
-
-## 102
-
-WIP
-
-## 103
-
-WIP
-
-## 104
-
-WIP
-
-## 105
-
-WIP
-
-## 106
-
-WIP
-
-## 107
-
-WIP
-
-## 108
-
-WIP
-
 
 ## ref
 
