@@ -1,9 +1,13 @@
 <!--more-->
 
-# 徹底的にやるTypeSript108個のこと
-
+# 【TypeScript】仕事で使える!TypeSript中級者になる為に知っておくと良い108個のこと
 
 徹底的にやるTypeSript108個のこと。
+仕事でもっと使いこなしたい方と自分に向けた記事
+
+[TypeScriptすきです](https://gist.github.com/kenmori/8cea4b82dd12ad31f565721c9c456662)
+
+
 <img src="https://kenjimorita.jp/wp-content/uploads/2020/03/typescript.png" alt="" width="300"  class="size-full wp-image-21406" />
 
 [aboutme](https://kenjimorita.jp/typesript-check-108/)
@@ -15,9 +19,12 @@ GW前にこんなこと
 を発言してしまったために
 108個炙り出すことをしていた
 
-結論、WIP(2020/5/7現在)。今のところ98個。
-ですが、
-あと少しなのでこのページ自体を更新し続けます
+~結論、WIP(2020/5/7現在)。今のところ98個。~
+
+~ですが、~
+~あと少しなのでこのページ自体を更新し続けます~
+
+**その後108個達成**
 
 もちろん、自分が知らないのはこれだけしかないのではなく、
 
@@ -330,7 +337,7 @@ WIP
 ということば。
 32のこと
 
-30 type-festというutilityライブラリの実装を見ていると
+## 30 type-festというutilityライブラリの実装を見ていると
 とりあえずunknownにしといて型変数だけ作り、関数の引数の型にして、次のconditional中でその関数の引数の方を抽出するテクニックがあるのだな
 と感じる
 
@@ -468,7 +475,7 @@ const user4: User = { ...{ username: ' x ' }, ...{ email: ' y ', foo: ' z ' }}
 など
 https://devblogs.microsoft.com/typescript/announcing-typescript-3-9-beta/
 
-### 41. 数値型インデックスの戻り値の型は文字列型のインデックスシグネチャの戻り値型のサブクラスである必要がある??
+## 41. 数値型インデックスの戻り値の型は文字列型のインデックスシグネチャの戻り値型のサブクラスである必要がある
 
 何を言っているかわかった
 [playground](https://www.typescriptlang.org/play/index.html#code/C4TwDgpgBAggdgSwLYEMA2UC8UDeBYAKCmKjhSQgC4oBnYAJwTgHMBuQgX0NEigBEA9syy5CJKACN6ECABNqdRi3YEOUAGSxEqNIUJNgEegDMUAY2gA5AcADyAaxQhRREgG0AHgoZNmAXWpBNjF3L1IAVyQJIwCtZHQVDiA)
@@ -857,8 +864,7 @@ union型の引数をもつジェネリックを解除するとうまくいく
 
 [stackoverflow](https://stackoverflow.com/questions/50870423/discriminated-union-of-generic-type)
 
-66
-unionをkeyofしたさいに共通のキーがない場合 never
+## 66 unionをkeyofしたさいに共通のキーがない場合 never
 
 ```ts
 const str = 'hi';
@@ -1032,9 +1038,9 @@ https://levelup.gitconnected.com/getting-to-know-and-love-typescripts-meta-types
 [playground](https://www.typescriptlang.org/play/?ssl=1&ssc=14&pln=1&pc=1#code/IwfQDB6RZA
 https://medium.com/articode/some-lesser-known-typescript-features-d067e29797d0)
 
-## 76
+## 76 抽出したり、　unPackしたりする
 
-抽出したり、　unPackしたりする
+WIP
 
 ## 77 この人stackoverflow内で解決する人としてよく見かける
 
@@ -1264,9 +1270,14 @@ https://github.com/microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#fix
 
 WIP
 
-## 93 destructuring-assignment実行順をみる
+[issue](https://github.com/Microsoft/TypeScript/issues/1121)
 
-WIP
+## 93　`const foo = <T, >(x: T) => x`
+
+tsxだとこのような書き方ができる
+`extends {}`　だという
+
+[stackoverflow](https://stackoverflow.com/questions/32308370/what-is-the-syntax-for-typescript-arrow-functions-with-generics)
 
 ## 94 any型かどうかを知る型定義
 
@@ -1327,14 +1338,206 @@ type AvailableKeys2 = KeysOfUnion<Batz>;
 ```ts
 type UnionToIntersection<U> =
   (U extends any ? (k: U)=>void : never) extends ((k: infer I)=>void) ? I : never
-  ```
+```
 
 [stackoverflow](https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type/50375286#50375286)
 
 なんで関数の引数に渡しているんだと思った。
 反変が起こる箇所(関数の引数)はintersectionTypeになる
 
-[](https://stackoverflow.com/questions/54936474/typescript-how-to-explain-this-interaction-between-extends-and-function-type)
+[stackoverflow](https://stackoverflow.com/questions/54936474/typescript-how-to-explain-this-interaction-between-extends-and-function-type)
+
+## 98 convariance(共変) and contravariance(反変)のわかりやすい説明
+
+[stephanboyer.com](https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance)
+
+```ts
+* A ≼ B means A is a subtype of B.
+* A → B is the type of functions for which the argument type is A and the return type is B.
+* x : A means x has type A.
+```
+
+だとして
+Dog → Dog
+Animal → Greyhound
+が引数は反変、返り型は共変
+strictFunctionTypesは引数の型を厳密にする
+
+型変数が推論されるinferの位置が共変位置にある場合Unionに推論される
+型変数が推論されるinferの位置が反変位置(関数の引数)にある場合intersectionに推論される
+
+[pullrequest](https://github.com/Microsoft/TypeScript/pull/21496)
+
+## 99 条件型の解決するか遅延するかの条件とは?
+
+WIP
+
+## 100 いろいろなtypeを調べるのにもう少し簡潔な書き方
+
+inferは実際には1つめで変数にして、2つ目のif文で使う
+[stackoverflow](https://stackoverflow.com/questions/54599951/typescript-generically-infer-union-type-member-based-on-a-string-literal-proper)
+
+[playground](https://www.typescriptlang.org/play/index.html?ssl=1&ssc=6&pln=1&pc=12#code/C4TwDgpgBAIhBuBLAxtAvFAMgQzMA9mFAD6wQDOA1gUaQAoAW+AdhANwCwAUN4s8BABOAM2yosuGlADe3KFFCQAXFADkOPIVWcu85PgCu-GIMTwIAIWwhyK5gYC2AIyE75DbOQAqh5AwDKyIIQEMwqTvj4ADYQ2Mw6AL7cvPxCouJwVFKyugrgECqqmdRablD6RsAmZpbWtlD2zq7cSTxcfAIiYtCMLNA58ooFar2s2nJQHt6+AUEhYVAR0bHxLclcQ2RIqADywgA8XvlQEAAeAswAJuRbKBAA2qpDqgC6AHxQaBNw29BnF9coAAKPjCISwACUUAA-N8TudQoCfncYd9Hs8XvCATcjpAYbAoHYEOCieZBISGsTBDpuJsAEoUAxRYCfW67A7qSRaN5sKDcIA)
+
+## 101 tupleのkeyが欲しい時
+
+```ts
+type TupleKeys<T extends any[]> = Exclude<keyof T, keyof []>
+type A = TupleKeys<[string, string, string]> // "0" | "1" | "2"
+```
+
+[playground](https://www.typescriptlang.org/play/index.html?ssl=1&ssc=1&pln=3&pc=64#code/C4TwDgpgBAKgrmANhA0hEBnAPDKEAewEAdgCYZQCGxIA2gLoB8UAvFAKL4DGicpEWANboA9gDNYAGijCQ4qA0YBYAFCrQkKAEFWsBMjSYstDMABOAS2IBzaacs275q9aZQA9O6gAiAAzeoAB8fAEYA4O8AJm8gA)
+
+arrayが持つproperyを除外するとインデックスのキーになるということ
+
+## 102
+
+型の移り変わりの説明わかりやすいし面白い
+[stackoverflow](https://stackoverflow.com/a/59463385)
+
+```ts
+IntersectItems<[{ a: 1 } | { b: 2 }, { c: 3 }]> =
+Unfoo<Intersect<Values<Foo<[{ a: 1 } | { b: 2 }, { c: 3 }]>>>> =
+Unfoo<Intersect<Values<{0: { foo: { a: 1 } | { b: 2 } }, 1: { foo: { c: 3 } }}>>> =
+Unfoo<Intersect<{ foo: { a: 1 } | { b: 2 } } | { foo: { c: 3 } }>> =
+Unfoo<(({ foo: { a: 1 } | { b: 2 } } | { foo: { c: 3 } }) extends any ? ((x: T) => 0) : never) extends ((x: infer R) => 0) ? R : never> =
+Unfoo<(({ foo: { a: 1 } | { b: 2 } } extends any ? ((x: T) => 0) : never) | ({ foo: { c: 3 } } extends any ? ((x: T) => 0) : never)) extends ((x: infer R) => 0) ? R : never> =
+Unfoo<(((x: { foo: { a: 1 } | { b: 2 } }) => 0) | ((x: { foo: { c: 3 } }) => 0)) extends ((x: infer R) => 0) ? R : never> =
+Unfoo<{ foo: { a: 1 } | { b: 2 } } & { foo: { c: 3 } }> =
+({ foo: { a: 1 } | { b: 2 } } & { foo: { c: 3 } })["foo"] =
+({ a: 1 } | { b: 2 }) & { c: 3 } =
+{ a: 1 } & { c: 3 } | { b: 2 } & { c: 3 }
+```
+
+## 103 `interface`ではできないこと
+
+- オブジェクトにたいしてツリー構造を作ること
+`type Tree<T> = T & {parent: Tree<T>}`
+
+- 変数を制限して少数の値のみに割り当てる型
+`type Choise = "A" | "B" | "C";`
+
+- conditional typeを使ったNonNullableのようなもの
+`type NonNullable<T> = T extends null | undefined ? never : T;`
+
+## 104 enumのkeyをGenericsで取得する
+
+```ts
+`enum MyEnum { A, B, C };`
+`type AnyEnumKeysAsStrings<TEnum> = keyof typeof TEnum;`
+// 'T' only refers to a type, but is being used as a value here.(
+type MyEnumKeysAsStrings = AnyEnumKeysAsStrings<MyEnum>;
+```
+
+[playground](https://www.typescriptlang.org/play/index.html#code/KYOwrgtgBAsgngUXNA3lAggGigIWwYSgF8BuAWACgAXOAB2AxEWQGlg4BndDgZSoCcAliADmHADwAVAHxQAvFADW7APYAzKDXrqokygHp9UAOSTjUFSAA2cKP2Brg-DppVQAhprrBsAIzBUUIIuvsDCIlBgHMAAJh4ungBu7lZgDAAWTsAAdAAUlFBQlFoM8EiQbJzcfEKiLgroTOUQlVy8AuESZcjS5BSUQA)
+
+stackoverflow
+
+## 105 road map TypeScript
+
+https://github.com/microsoft/TypeScript/issues/36948
+6月までのroadmap
+
+## 106 DDD with TypeScript
+
+[An Introduction to Domain-Driven Design - DDD w/ TypeScript](https://khalilstemmler.com/articles/domain-driven-design-intro/)
+
+## 107 本来存在しないpropertyはneverにする
+
+```ts
+// key1がtrueのとき、key3が存在し、key1がfalseの場合、key3が存在しないをどのように表現するか
+interface Sample {
+    key1: boolean;
+    key2?: string;
+    key3?: number;
+};
+
+// type aliasを使う。
+type Sample3 = { key1: true, key2?: string, key3: number } | { key1: false, key2?: string }
+
+// neverにしてあることに注意
+type Sample2 = { key1: true, key2?: string, key3: number } | { key1: false, key2?: string, key3: never }
+
+```
+
+[playgrounnd](https://www.typescriptlang.org/play/#code/PTAEGsFME8EZBkGALgJwK6UHYMgLBkLIMhABimgGZ5ANbUAp1QdQYCYEAzAQwBsBnTQFg1AIFRuLKsCsGQCIMgJIZAlgwZAEQyAxBkDWDIAsIwH-OgTQZA0QyBpBgCwAKACWAO0SRkjAMaRQAZQYBbAA5NzAb22hXEWgC5QAIwD2vhwY9AG4XN0IAJgB+LxYUfQBzUK03d2IY0D1Ua28jZIBfZO1EaFtzKzsHIlAAXlBHQlgvFHQAGjTo2Pi9BPbCIi8snKN80AAferSm0EZWSD6YTtA45ETQfO0QUBKy0GYdBhZhQH95KUAgBj1IADcjGVVAZQYsGUALm0B4Q2LS8pt7SAjaycazTQ8w6GRWiQWxEG2VyyHW4wBnhmzDYkKW4J6kIGmWuRnW2iAA)
+
+## 108 this.hoge[key] = hoge[key]がnverに対してアサインしようとしている理由
+
+```ts
+interface Opts {
+  onFrame: () => void;
+  onAudioSample: null;
+  emulateSound: boolean;
+  sampleRate: number;
+}
+
+class NES {
+    constructor(opts: Opts) {
+        this.opts = {
+            onFrame() { },
+            onAudioSample: null,
+            emulateSound: true,
+            sampleRate: 44100,
+        }
+        if (typeof opts !== "undefined") {
+            let key: keyof Opts
+            for (key in this.opts) {
+                if (typeof opts[key] !== "undefined") {
+                    // Type 'number | boolean | (() => void) | null' is not assignable to type 'never'.
+                    // Type 'null' is not assignable to type 'never'
+                    this.opts[key] = opts[key];
+                }
+            }
+        }
+    }
+    opts: Opts
+}
+```
+
+[playground](https://www.typescriptlang.org/play/?ssl=1&ssc=1&pln=67&pc=1#code/JYOwLgpgTgZghgYwgAgPIAcwGdkG8CwAUMsgPYgBiUcAthAFzIAUAlMgLwB8yAbqcABMA3ERLkAggFcBwUgGVa6ADYNkISUqUjiyCDQ1xIc0pJADGAI1KkVcENpJZFKgEqHV6mhejaAvkSIEJTgsHAA5AFE5PFESZARyLDAoSQQwUigmUkwsRgxsNgIdOLiwAAtgLAA6bOwOGOKSpvIqWghWPGRfABpYpuaQKRl5Zw8NJV7G-pI9AyMTM0ZkyQhJ6aanGmUIN0hGABZ9gEYABhO16f9CPqbgGGYwAE90CFJ72pwAQnZ2ZAAiUwCCAwUAQAR-Qo3dYqMDIADWEEejARjzeaByUOmMAyzBRyFAyHKlRqOUhU3WcTuD2er3eOQA2iiALrIb6-AFmYGg8Fkil85AAegFyAA5qRYdAoMgytAIJj+aUKtUPozESzfirmQ4FXErgq9ZcbgaxDk8hjCL4gA)
+
+`this.opts[key]` と `opts[key]`が同じなため推論できない
+
+`opts[key]`は `Function`, `null`, `boolean`, `number`
+
+`this.opts[key]`はkeyに応じて`Function`, `null`, `boolean`, or `number`を受け取る必要があるが、分からない
+
+keyがunionTypeで推論が効かない場合、それぞれの共通のsuperTypeに推論されて`never`になり、それを要求している
+
+[stackoverflow](https://stackoverflow.com/questions/61671898/typescript-error-type-number-is-not-assignable-to-type-never)
+
+`Object.assign`で解決できる
+
+```ts
+class NES2 {
+    constructor(opts: Opts) {
+        this.opts = {
+            onFrame() { },
+            onAudioSample: null,
+            emulateSound: true,
+            sampleRate: 44100,
+        }
+        if (typeof opts !== "undefined") {
+                this.opts = Object.assign({
+                onFrame() {},
+                onAudioSample: null,
+                emulateSound: true,
+                sampleRate: 44100,
+            }, opts);
+        }
+    }
+    opts: Opts
+}
+``
+
+or
+
+```ts
+(this.opts[key] as Opts[typeof key]) = opts[key];
+```
+
+[playground](https://www.typescriptlang.org/play/?ssl=44&ssc=35&pln=41&pc=12#code/JYOwLgpgTgZghgYwgAgPIAcwGdkG8CwAUMsgPYgBiUcAthAFzIAUAlMgLwB8yAbqcABMA3ERLkAggFcBwUgGVa6ADYNkISUqUjiyCDQ1xIc0pJADGAI1KkVcENpJZFKgEqHV6mhejaAvkSIEJTgsHAA5AFE5PFESZARyLDAoSQQwUigmUkwsRgxsNgIdOLiwAAtgLAA6bOwOGOKSpvIqWghWPGRfABpYpuaQKRl5Zw8NJV7G-pI9AyMTM0ZkyQhJ6aanGmUIN0hGABZ9gEYABhO16f9CPqbgGGYwAE90CFJ72pwAQnZ2ZAAiUwCCAwUAQAR-Qo3dYqMDIADWEEejARjzeaByUOmMAyzBRyFAyHKlRqOUhU3WcTuD2er3eOQA2iiALrIb6-AFmYGg8Fkil85AAegFyAA5qRYdAoMgytAIJj+aUKtUPozESzfirmQ4FXErgq9ZcbgaxDk8hjCFchVbrTabVAIFgbDwILbXW73R7PURPT7fX7-TbAsFQshInIAEwNEoJEBJFJpDJZU3ogpR6ZE5U5epFBUtah0Dq4LoXPkSaSyBRbFSMdSaEsU2bBeaApYpVbyjajXaqQ6nc4d423e5MJ4vNEfVk-f6ArkgMEQtN8jMkuq-HM6sSUfPtQrFjvrMvDSvbGvjesKxvuYwtwlt8-8zbbbsHY5ne98qqfj773UDo03D4zWwIgrm9AMhQycCoIDIMQnCKIAGZF3iRJlgTTJAJTLBeXTJUVxwNcf03VoC13HoiLIQZyxGKsxjrCjL2bRZbxWd9O1o59kF7N8-2uckSCpEcaXHLM2WnTkQTnHlkOhCBYRRZFETRfIsAo7EpSYPECWXD4cI3QTR1pMgGWZSd2RnST5z0jc4iFZAQmQCj1hHPDNTVeycBU+lDLRZk2A1Ey1W1DdB3WULf0aQdMJUkCiCAA)
 
 ## ref
 
@@ -1346,7 +1549,6 @@ https://levelup.gitconnected.com/getting-to-know-and-love-typescripts-meta-types
 https://itnext.io/typescript-extract-unpack-a-type-from-a-generic-baca7af14e51
 https://qiita.com/Takepepe/items/f1ba99a7ca7e66290f24
 https://qiita.com/vvakame/items/e7bbaff54db8fbf986bb
-
 
 ## まとめ
 
