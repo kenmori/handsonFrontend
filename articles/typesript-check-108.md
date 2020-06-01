@@ -1548,7 +1548,7 @@ https://itnext.io/5-typescript-tips-to-improve-your-applications-e882d69592bd
 https://levelup.gitconnected.com/getting-to-know-and-love-typescripts-meta-types-5e17a8856b17
 https://itnext.io/typescript-extract-unpack-a-type-from-a-generic-baca7af14e51
 https://qiita.com/Takepepe/items/f1ba99a7ca7e66290f24
-https://qiita.com/vvakame/items/e7bbaff54db8fbf986bb
+https://qiita.com/vvakame/items/e7bbaff54db8fbf986bb)
 
 ## まとめ
 
