@@ -317,3 +317,39 @@ RUN apt-get update && apt-get install -y
 Dockerfileをメンテナンスしている間はRUNを多用してキャッシュをしながら
 確認する
 okになったら&&してRUNを減らす
+
+ ### CMD
+ docker run <img>時に実行されるdefault comandはDockerfileのCMDで定義されている
+
+ CMD ["ececutable", "param1", "param2"]
+ 原則 Dockerfileの最後に記載で一つのDockerfileに一つだけ
+
+
+ RUN vs CMD
+ - RUNはLayerを作るCMDはLayerを作らない。(保存したいのかrunした時に実行して欲しいのか)
+ - docker runした時にCMDは走るが、たとえばCMDにpackge installなどimageを構成するものを書いてしまうと
+ 都度実行される。のでそういうのはRUNに書く
+
+ ## cocker damon
+
+ docker build .
+ 時にそのカレントディレクトリ自体をビルドコンテキストとしてdocker damonに渡す
+ docker damonがそれをもとにimageを作る
+
+ send to docker damon
+
+## Docker architecture (client-server architecture)
+
+
+## docker damon
+- docker cliを使って(clientからコマンドを打って). cliがDokerHost上のdocker damonと呼ばれるdocker object
+を操作するものに命令をしていた
+
+## build context
+- build を叩いたときの環境。demonに渡すもの
+
+`du -sh something_file` ファイルサイズを表示する
+
+build contextの中にあるファイルをcontainerにもっていくインストラクションがADDとCOPY
+
+
