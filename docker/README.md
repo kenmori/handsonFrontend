@@ -640,9 +640,25 @@ docker と docker-composeコマンド
 docker build <build contexts> -> docker-compose build
 docker run <imageId> -> docker-compose up
 docker ps -> docker-compose ps
-docker exec <containerId> -> docker-compose exec <servece>
+docker exec <containerId>　<command> -> docker-compose exec <servece> <command>
 
 docker-compose up --build :build してrun
 docker-compose down : stopしてrm
+
+
+# docker-compose
+
+containerをどういうふうに起動していくか、run時のoptionを記述する
+
+docker run -v ~/Desktop/product-register:/product-register -p 3000:3000 -it c766bd7b9c43 bash
+
+docker-compose up imageが作られていなければbuildもする
+
+もしdocker-compose.ymlを更新して
+docker-compose upしても
+古いimageが使われるので
+
+docker-compose up --build
+する
 
 
