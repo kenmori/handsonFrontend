@@ -1,5 +1,6 @@
 
 
+
 環境変数
 ・OSの上で動くプロセス(ターミナルやらブラウザ)が情報を共有するために使う変数
 
@@ -494,4 +495,117 @@ WORKDIR  /sample
 
 `未使用一括削除`
 `docker image prune`
+
+## Host と Containerの関係
+
+- ファイルシステムの共有
+- ファイルへのアクセス権限
+- ポートをつなげる
+- コンピューターリソースの上限
+
+`docker run` コマンドのオプションで設定
+
+### ファイルシステムの共有
+
+`docker run -v <host>:<container>` 絶対パス
+
+
+-vオプションでホストのファイルシステムをマウントする時
+マウント・・・コンテナーにあたかもファイルがあるように見える。実際にはない。Hostのファイルをみている
+コードをコンテナにおくと重くなりimage配布のとき大変なので、Host側にもっておいて実行するタイミングでマウントする
+実行環境として使う
+
+
+RUN mkdir newfolder
+この状態で -it -vで<hostのマウント元のパス>:<container>を渡した場合、 host側のファイルをnewfolderの中にマウントする
+
+あくまでもコンテナにマウントされたファイルシステムは見えているだけ。実際にはない
+リアルタイムで編集したものもコンテナ側から確認できる
+
+もし
+-it -vで<hostのマウント元のパス>:<container>でcontainerにないフォルダを指定していた場合自動で作ってくれる
+
+いちばんん重要なオプション
+
+### ファイルへのアクセス権限
+
+コンテナからホストへのファイルシステムにアクセスできたがセキュリティ的によくない
+コンテナ側では何も指定しなければroot権限をもってホストのファイルシステムにアクセスできる
+
+
+ユーザーidとグループidを指定してコンテナをrunする
+
+-u <user_id>:<group_id>
+
+Linux:
+`id -u` 自分のMacのユーザーidを確認することができる
+`id -g` グループid
+
+command
+
+`docker run -it -u $(id-u):$(id-g) -v ~/Desktop/mounted_folder:/created_in_run 784d564a56fd bash`
+
+`created_in_run` はなければ勝手につくってくれる
+
+
+ls -laで所有権を確認
+rootになっていたらおかしい
+
+### ポートをつなげる
+
+プロセスがデータ通信をするためにつかう
+
+ホストのポートをコンテナのポートにつなげる
+-p <host_port>:<container_port>
+
+IPアドレスは住所、Portは部屋番号
+
+-p はpublishのpだった
+
+`https://jupyter.org/`のimageをrunする
+
+docker run -it -p 8888:8888 --rm jupyter/datascience-notebook bash
+
+コンテナーの8888がpublishしているので8888で表示される
+
+コンテナに入る
+
+juptyer notebook
+で立ち上げる
+
+自分のcPCに対してアクセスする
+localhost:8888でコンテナーの8888にアクセスできる
+
+
+
+
+### コンピューターリソースの上限
+
+ホストにコンテナをたくさん立ててそのままデータを取得するようなタスクを実行すると
+上限がない場合、メモリを全て食べて枯渇する
+そうならないように一つ一つに制限を加える必要がある
+
+--cpus <# of CPUs> コンテナがアクセスできる上限のCPUを設定
+--memory <byte> コンテナがアクセスできる上限のメモリを設定
+
+
+sysctl -n hw.physicalcpu_max : 物理コア数
+6
+sysctl -n hw.logicalcpu_max : 論理コア数
+12
+sysctl hw.memsize : メモリ(byte)
+17179869184
+
+1 Kbyte = 1024byte
+1 Mbyte = 1024 * 1024 byte
+1 Gbyte = 1024 * 1024 * 1024 byte
+
+17179869184 / 1024 / 1024 / 1024  =16GB
+
+docker run -it --rm --cpus 4 --memory 2g ubuntu bash
+立ち上げた状態で
+
+docker inspect 1ab8cad17797
+
+
 
