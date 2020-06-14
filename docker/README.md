@@ -608,4 +608,41 @@ docker run -it --rm --cpus 4 --memory 2g ubuntu bash
 docker inspect 1ab8cad17797
 
 
+## docker-compose
+
+使う時
+- docker runコマンドが長くなる時
+- 複数のコンテナをまとめて動かす時
+
+動かしたいコンテナ service
+オプションの数だけ書く
+
+Dockerfile - containerをどのように動かすか
+Docker-compose containerを
+
+docker-compose
+```
+version: '3'
+
+services: // container
+  web: // 名前はなんでもいい
+    build: . // Dockerfileのbuild context(そのままdemonに渡すフォルダ内)
+    ports:
+      - '3000:3000' //railsのデフォルト -は複数指定できるpropertyの際、(配列の時)
+    volumes: // mount
+      - '.:/product-register' //　相対パスを指定。どこでもユーザーが置けるように。
+    tty: true // -itのt 綺麗にするやつ
+    stbin_open: true // hostとcontainerのチャネルを開く
+```
+
+docker と docker-composeコマンド
+
+docker build <build contexts> -> docker-compose build
+docker run <imageId> -> docker-compose up
+docker ps -> docker-compose ps
+docker exec <containerId> -> docker-compose exec <servece>
+
+docker-compose up --build :build してrun
+docker-compose down : stopしてrm
+
 
