@@ -356,7 +356,7 @@ build contextの中にあるファイルをimageに組み込みcontainer時に�
 ## COPY vs ADD
 
 COPY 単純にファイルをコピーするとき
-ADD 大きなフォルダをtarにして圧縮してコピーして、demonに渡したいとき。解答もしてくれる
+ADD 大きなフォルダをtarにして圧縮してコピーして、demonに渡したいとき。解凍もしてくれる COPYだと実行時重くなるから
 
 - tarをADDで渡す
 `tar -cvf compressed.tar sample_folder`
@@ -441,7 +441,7 @@ docker run <image> -la(ここはCMDのargumentsを上書きしている)
 
 - チームで使う分にはCMDで足りる
 - 開発で外にopenにする場合はCMDを上書きされないようにENTRYPOINTを使うケースがある
-- ENTRYPOINT をうわがく方法もある
+- ENTRYPOINT を上書き方法もある
 
 ENV
 
@@ -449,3 +449,49 @@ ENV
 
 - ENV key value
 - ENV key=fafa (複数の時)
+
+`env` 環境変数一覧を表示
+
+dockr run -it --rm <imagename> bash (消す)
+
+# WORKDIR (ワークディル)
+
+Dockerインストラクションを実行ディレクトリを変更してくれる
+
+- RUN で実行されたのものは基本root直下で実行される
+
+```
+RUN mkdir sample
+RUN cd sample
+RUN touch text.txt (これはsample内で作られない)
+```
+
+
+&&で繋ぐとちゃんとcdの中に作ってくれる
+
+```
+RUN mkdir sample && \
+    cd sample && \
+    touch text.txt
+```
+
+これでもいいが、cdを使うなら
+
+WORKDIR <絶対path>
+
+```
+RUN mkdir sample
+WORKDIR /sample
+```
+
+もしなければ作ってくれるので
+下記でよい
+
+```
+~RUN mkdir sample~ 不要
+WORKDIR  /sample
+```
+
+`未使用一括削除`
+`docker image prune`
+
