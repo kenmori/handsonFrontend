@@ -221,7 +221,7 @@ docker run --name <name> <image>
 共有サーバをつかうとき
 他プログラムで使用するとき
 
- 
+
 detached mode
 docker run -d <imag>
 
@@ -232,6 +232,22 @@ docker run --rm <image>  (容量を食わない)
 コンテナをExit後に削除する(一回きりコンテナ)
 
 
+# DockerFile
+Docker imageをどういう風に作っているかの設計書
+
+Dockerインストラクション
+FROM or ADD など
+
+arguments
+でつくる
+
+naming convention: 命名規則
+
+FROM
+元となるベースのimage
+
+RUN
+linuxのコマンド
 
 
 
