@@ -250,9 +250,17 @@ RUN
 linuxのコマンド
 
 
+docker build .
+カレントにあるDockerfileをみる
 
+docker system pruneで
+`<none>` になっているもの
 
+`dangling image`
 
+dangling imageをフィルター
+`docker images -f dangling=true`
 
-
-
+docker imageに名前をつける `-t`
+docker build -t <name> <directory>
+`docker build -t new-ubuntu:latest .`
