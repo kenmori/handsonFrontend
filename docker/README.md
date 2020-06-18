@@ -243,11 +243,33 @@ arguments
 
 naming convention: 命名規則
 
-FROM
+#### FROM
+
 元となるベースのimage
+-> このimageの上にレイアが積み重なる
+
+#### RUN
+Linuxコマンドを実行
+RUNを使うことで好きなようにカスタマイズ
+RUNごとにLayerが作られる
+ほかにも
+COPY, ADD
+の3つがLayerを作る
+Layerが多いと重くなるのでLayer数は最小限にする
+- コマンド&&でつなげる
+- バックスラッシュで改行する
+
+
+
+
 
 RUN
 linuxのコマンド
+
+
+CMD
+
+
 
 
 docker build .
@@ -264,3 +286,34 @@ dangling imageをフィルター
 docker imageに名前をつける `-t`
 docker build -t <name> <directory>
 `docker build -t new-ubuntu:latest .`
+
+Ubuntuではapt-get(or apt)というコマンドでパッケージを管理する
+
+apt-get update
+- 新しいパッケージリストの取得
+apt-get install
+- apt-get install <package>をインストール
+
+RUN apt-get update && apt-get install \
+xxx\
+yyy\
+zzz
+
+として&&でつなげる
+改行する
+
+docker fileを更新したらimageを作り直す必要がある
+-> dockerfileを変数ばかりしていると
+長い処理の時にbuildし直す為大変
+
+
+キャッシュはレイヤーごとに作られていくので
+RUNを分けると編集した際には良い
+最後に加えたRUNのコマンドのみを実行してくれる
+
+RUN apt-get update && apt-get install -y
+-yはyes
+
+Dockerfileをメンテナンスしている間はRUNを多用してキャッシュをしながら
+確認する
+okになったら&&してRUNを減らす
