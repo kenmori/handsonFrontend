@@ -350,6 +350,102 @@ okになったら&&してRUNを減らす
 
 `du -sh something_file` ファイルサイズを表示する
 
-build contextの中にあるファイルをcontainerにもっていくインストラクションがADDとCOPY
+build contextの中にあるファイルをimageに組み込みcontainer時に使うインストラクションがADDとCOPY
 
 
+## COPY vs ADD
+
+COPY 単純にファイルをコピーするとき
+ADD 大きなフォルダをtarにして圧縮してコピーして、demonに渡したいとき。解答もしてくれる
+
+- tarをADDで渡す
+`tar -cvf compressed.tar sample_folder`
+
+
+```
+http://hydrocul.github.io/wiki/commands/tar.html
+## アーカイブ
+$ tar cvf tarファイル名 アーカイブ対象ディレクトリ
+
+## 圧縮してアーカイブ
+$ tar cvzf tgzファイル名 圧縮対象ディレクトリ
+
+## 展開
+$ tar xvf tarファイル名
+
+## 解凍して展開
+$ tar xvzf tgzファイル名
+
+## 特定のファイルのみ解凍して展開
+$ tar xvzf tgzファイル名 ファイルパス
+
+## アーカイブされているファイルの一覧
+$ tar tf tarファイル名
+
+## 圧縮してアーカイブされているファイルの一覧
+$ tar tzf tgzファイル名
+-c
+新しくアーカイブファイルを作成する。たぶんcreateの意味
+-f
+アーカイブファイル名をパラメータで指定する。これを指定しないと標準入力 または標準出力が使われる
+-t
+アーカイブファイルに含まれるファイルの一覧を表示する。たぶんlistの意味
+-v
+処理の進行しているファイル名を表示する。 -t と併用の場合はタイムスタンプやファイルサイズなども表示する。
+-x
+アーカイブファイルを展開する。たぶんextractの意味
+-z
+gzipで圧縮または展開を同時に行う
+-z を使う場合は、アーカイブファイルの拡張子として .tar.gz または .tgz がよく使われる。
+
+オプションは先頭のハイフンをとって全部スペースなしでつなげてしまうことができるようで、そのほうがタイプ数が少なくて済むので、普通はそうする。ただし f はアーカイブファイル名の直前である必要があるので、結果的にオプション群の最後に書くことになる。
+```
+
+### Dockerfileがビルドコンテキストに入っていないケース
+
+ビルドコンテキスト。docker build .するところ
+
+- 環境によって分けてpackageをinstallしなくてはならないケースがある
+その際複数Dockerfileを作って
+- 別の実行コンテキストからbuildする(Dockerfileがない)
+
+docker build -f <dockerfilepath> .(ビルドコンテキスト。ここにはない)
+
+ `docker build -f ../Dockerfile.dev .`
+
+Dockerfile.devをつくる
+`mv hogehoge hogehoge2`
+
+## CMD と ENTRYPOINT
+
+おさらい
+docker run <imagefile> <override CMD in Dockerfile>
+
+上記はDockerfileの[CMD]を上書きして実行している
+
+CMDは上書きできるが、
+
+ENTRYPOINT
+docker runの時に上書きして欲しくない時に使う
+DockerfileにENTRYPOINTがある場合はCMDはENTRYPOINTの引数を取る
+
+例)
+
+```
+FROM ubuntu:latest
+RUN touch test
+ENTRYPOINT ["ls"]
+CMD ["--help"]
+docker run <image> -la(ここはCMDのargumentsを上書きしている)
+```
+
+- チームで使う分にはCMDで足りる
+- 開発で外にopenにする場合はCMDを上書きされないようにENTRYPOINTを使うケースがある
+- ENTRYPOINT をうわがく方法もある
+
+ENV
+
+書き方二つ
+
+- ENV key value
+- ENV key=fafa (複数の時)
