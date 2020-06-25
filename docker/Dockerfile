@@ -2,5 +2,6 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     curl \
     nginx
-ENTRYPOINT [ "ls" ]
+RUN mkdir created_dockerfile
+
 CMD ["--help"]
