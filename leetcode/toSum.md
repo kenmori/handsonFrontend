@@ -1,10 +1,11 @@
 
-2020/7/5
+# two-sum
+
+## 2020/7/5
 
 [two-sum](https://leetcode.com/problems/two-sum/)
 
-```js
-const nums = [1, 4, 100, 5, 5, 9]
+```js const nums = [1, 4, 100, 5, 5, 9]
 const target = 104
 const twoSum = function(nums, target) {
     let result
