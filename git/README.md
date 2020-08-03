@@ -1,44 +1,43 @@
-### 
+### git
 
-git commit -m “hogehoge”
+- git commit -m “hogehoge”
 
-git add .
+- git add .
 
-git status
+- git status
 
-git log --oneline
+- git log --oneline
 
-git push origin head
+- git push origin head
 
-git pull master
+- git pull master
 
-git branch -D [branch name]
+- git branch -D [branch name]
 
-git stash
+- git stash
 
-git stash apply
+- git stash apply
 
-git reset --soft HEAD^
+- git reset --soft HEAD^
 
-git checkout -
+- git checkout -
 
-git push --force-with-lease origin head
+- git push --force-with-lease origin head
 
-git add --all
+- git add --all
 
-git branch -m
+- git branch -m
 
-git branch
+- git branch
 
-git rebase
+- git rebase
 
-git  commit --amend
+- git  commit --amend
 
-git clone [url] （
+- git clone [url] （
 
 
 ### stash
-
 
 - git stash show stash@{<stash no.>} -p
 
