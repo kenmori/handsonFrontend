@@ -54,3 +54,15 @@
 - git commit --amend -m "<commit coments>"
 直前のコミット名を変更
 
+### git add
+
+- git add -p
+明示的にステージングエリアに上げるファイルを指定
+
+
+- [git HEAD^とHEAD~の違い](https://yu8mada.com/2018/05/30/the-difference-between-head-caret-and-head-tilde-in-git/)
+
+- [Pretty git branch graphs](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+
+- [gitで便利なエイリアス達](https://qiita.com/peccul/items/90dd469e2f72babbc106)
+
