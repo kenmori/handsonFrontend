@@ -14,7 +14,7 @@
 [How do I return the response from an asynchronous call?
 ](https://stackoverflow.com/questions/14220321/how-do-i-return-the-response-from-an-asynchronous-call)
 
-
+[Promise]()
 
 ### NetWork
 [一番分かりやすい OAuth の説明](https://qiita.com/TakahikoKawasaki/items/e37caf50776e00e733be)
