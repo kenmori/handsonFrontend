@@ -113,7 +113,28 @@ is_in_order(result)
 
 ## Bubble Sort
 
-`const list = [2, 5, 1, 8, 7, 3]`というリストに対して、隣同士比較をして、低い方を前にし、全ての要素を評価したら、`limit(list.length -1)`に対して-1、さらに最初から隣同士を比較していく
+`const list = [2, 5, 1, 8, 7, 3]`というリストに対して、隣同士比較をして、低い方を前にし、
+全ての要素を評価したら、`limit(list.length -1)`に対して-1、さらに最初から隣同士を比較していく
+
+
+```js
+function bubble_sort(a){
+  const limit = a.length
+  for(let v = 0; v < limit; v++){
+    for(let j = 0; j < limit -v; j++){
+      if(a[j] > a[j+1]){
+        var tem = a[j+1]
+        a[j+1] = a[j]
+        a[j] = tem
+      }
+    }
+  }
+  return a
+}
+
+const result = bubble_sort([2, 5, 1, 8, 7, 3])
+// [1,2,3,5,7,8]
+```
 
 
 ### 参照
