@@ -1,6 +1,7 @@
 # Big O notation Example JavaScript
 
-## 計算量オーダー
+## 計算量オーダーの概念
+
 計算の実行にどのくらい時間がかかるかがわかる
 
 ### O(1)
@@ -52,6 +53,8 @@ fn([1, 2, 3, 4, 5]);
 
 ### bogo(ボゴソート)
 
+並び替えたものが正しく整列しているかどうかを確認するのが`bogo sort`
+
 arrayをshuffleするコード
 
 ```js
@@ -75,4 +78,48 @@ function bogo_sort(numbers){
 bogo_sort([1, 2, 3, 4, 5]);
 ```
 
+こちらの実行結果が正しく順序通りに並んでいるかを確認する(全コード)
 
+```js
+
+const shuffle = ([...array]) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function bogo_sort(numbers){
+  const result = shuffle(numbers)
+  return result
+}
+
+const result = bogo_sort([1, 2, 3, 4, 5]);
+
+console.log(result) // どのようなランダム値になっているか
+
+function is_in_order(numbers){
+  console.log(numbers.length)
+  for(let n = 0; n <= numbers.length; n++){
+    if(numbers[n] > numbers[n+1]){
+       return false // 順序どおり整列していない
+    }
+    return true // 整列している
+  }
+}
+is_in_order(result)
+```
+
+## Bubble Sort
+
+`const list = [2, 5, 1, 8, 7, 3]`というリストに対して、隣同士比較をして、低い方を前にし、全ての要素を評価したら、`limit(list.length -1)`に対して-1、さらに最初から隣同士を比較していく
+
+
+### 参照
+
+[JavaScript：配列内の要素をシャッフル（ランダムソート）する方法](https://www.nxworld.net/tips/js-array-shuffle.html)
+
+[計算量オーダーの求め方を総整理！〜どこからlogが出て来るか〜](https://qiita.com/drken/items/872ebc3a2b5caaa4a0d0)
+
+[現役シリコンバレーエンジニアが教えるアルゴリズム・データ構造・コーディングテスト入門](https://www.udemy.com/course/python-algo/)
