@@ -111,7 +111,7 @@ function is_in_order(numbers){
 is_in_order(result)
 ```
 
-## Bubble Sort
+## Bubble Sort(バブルソート)
 
 `const list = [2, 5, 1, 8, 7, 3]`というリストに対して、隣同士比較をして、低い方を前にし、
 全ての要素を評価したら、`limit(list.length -1)`に対して-1、さらに最初から隣同士を比較していく
@@ -119,7 +119,7 @@ is_in_order(result)
 
 ```js
 function bubble_sort(a){
-  const limit = a.length
+  const limit = a.length -1
   for(let v = 0; v < limit; v++){
     for(let j = 0; j < limit -v; j++){
       if(a[j] > a[j+1]){
@@ -135,6 +135,32 @@ function bubble_sort(a){
 const result = bubble_sort([2, 5, 1, 8, 7, 3])
 // [1,2,3,5,7,8]
 ```
+
+## cacktail sort(シェーカーソート)
+
+バブルソートのように全てを比べなくても途中で終えられる
+
+```js
+var a = generateNumber(4)
+console.log(a);
+
+function sort(a){
+  for(var i = 0; i < a.length; i++){
+    for(var j = a.length-1; j > i; j--){
+      if(a[j-1]> a[j]){
+        var temp = a[j]
+        a[j] = a[j-1]
+        a[j-1] = temp
+      }
+    }
+  }
+  return a
+}
+
+const result = sort(a)
+
+```
+## select sort
 
 
 ### 参照
