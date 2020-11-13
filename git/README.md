@@ -584,3 +584,10 @@ remove-old-commits = "!removeOldCommits() { git clear-reflog-now; git prune; }; 
 
 #
 # ===[ALIAS-STOP]===
+
+
+## commitizen
+
+質問形式でcommitを作ってくれる
+`npm install commitizen -g`
+
