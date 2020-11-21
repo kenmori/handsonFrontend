@@ -591,3 +591,5 @@ remove-old-commits = "!removeOldCommits() { git clear-reflog-now; git prune; }; 
 質問形式でcommitを作ってくれる
 `npm install commitizen -g`
 
+
+
