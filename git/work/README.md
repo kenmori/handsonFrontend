@@ -517,17 +517,56 @@ To https://github.com/kenmori/test.git
 
 39.png
 
+こちらの通り、デフォルトではmasterに対して今pushしたブランチがmergeされようとしています。
+masterと該当ブランチのコミット履歴が比較され、mergeするべきか差分を検証します
+
+では`プルリクエスト(以下PR)`を出してみましょう
+
+41.png
+
+のところを押下
+
+42.png
+
+するとこうなりました。
+
+赤い矢印のところはコミット番号(変更の履歴を識別する番号)です
+
+押してみてください
+
+43.png
+
+このコミットでのファル変更の差分がわかります。これは当然targetブランチであるmasterが持っている同じファイルとの比較です
+
+
+ではこの変更がなぜこうなったかをコードレビュする人に対してメッセージをのこしておきましょう
+
+動画のように説明したい行の左をクリックするとエディタが現れます
+
+43.gif
+
+説明に「mainを作る必要があった」と書き「add comment」を押下してみましょう
+
+ブラウザバックでPRページに戻ってみてください
+
+44.png
+
+変更箇所を確認して問題なさそうなら取り込みましょう(`merge`)
+
+取り込まれたら次のことをやります
+
+30. `git log --graph`
 
 
 
-ここでパスワードなど聞かれる場合は
+※ここでpushできない場合は別紙へ
 
+
+
+wip
 ```
-- `git config --global user.name "GitHubのユーザ名"`
--  `git config --global user.email <GitHubに登録したメルアド>
-```
+git config -l 設定確認
 
-
-
-WIP
 `git log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by"%C(cyan ul)%an%Creset" %x09%C(auto)%s %d'`
+```
+
