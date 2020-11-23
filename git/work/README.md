@@ -3,44 +3,81 @@
 
 前提
 
-## 0.
-- `brew install git`
-- `git help`でなんか出てくる
+## 対象
+
+- `mac`の方
+- `brew install git`している方
+- `git help`でなんか出てくること
 - `git config --global user.name "GitHubのユーザ名"`
 -  `git config --global user.email <GitHubに登録したメルアド>`
-でgithubと紐づける
+でgithubと紐づけてあること
+
 - [githubのSSHキー登録](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 
 
+## 1.ハンズオンのスタート
+
+github登録して`new Repogitory`からリポジトリ`test`を作りましょう
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/0.png" width="400">
+
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/0-1.png" width="400">
 
 ## 2. `git clone https://github.com/kenmori/test.git`
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/1.png" width="400">
 
-ターミナルにコピペ
+ターミナル(`Terminal` or `iTerm2`)を立ち上げてコピペ
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
 
 ## 3. cd test
 
+リポジトリ内に移動します
 ## 4. `open .` で確認
+
+openはFinderを立ち上げてくれます。
+覚えておくとよいです。
+test直下に`.git`があることを確認
+ない場合リポジトリが作られていません。
 
 ## 5. `code .` でVSCode立ち上げる
 
+codeはVSCodeを立ち上げてくれます
 ## 6. index.htmlを作る
+
+index.htmlを作ってください
+ファイルを作るだけで内容は空で良いです。
+
+今gitはどのような状態でしょうか?
 
 ## 7. `git status`
 
+`git status`は`.git`があるディレクトリ以下のファイルが変更がどのような状態かを示してくれます
+
+`Untraced files`と書かれていて
+今新規で作ったindex.htmlファイルが示されています。
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/6.png" width="400">
+
+この`Untraced files`はgit上で管理されていない(`commit`されていない)ファイルのことです
+
+これをインデックスさせます。インデックスとは履歴に残すかどうかを判定する場所だと思ってください
 
 ## 8. `git add .`
 
+それをするには`git add .`を叩きます
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/7.png" width="400">
 
-new は Gitが初めて知ったファイル(新規で作られたファイル)
+`new`とされました。Gitが初めて知ったファイル(新規で作られたファイル)です。
+
+これでよければ履歴に残してバージョン管理します。
 
 ## 9. `git commit`
 
+`git commit`を実行するとエディタが立ち上がります
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/8.png" width="400">
 
@@ -48,9 +85,9 @@ new は Gitが初めて知ったファイル(新規で作られたファイル)
 bodyには詳しく書く
 
 ```
-// title
+// 1行目にタイトルを書く
 
-// body
+// 3行目にbody本文を書く
 # Please enter the commit message for your changes. Lines starting↲
 # with '#' will be ignored, and an empty message aborts the commit.↲
 #↲
@@ -66,14 +103,29 @@ bodyには詳しく書く
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/9.png" width="400">
 
-コミットが実行された
+このように
+viが立ち上がっているなら
+`esc`キーを押した後
+`:`を押して
+`wq!`
+タイプしてエディタを閉じます
+`vi`が何をしているかは別途検索してください
+
+ターミナルはコミットが実行されたことを示しています
+
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/10.png" width="400">
 
 
+ではgitコマンドでどのようになったか確認しましょう
+
 ## 11. git log
 
+コミットしたものを示しています。
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/11.png" width="400">
+
+こちらをリモートmasterブランチに反映させましょう。
 
 ## 12. git push origin head
 
@@ -88,9 +140,11 @@ pushされました
 
 ## 13. リンクを訪れる
 
+するとgithubに遷移します
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/13_2.png" width="400">
 
-コミットを見てみましょう
+今やったコミットを見てみましょう
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/13_3.png" width="400">
 
@@ -168,7 +222,7 @@ masterブランチから派生された`feature/a`ブランチが作られ、そ
 
 ## 19. `ファイルに変更を加える`
 
- `html:5` emmet
+ こちらをコピペしてindex.html内を変更してください
 
 ```html
 <!DOCTYPE html>
@@ -192,28 +246,37 @@ masterブランチから派生された`feature/a`ブランチが作られ、そ
 
 `\ No newline at end of file`があったら最後の行に一行追加しましょう
 
-確認しましょう
+では状態を確認しましょう
 ## 20. `git status`
 
-`modified`となっていることに注意。既にgit管理されている(commit済みのファイル)が変更された場合の表示(先ほどはnewでしたね)
+`modified`となっていることに注意してください。
+
+既にgit管理されている(commit済みのファイル)が変更された場合の表示(先ほどはnewでしたね)
 
 
-### 画像修正
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/21-2.png" width="400">
 
 
+こちらの変更をインデックスしましょう
 
 ## 21. `git add .`
 
-その後 `git status`
+`git add .` したら
+
+その後 `git status`で確認してみてください。
 
 indexされました。staging
 
-### 画像修正
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/21-2.png" width="400">
 
 
+その後commitで履歴としたいのですが、
+今度は
+git commitではなくcommitのtitleだけ書いてコミットしましょう
+
+どうすればいいでしょうか
 ## 22. `git commit -m "fix: added htm"`
-
-titleだけでコミットしましょう
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/22.png" width="400">
 
@@ -222,32 +285,43 @@ titleだけでコミットしましょう
  1 file changed, 11 insertions(+)
  ```
 
+では自分が叩いたgitコマンドのlogを確認しましょう
 ## 23. `git log`
 
 このような形になっていると思います
 
-### 画像修正
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/23-2.png" width="400">
 
-ここでコミットメッセージを間違えてしまいました or 何かファイルに変更を加えるのを忘れてしまいました
 
-戻しましょう
+ここであなたはコミットメッセージを間違えてしまったことに気付いたり
+
+何かファイルに変更を加えるのを忘れてしまいました
+
+どうすればいいでしょうか？
+
 
 ## 23. `git reset --soft HEAD^`
 
-を実行後
-どうなっているか
-`git status`で確認
-1つ前のコミットがなくなり、stagingされた状態に戻っています
+を実行してください
 
-### 画像修正
+どうなっているでしょうか？
+
+`git status`で確認
+
+1つ前のコミットがなくなり、
+
+stagingされた状態に戻っています
+
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/24-2.png" width="400">
 
 試しに
 
-`git log`で確認
+`git log`で確認してみましょう
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/25.png" width="400">
 
-戻っています
+戻っていることが確認できました
 
 `git reflog`で自分が打ったコマンドを確認しましょう
 
@@ -255,11 +329,16 @@ titleだけでコミットしましょう
 
 ## 24. `正しいhtml or コミットメッセージにする`
 
+エディタを立ちあげましょう
+
 `vim index.html`
 
 or
 
 普通に`code .`
+
+で。
+
 
 ```html
 <body>
@@ -276,7 +355,7 @@ or
 
 git status で確認しましょう
 
-これはどういうことでしょうか
+これはどういうことでしょうか？
 
 ```
 moritakjinoMBP2 :: ~/git/test » git status
@@ -544,22 +623,27 @@ To https://github.com/kenmori/test.git
 
 押してみてください
 
+するとここに移動します。
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/39.png" width="400">
 
 こちらの通り、デフォルトではmasterに対して今pushしたブランチがmergeされようとしています。
+
 masterと該当ブランチのコミット履歴が比較され、mergeするべきか差分を検証します
 
 では`プルリクエスト(以下PR)`を出してみましょう
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/41png.png" width="400">
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/41.png" width="400">
 
 のところを押下
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/42.png" width="400">
 
 するとこうなりました。
 
-赤い矢印のところはコミット番号(変更の履歴を識別する番号)です
+画像赤い矢印のところはコミット番号(変更の履歴を識別する番号)です
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/42.png" width="400">
+
 
 押してみてください
 
@@ -580,17 +664,124 @@ masterと該当ブランチのコミット履歴が比較され、mergeするべ
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/44.png" width="400">
 
-変更箇所を確認して問題なさそうなら取り込みましょう(`merge`)
+コメントとして表示されています。
 
-取り込まれたら次のことをやります
-
-## 30. `git log --graph`
-
-
-
-※ここでpushできない場合は別紙へ
+これに対してレビューは
+なるほどそういうことがあったのか
+や、そこに対して疑問があれば、質問したりコミニュケーションをとります。
 
 
+またこちらも変更しておきます
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/46.png" width="400">
+
+変更箇所を確認して問題なさそうなら取り込みますが、
+
+取り込まれたら今ブランチがどうなっているか確認しましょう
+
+## 30. git log --graph
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/45.png" width="400">
+
+ブラフを見ると①のところが②のmasterよりも進んでいることがわかります。
+
+1つ分の変更コミット(リビジョン)があるかです
+
+これをmasterが取り込んだらどうなるでしょうか
+
+masterはそのコミットを取り込み。同じ位置になるはずです。つまり変更の差分がなくなるということです。
+
+ではGitHub上でPRを取り込みましょう
+
+## 31. github上でPRを取り込む
+
+押す
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/47.png" width="400">
+
+マージはマージコミットというコミットを一つ追加します。
+
+これはマージコミットの名前を変更できるものです。
+
+個人開発の場合は特に問題なければそのままcomfirm mergeを押す
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/48.png" width="400">
+
+このようにmasterブランチにfeature/aブランチの変更がマージされました
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/49.png" width="400">
+
+確認しましょう。
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/50.png" width="400">
+
+リポジトリのトップぺーじからcommitsを選択してください
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/51.png" width="400">
+
+今マージしたマージコミットが追加されて
+
+変更が取り込まれているのがわかります
+マージコミットは先ほどmergeボタンを押した時に自動で作られたものです。
+
+gitコマンドで確認してみましょう
+
+## 32. git log
+
+ローカルリポジトリ先ほどリモート上でmergeされたことを知りません。
+
+リモートmasterブランチが更新されたので
+ローカルのmasterブランチを更新する必要があります
+
+移動します
+
+## git checkout master
+
+```
+moritakjinoMBP2 :: ~/git/test » git checkout master
+Switched to branch 'master'
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+```
+
+するとこのようにでます。
+あなたのブランチは2コミット遅れている。git pullを使ってローカルブランチをアップデートしてください
+
+と出ます。2コミットというのは`fix: add html`のコミットと`マージコミット`のことです。
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/52.png" width="400">
+
+## 33. git pull(git fetch + git merge)
+
+`git pull`すると更新されました
+
+```
+Updating beab421..3756d15
+Fast-forward
+ index.html | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+```
+
+
+git log --graphで確認しましょう
+
+## git log --graph
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/53.png" width="400">
+
+緑の`feature/a`ブランチが`master`に合流したことがわかります
+
+この後はまた
+ファイルを編集する前に
+
+`git checkout -b [branchname]`
+
+ブランチを切って繰り返していきます
+
+
+
+
+---
 
 wip
 ```
