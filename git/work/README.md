@@ -779,8 +779,28 @@ git log --graphで確認しましょう
 ブランチを切って繰り返していきます
 
 
+## git branch -b feature/b
+===-
+その後覚えるコマンド–––——00000‚‚0
+## ファイル内を変更する
 
+git stash
 
+–git cherry-pick
+
+–—=git rebase master
+
+git checkout 91ffa82ee9897
+
+## masterにバグが見つかり、変更された。or masterに誰かのPRが入った。状態を作る
+
+git =0=checkout master
+
+## ファイル内を変更する
+
+## git commit -m "fix: bug"
+
+## 
 ---
 
 wip
