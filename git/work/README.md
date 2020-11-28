@@ -45,6 +45,8 @@ Macの場合
 
 
 下の画像の「ユーティリティ」
+
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/yuterite.png" width="400"/>
 
 ターミナルがあると思います
@@ -58,31 +60,29 @@ Macの場合
 
 `cd ~/Desktop`
 
-`Enter`
-でフォルダをダウンロードしたいところに移動します。今回はわかりやすくデスクトップ上に置くことにしています。
+で実行。フォルダをダウンロードしたいところに移動します。
 
 移動できたかどうかは`pwd`で確認できます。ターミナル上で
 
 
 `pwd`
 
-するといかが示されます
+`Enter`(以下実行とします)。すると以下が示されます
 
 `/Users/[あなたの名前]/Desktop`
 
+次に先ほど開いた画面から
+画像の該当箇所を押すとコピーができます
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/copy.png" />
 
-その後ターミナル上で以下
-git cloneまで入力したらスペースの後に上記のurlを
-ペーストしてください
 
 `git clone この位置でペーストする(cmd + v)`
 
 こんな風になっていれば良いです。
 `git clone https://github.com/kemori/test.git`
 
-で`Entter`
+で実行
 
 その後下記を押す
 
@@ -94,7 +94,7 @@ git cloneまで入力したらスペースの後に上記のurlを
 
 貼り付けられたら
 
-`Enter`
+実行
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
 
@@ -102,7 +102,15 @@ git cloneまで入力したらスペースの後に上記のurlを
 
 ## 3. リポジトリ内に移動する
 
-`pwd`でデスクトップにいることを確認したら(`/Users/[あなたの名前]/Desktop`)
+ターミナル上で
+
+`pwd`
+
+を実行。
+
+`/Users/[あなたの名前]/Desktop`
+
+上記のような文字が出てきてデスクトップにいることを確認したら
 
 
 `cd test`
@@ -120,11 +128,12 @@ test直下に`.git`があることを確認
 
 ## 5. コマンドでVSCode立ち上げてみよう(飛ばしてもいいです)
 
-VSCode内で
+VSCodeを
+開いてください。その中で
 
-`Command + Shift + P`でコマンドパレット開く。
+`Command + Shift + P`でコマンドパレット開いてください
 
-`Shell`と入力して検索
+出てきたそこで`Shell`と入力して実行
 
 `インストール`
 
@@ -132,7 +141,9 @@ VSCode内で
 
 `code .`
 
-はVSCodeを立ち上げてくれます
+実行
+
+VSCodeを立ち上げてくれます
 
 ## 6. testディレクトリの中でindex.htmlを作る
 
@@ -143,6 +154,9 @@ test(.gitがあるところ)の中でindex.htmlを作ります。
 まずコマンド実行されるカレントディレクトリを確認しましょう
 
 `pwd`
+
+実行
+
 
 `~/Desktop/test`が出てくると思います。出てこない場合(`cd ~/Desktop/test`で移動移動してください)
 
@@ -638,7 +652,7 @@ commitを実行する前に...
 - `ctr`を押したまま`r`押してください
 
 コマンド検索してくれて、gitまで打つと補完が効いてコマンドをレコメンド
-してくれます。選ばれたら`Enter`
+してくれます。選ばれたら実行
 
 こういうのも知っておくと良いですね
 
