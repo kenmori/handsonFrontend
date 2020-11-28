@@ -6,12 +6,15 @@
 ## 対象
 
 - `mac`の方
+- unixがある程度操作できる人
 - `brew install git`している方
 - `git help`でなんか出てくること
+
+
+※以下今今じゃなくていいけど後々問題になる物
 - `git config --global user.name "GitHubのユーザ名"`
 -  `git config --global user.email <GitHubに登録したメルアド>`
 でgithubと紐づけてあること
-
 - [githubのSSHキー登録](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 [【解決方法(画像付き)】急に。git pushしたら「Please make sure you have the correct access rights and the repository exists.」](https://kenjimorita.jp/please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists/)
 
@@ -25,62 +28,84 @@ github登録して`new Repogitory`からリポジトリ`test`を作りましょ�
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/0-1.png" width="400">
 
-## 2. cd ~/Desktop でフォルダをダウンロードしたいところに移動します
-
-`pwd`
-でDesktopという文字が表示されていることを確認
-
-`git clone https://github.com/kenmori/test.git`
-
-
-
-
-移動できたかどうかは`pwd`で確認できます
-
-そこまで行ったら
-
-`git clone https://github.com/kenmori/test2.git`
-をターミナル上で叩いてください
-
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/1.png" width="400">
-
-ターミナル(`Terminal` or `iTerm2`)を立ち上げてコピペ
+## 2. ターミナルを開く
 
 
 ターミナルは
 Macの場合
 アプリケーション -> ユーティリティ -> ターミナルを押下
 すると立ち上がります。
-ブックマークしておいてください
+しておいてください
+
+`cd ~/Desktop`
+
+でフォルダをダウンロードしたいところに移動します
+
+移動できたかどうかは`pwd`で確認できます
+
+`pwd`
+
+で~/Desktopという文字が表示されていることを確認したら以下をEnterします
+
+`git clone https://github.com/kenmori/test.git`
+
+`https:`であることに注意してください。(git@~~)ではなく
+
+そこまで行ったら
+
+そのごここの部分をコピペ
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/1.png" width="400">
 
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
 
 
-## 3. cd test
+## 3. リポジトリ内に移動する
+
+`pwd`でデスクトップにいることを確認したら
+
+`cd test`
 
 リポジトリ内に移動します
 
-```
 
-## 4. `open .` で確認
+
+## 4. `open .` で確認(飛ばしてもいいです)
 
 openはFinderを立ち上げてくれます。
 覚えておくとよいです。
 test直下に`.git`があることを確認
 ない場合リポジトリが作られていません。
 
-## 5. `code .` でVSCode立ち上げる
+## 5. コマンドでVSCode立ち上げてみよう(飛ばしてもいいです)
 
-codeはVSCodeを立ち上げてくれます
+VSCode内で
 
-立ち上がらない場合もあるのでその方はひとまず次へ行ってください
+`Command + Shift + P`でコマンドパレット開く。
 
+`Shell`と入力して検索
 
-## 6. index.htmlを作る
+`インストール`
 
-test(.gitがあるところ)の中でindex.htmlを作ってください
+その後ターミナル上で
+
+`code .`
+
+はVSCodeを立ち上げてくれます
+
+## 6. testディレクトリの中でindex.htmlを作る
+
+test(.gitがあるところ)の中でindex.htmlを作ります。
+
 ファイルを作るだけで内容は空で良いです。
+
+まずコマンド実行されるカレントディレクトリを確認しましょう
+
+`pwd`
+
+`~/Desktop/test`が出てくると思います。出てこない場合(`cd ~/Desktop/test`で移動移動してください)
+
 
 今gitはどのような状態でしょうか?
 
@@ -163,7 +188,7 @@ viが立ち上がっているなら
 
 ## 11. git log
 
-コミットしたものを示しています。
+gitlogはコミットしたものを示しています。
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/11.png" width="400">
 
