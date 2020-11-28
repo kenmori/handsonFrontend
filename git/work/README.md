@@ -23,53 +23,93 @@
 
 github登録して`new Repogitory`からリポジトリ`test`を作りましょう
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/0.png" width="400">
+githubトップページまで行ったら
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/12-1.png" width="400">
 
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/0-1.png" width="400">
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/13-1.png" width="400">
+
+すると画面が変わります。一旦それはそのままで、ターミナルを開きましょう
 
 ## 2. ターミナルを開く
 
 
 ターミナルは
 Macの場合
-アプリケーション -> ユーティリティ -> ターミナルを押下
-すると立ち上がります。
-しておいてください
+アプリケーション -> ユーティリティ -> ターミナルを押下すると出てきます
+
+以下その様子を説明します
+
+`shift + cmd + a`でアプリケーションフォルダを開いたら
+
+
+下の画像の「ユーティリティ」
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/yuterite.png" width="400"/>
+
+ターミナルがあると思います
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/terminal.png" width="400" />
+
+
+それをダブルクリック
+
+その後ターミナル上で
 
 `cd ~/Desktop`
 
-でフォルダをダウンロードしたいところに移動します
+`Enter`
+でフォルダをダウンロードしたいところに移動します。今回はわかりやすくデスクトップ上に置くことにしています。
 
-移動できたかどうかは`pwd`で確認できます
+移動できたかどうかは`pwd`で確認できます。ターミナル上で
+
 
 `pwd`
 
-で~/Desktopという文字が表示されていることを確認したら以下をEnterします
+するといかが示されます
 
-`git clone https://github.com/kenmori/test.git`
+`/Users/[あなたの名前]/Desktop`
 
-`https:`であることに注意してください。(git@~~)ではなく
 
-そこまで行ったら
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/copy.png" />
 
-そのごここの部分をコピペ
+その後ターミナル上で以下
+git cloneまで入力したらスペースの後に上記のurlを
+ペーストしてください
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/1.png" width="400">
+`git clone この位置でペーストする(cmd + v)`
 
+こんな風になっていれば良いです。
+`git clone https://github.com/kemori/test.git`
+
+で`Entter`
+
+その後下記を押す
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/11/test2.png" />
+
+でターミナル上で
+
+`cmd + p`
+
+貼り付けられたら
+
+`Enter`
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
 
+こうなったと思います
 
 ## 3. リポジトリ内に移動する
 
-`pwd`でデスクトップにいることを確認したら
+`pwd`でデスクトップにいることを確認したら(`/Users/[あなたの名前]/Desktop`)
+
 
 `cd test`
 
+を実行
+
 リポジトリ内に移動します
-
-
 
 ## 4. `open .` で確認(飛ばしてもいいです)
 
