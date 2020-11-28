@@ -25,17 +25,44 @@ github登録して`new Repogitory`からリポジトリ`test`を作りましょ�
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/0-1.png" width="400">
 
-## 2. `git clone https://github.com/kenmori/test.git`
+## 2. cd ~/Desktop でフォルダをダウンロードしたいところに移動します
+
+`pwd`
+でDesktopという文字が表示されていることを確認
+
+`git clone https://github.com/kenmori/test.git`
+
+
+
+
+移動できたかどうかは`pwd`で確認できます
+
+そこまで行ったら
+
+`git clone https://github.com/kenmori/test2.git`
+をターミナル上で叩いてください
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/1.png" width="400">
 
 ターミナル(`Terminal` or `iTerm2`)を立ち上げてコピペ
 
+
+ターミナルは
+Macの場合
+アプリケーション -> ユーティリティ -> ターミナルを押下
+すると立ち上がります。
+ブックマークしておいてください
+
+
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
+
 
 ## 3. cd test
 
 リポジトリ内に移動します
+
+```
+
 ## 4. `open .` で確認
 
 openはFinderを立ち上げてくれます。
@@ -46,9 +73,13 @@ test直下に`.git`があることを確認
 ## 5. `code .` でVSCode立ち上げる
 
 codeはVSCodeを立ち上げてくれます
+
+立ち上がらない場合もあるのでその方はひとまず次へ行ってください
+
+
 ## 6. index.htmlを作る
 
-index.htmlを作ってください
+test(.gitがあるところ)の中でindex.htmlを作ってください
 ファイルを作るだけで内容は空で良いです。
 
 今gitはどのような状態でしょうか?
@@ -72,6 +103,8 @@ index.htmlを作ってください
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/7.png" width="400">
 
+`git stqtus`
+
 `new`とされました。Gitが初めて知ったファイル(新規で作られたファイル)です。
 
 これでよければ履歴に残してバージョン管理します。
@@ -81,6 +114,14 @@ index.htmlを作ってください
 `git commit`を実行するとエディタが立ち上がります
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/8.png" width="400">
+
+
+```
+エディタが立ち上がらない人は
+git commit -m "test"をして11へ
+```
+
+立ち上がった人は
 
 ここのtitleに何を変更したかを簡潔に書く
 bodyには詳しく書く
@@ -132,6 +173,7 @@ viが立ち上がっているなら
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/12.png" width="400">
 
+
 pushされました
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/13.png" width="400">
@@ -157,6 +199,8 @@ titleとbodyが書かれている
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/14.png" width="400">
 
 自分が打ったコマンドがわかる
+
+もどるときは`q`
 
 いまローカルリポジトリの変更はどのような状態でしょうか
 ## 15. `git status`
