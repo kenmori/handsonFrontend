@@ -13,6 +13,7 @@
 でgithubと紐づけてあること
 
 - [githubのSSHキー登録](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
+[【解決方法(画像付き)】急に。git pushしたら「Please make sure you have the correct access rights and the repository exists.」](https://kenjimorita.jp/please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists/)
 
 
 ## 1.ハンズオンのスタート
@@ -778,10 +779,10 @@ git log --graphで確認しましょう
 
 ブランチを切って繰り返していきます
 
-
+---
 ## git branch -b feature/b
-===-
-その後覚えるコマンド–––——00000‚‚0
+
+その後覚えるコマンド
 ## ファイル内を変更する
 
 git stash
@@ -800,10 +801,11 @@ git =0=checkout master
 
 ## git commit -m "fix: bug"
 
-## 
----
+
 
 wip
+
+
 ```
 git config -l 設定確認
 
