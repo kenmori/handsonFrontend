@@ -84,6 +84,17 @@ Macの場合
 
 で実行
 
+
+`cd test`(実行)
+
+で今落としてきたフォルダの中に移動します
+
+`pwd` でちゃんと移動できたか確認しましょう
+
+`/Users/[あなたの名前]/Desktop/test`
+
+になっているかと思います
+
 その後下記を押す
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/11/test2.png" />
