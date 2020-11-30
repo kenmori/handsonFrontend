@@ -84,33 +84,6 @@ Macの場合
 
 で実行
 
-
-`cd test`(実行)
-
-で今落としてきたフォルダの中に移動します
-
-`pwd` でちゃんと移動できたか確認しましょう
-
-`/Users/[あなたの名前]/Desktop/test`
-
-になっているかと思います
-
-その後下記を押す
-
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/test2.png" />
-
-でターミナル上で
-
-`cmd + p`
-
-貼り付けられたら
-
-実行
-
-<img src="https://terracetech.jp/wp-content/uploads/2020/11/2.png" width="400">
-
-こうなったと思います
-
 ## 3. リポジトリ内に移動する
 
 ターミナル上で
