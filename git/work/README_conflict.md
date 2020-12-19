@@ -179,10 +179,9 @@ Switched to branch 'feature/a'
 ```
 
 
-13. `echo index.html`
+13. `code .` エディタで開いて`test/index.html`を
+つくり以下をコピペ(先ほどのとはbody直下が違うことに注意)
 
-
-14. `open .` エディタで開く。以下をコピペ(先ほどのとはbody直下が違うことに注意)
 
 ```html
 <!DOCTYPE html>
@@ -199,6 +198,7 @@ Switched to branch 'feature/a'
   </main>
 </body>
 </html>
+
 ```
 
 
@@ -206,7 +206,10 @@ Switched to branch 'feature/a'
 
 16. `git commit -m "feat: add index.html"`
 
-17. `git merge master`
+
+ここまでで用意ができました
+
+17. `git merge main`
 
 コンフリクト発生!!
 
@@ -222,6 +225,10 @@ moritakjinoMBP2 :: ~/git/test 1 »
 
 
 ```html
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -235,16 +242,14 @@ moritakjinoMBP2 :: ~/git/test 1 »
   <main>
 
   </main>
-</body>
-</html>
 =======
 
+>>>>>>> main
 </body>
 </html>
->>>>>>> main
 ```
 
-もういうのが現れました
+このようなコードが現れました(考え方は一緒なので上記と全く同じじゃなくても似ていればいいです)
 
 これは
 
