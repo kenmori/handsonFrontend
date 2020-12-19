@@ -9,7 +9,8 @@ function show(){
   console.log(text)
 }
 function check(num){
-  for(let j =2; j <= num -1; j++){
+  for(let j = 2; j <= num -1; j++){
+    console.log(j);
     if(num % j == 0){
         return false;
     }

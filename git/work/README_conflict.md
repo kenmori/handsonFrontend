@@ -2,19 +2,34 @@
 
 - コンフリクトとは
 
-同じファイル且つ、同じ行の変更箇所が
-誰かによって違う変更になっていてどちらを採用すればいいかgitがわからない状態
+- 同じファイル且つ、同じ行の変更箇所が
+誰か(自分自身の場合もあります)によって違う変更(または削除)になっていて
+どちらを採用すればいいかgitがわからない状態
+
+
+- コードの中での2つのコミット間における違いをgitが自動的に解決できない
+
+これを教えてあげるのがコンフリクト解消
+
+
 
 コンフリクト環境を作る
 
-1. `適当なリポジトリを作る`
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/1-1.gif" />
 
-2. mkdir test
+上記の動画は以下のことをしています
 
+1. `githubのtopページ` ->  `Repositories` -> `new` -> `Repository name`に `test`
 
-3. cd test
+(`適当なリポジトリを作る。Repository nameはなんでもいいです。ここでは`test`)
 
-4. コマンド上でそのままコピペ
+そこの一番最初のコードをコピーしておく
+
+2. ターミナルで、適当なところに `mkdir test`
+
+3. `cd test`(移動)
+
+4. コマンド上で先ほどのをペースト
 
 ```
 moritakjinoMBP2 :: ~/git/test » echo "# test" >> README.md
@@ -52,23 +67,44 @@ drwxr-xr-x  12 kenjimorita  staff  384 12 16 19:10 .git
 moritakjinoMBP2 :: ~/git/test »
 ```
 
-`git branch` ※skip可能
+リモートリジトリと同期されたローカルリポジトリが作られました。
+
+
+ここまでを上記動画でしています。
+
+
+6. `git branch` ※skip可能
 
 ```
 * main
 (END)
 ```
 
-5. `git branch feature/a` (作るだけ)
+mainブランチがあって、現在そこで作業していることを確認
 
+5. `git branch feature/a` (ブランチ作るだけのコマンド)
+
+次に `git branch`すると
+
+```
+
+  feature/a
+* main
+(END)
+```
+作られただけでmainで作業していることがわかる(`q`で戻る)
 
 6. `echo > index.html`
 
-7. `open .` エディタ上で開く
+7. `code .` エディタ上で開く
 
-openコマンドがない場合も普通にtest/index.htmlをエディタで開いてください
+codeコマンドがない場合
 
-8. 以下をコピペ
+[コマンドを入れる](https://twitter.com/terrace_tech/status/1340088128611078144?s=20)
+
+(できない場合普通にtest/index.htmlをエディタで開いてください)
+
+8. 以下を`text/index.html`にコピペ
 
 ```html
 <!DOCTYPE html>
@@ -82,10 +118,11 @@ openコマンドがない場合も普通にtest/index.htmlをエディタで開�
 
 </body>
 </html>
+
 ```
 
 
-現在の状態を確認
+`git status`で現在の状態を確認
 
 ```git
 moritakjinoMBP2 :: ~/git/test » git status
@@ -100,7 +137,13 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 
-9. `git add`
+9. `git add .`
+
+// more
+```
+※addしたもの取り消したい場合 (全てなら `git reset HEAD` or 特定のファイルなら
+`git reset HEAD index.html`)
+```
 
 10. `git commit -m "feat: add index.html"`
 
@@ -127,6 +170,7 @@ moritakjinoMBP2 :: ~/git/test »
 
 `github`上ではこのようになっているはず
 
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/2.gif" />
 
 12. `git checkout feature/a`
 
@@ -266,6 +310,8 @@ moritakjinoMBP2 :: ~/git/test » git commit -m "fix: conflict"
 
 
  19. どちらとも採用したい場合は？
+
+
 
 
 
