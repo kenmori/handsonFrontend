@@ -14,6 +14,7 @@
 ※以下今今じゃなくていいけど後々問題になる物
 - `git config --global user.name "GitHubのユーザ名"`
 -  `git config --global user.email <GitHubに登録したメルアド>`
+
 でgithubと紐づけてあること
 - [githubのSSHキー登録](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 [【解決方法(画像付き)】急に。git pushしたら「Please make sure you have the correct access rights and the repository exists.」](https://kenjimorita.jp/please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists/)
