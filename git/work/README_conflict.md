@@ -2,9 +2,20 @@
 
 - コンフリクトとは
 
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/381711A7-008E-429A-8D64-462031E335B6.png" />
+
+その前にmergeとrebaseのおさらい
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/51734221-F5B5-4F30-A103-B6DE3748F2FE.png" />
+
 - 同じファイル且つ、同じ行の変更箇所が
 誰か(自分自身の場合もあります)によって違う変更(または削除)になっていて
 どちらを採用すればいいかgitがわからない状態
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/CDE20698-49A7-4C1F-982E-1E31556B4BEF.png" />
+
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/A0010471-DBC2-47E5-8CDD-8875AAC6529C.png" />
 
 
 - コードの中での2つのコミット間における違いをgitが自動的に解決できない
@@ -12,8 +23,12 @@
 これを教えてあげるのがコンフリクト解消
 
 
+## mergeコンフリクト解消をしてみる
 
-コンフリクト環境を作る
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/131B7847-77A2-463D-BCCA-9EABDF8F9724.png" />
+
+
+まずコンフリクト環境を作る
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/1-1.gif" />
 
@@ -223,55 +238,90 @@ moritakjinoMBP2 :: ~/git/test 1 »
 
 上記①の箇所でcmd押しながらhoverするとリンクになっていて飛べます
 
-
-```html
-<<<<<<< HEAD
-=======
-
->>>>>>> main
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Document</title>
-</head>
-<body>
-<<<<<<< HEAD
-  これはfeature/aで作られました
-  <main>
-
-  </main>
-=======
-
->>>>>>> main
-</body>
-</html>
-```
-
 このようなコードが現れました(考え方は一緒なので上記と全く同じじゃなくても似ていればいいです)
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/conflict1.png" />
+
 
 これは
 
-<<<<<<< HEAD (現在checkoutしているブランチ)
-merge先の変更
-==========
-merge元の変更
->>>>>>>>>>> (merge元のブランチ名)
+`<<<<<<< HEAD`
+
+merge先の変更 (現在checkoutしているブランチ)
+
+`==========`
+
+merge元の変更箇所
+
+`>>>>>>>>>>> (merge元のブランチ名)`
+
+こう説明できます。
 
 
-18. コンフリクトが起きたらどちらかの変更を選びます
+18. 対応
 
-現在checkoutしているブランチの変更に合わせる場合
+コンフリクトが起きたら
+「現在のチェックアウトしている変更箇所」か「取り込む先の変更箇所」の変更を選びます。
+(もしくは二つの変更を生かすようにします。これは後ほど教えます)
+
+
+- 現在checkoutしているブランチの変更に合わせる場合
+つまり上記で言う
+
+`<<<<<<< HEAD`
+
+merge先の変更 (現在checkoutしているブランチ)
+
+`==========`
+
+この変更を反映させる場合(`<<<`と`===`の間の変更)
 
 `git checkout --ours index.html`
 
-index.htmlをマージさせたブランチ(今回の場合main)に合わせる場合
+- index.htmlをマージさせたブランチ(今回の場合main)に合わせる場合
+つまり上記で言う
+
+
+`==========`
+
+merge元の変更箇所
+
+`>>>>>>>>>>> (merge元のブランチ名)`
+
+この変更を反映させる場合(`===`と`>>>`の間の変更)
 
 `git checkout --theirs index.html`
 
-どちらかを選ぶ
-今回は現在checkoutしている方を適応したいと思います
+
+このどちらかを選ぶということです。
+もちろんコマンドで解決しなくても手作業で消すこともできます
+
+今回は現在checkoutしている方を適応したいと思うので
+
+つまり、これを
+
+`<<<<<<< HEAD`
+
+merge先の変更 (現在checkoutしているブランチ)
+
+`==========`
+
+merge元の変更箇所
+
+`>>>>>>>>>>> (merge元のブランチ名)`
+
+
+こうなるようにする
+
+```
+merge先の変更 (現在checkoutしているブランチ)
+```
+
+手動の際印は消してください
+
+下記はこれらのことをしている動画
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/3.gif">
 
 ファイルを確認すると適応した方の変更になっています。
 
@@ -304,17 +354,233 @@ All conflicts fixed but you are still merging.
 
 全てのconflictは直ったがまだマージされていないと言われています
 
-今の変更をコミットすれば終わりです(本来自動で作られるマージコミットを手動で作っています)
+そこに書いてあるように
+変更をコミットしましょう(本来自動で作られるマージコミットを手動で作っています)
 
-```
-moritakjinoMBP2 :: ~/git/test » git commit -m "fix: conflict"
-[feature/a d659b6d] fix: conflict
-```
+
+`git commit -m "fix: conflict"`
 
 `git log`で確認してみてください
 
+```git
+commit 845d83c0e23e0ddb82cfee8ac5e66eb165a18942 (HEAD -> feature/a)
+Merge: 1c416b5 92391c7
+Author: kenjimorita <kenjimoritata@gmail.com>
+Date:   Sat Dec 19 10:38:26 2020 +0900
 
- 19. どちらとも採用したい場合は？
+    fix: conflict
+
+commit 1c416b5ee7533a757402cdf041340c8a438f4d45
+Author: kenjimorita <kenjimoritata@gmail.com>
+```
+
+
+(`q`でコマンドに戻る)
+
+
+`git push origin head`
+
+
+github上で確認できます
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/4.gif" />
+
+##　github上でコンフリクトしていることに気づいた場合
+
+どういうときなるでしょうか?
+
+- merge先ブランチの変更が自分のリモートブランチのどこかのコミット(リビジョン)内の変更箇所と被っている場合
+
+`git checkout main`
+して
+`index.html`を
+
+```
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Document</title>
+</head>
+<body>
+  <div>main変更箇所</div>
+</body>
+</html>
+```
+
+にしてください
+
+`git add .`
+
+`git commit -m "fix: index.html"`
+
+`git push origin head`
+
+でmasterを進めます
+
+次に
+`git checkout -` で一つ前にcheckoutしていたブランチに戻ります
+
+このブランチはmasterの変更を知りません
+
+```
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Document</title>
+</head>
+<body>
+<p>feature/aの修正</p>
+</body>
+</html>
+```
+
+`git add .`
+`git commit -m "fix: add p tag"`
+`git push origin head`
+
+するとgithub上ではどうなっているでしょうか
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.10.03.png" />
+
+
+これはmainが誰かの変更を取り入れて更新されたのに
+そこの該当ブランチはその変更箇所とバッティングしていて、
+gitはどちらを生かすが分からず(コンフリクト)
+解決を求めている状態です。
+
+これを解決するためには
+ローカルでmainブランチを最新にして(`git pull`して)
+
+自分のPRを出しているブランチにcheckoutして
+
+`git merge main`
+もしくは
+`git rebase main`
+で変更を取り込み、前述の通り解決して
+pushし直します
+
+※今回は自分自身でのローカルブランチであるmainで
+リモートmainを更新したのでpullの必要ないですが現場ではpullします
+
+
+以下WIP
+## git rebase で解決する
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/7E9447AB-229F-4374-AB14-DD119CBF4AC3.png" />
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/5D5B39DA-EBA2-44B9-AC26-6F851652E507.png" />
+
+`git merge main`
+では前述の通り解決できると思います。
+
+`git rebase main`と何が違うのでしょうか
+
+- コミット履歴(コミット番号)が全て変わります
+
+
+`git rebase main`
+
+```
+moritakjinoMBP2 :: ~/git/test » git rebase master
+fatal: invalid upstream 'master'
+moritakjinoMBP2 :: ~/git/test 128 » git rebase main  
+CONFLICT (add/add): Merge conflict in index.html
+Auto-merging index.html
+error: could not apply 1c416b5... feat: add index.html
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 1c416b5... feat: add index.html
+```
+
+こうなるはずです
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.43.14.png" />
+
+
+`HEAD`がmainブランチ
+の変更になっていて、
+`1c416b5... feat: add index.htm`
+は
+こちらのブランチの
+コミットであることに注目してください。
+
+
+以前の`git merge main`の時は`HEAD`は`カレントブランチ`で
+`===`以下は`main`の変更でした
+
+これが`rebase`する時と`merge`するときの挙動の違いです
+
+コンフリクトを解消したら
+
+`git add .`
+して
+`git rebase --continue`
+で`rebase`を前に進めます(画像でいう次のコミットまで)
+
+もし失敗して
+rebaseをやめたい場合は
+`git rebase --abort`
+
+すれば以前の状態に戻ります
+
+よくコンフリクトに出会すとこのような名前があります
+```
+- Current Change
+- Incoming Change
+```
+
+これは次の通りです
+
+```
+Current Change 自分(上に表示されているもの)
+Incoming Change 相手(下に表示されている変更)
+```
+
+VSCode上のコンフリクト時の見え方と意味を説明します
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/11.png" />
+
+## rebase時の注意点
+
+rebaseするとコミット番号も変わります。
+
+該当のリモートブランチで他の人がもし何か変更をpushしていたら影響が出ます。
+
+rebaseしたものをリモートにpushする際は
+
+必ず強制pushする必要があります
+
+その際に
+
+誰かの変更コミットが該当リモートブランチにプッシュされているのに
+
+`git push --force origin head`
+
+すると全部書き換わってしまうので他の開発者は困ります。
+
+そのコマンドは使わないようにしましょう。
+
+代わりに
+
+何か該当リモートブランチに変更があった場合「気づきを得るために」(他人の作業を上書きしないようにしたいとき)
+
+`git push --force-with-least origin head`
+
+を使うと良いです
+
+ `[rejected] dev -> dev (stale info)`
+ このような
+
+ その際、rejectされた表示がされた場合そのリモートブランチに変更がないか確認してください。
+
+ その変更を取り込んで対応する必要があります
 
 
 
