@@ -471,10 +471,6 @@ pushし直します
 以下WIP
 ## git rebase で解決する
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/7E9447AB-229F-4374-AB14-DD119CBF4AC3.png" />
-
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/5D5B39DA-EBA2-44B9-AC26-6F851652E507.png" />
-
 `git merge main`
 では前述の通り解決できると思います。
 
@@ -488,7 +484,7 @@ pushし直します
 ```
 moritakjinoMBP2 :: ~/git/test » git rebase master
 fatal: invalid upstream 'master'
-moritakjinoMBP2 :: ~/git/test 128 » git rebase main  
+moritakjinoMBP2 :: ~/git/test 128 » git rebase main
 CONFLICT (add/add): Merge conflict in index.html
 Auto-merging index.html
 error: could not apply 1c416b5... feat: add index.html
@@ -517,45 +513,143 @@ Could not apply 1c416b5... feat: add index.html
 
 これが`rebase`する時と`merge`するときの挙動の違いです
 
+イラストで見てみましょう
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/7E9447AB-229F-4374-AB14-DD119CBF4AC3.png" />
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/5D5B39DA-EBA2-44B9-AC26-6F851652E507.png" />
+
+
+今回は両方とも生かすようにしましょう。
+つまり、masterで更新された変更を取り込みつつ自分の変更を加える
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/4-1.gif" />
+
+
+```html
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div>main変更箇所</div>
+    これはfeature/aで作られました
+  </main>
+</body>
+</html>
+```
+
+このようにしてみましょう
+
+分からなくなってしまったら
+
+`git rebase --abort`
+
+で中止していいです。(`git merge`でわかりやすく解決するか、その他の解決方法 -> 後述)
+
 コンフリクトを解消したら
 
 `git add .`
-して
+
+することを忘れないでください
+
 `git rebase --continue`
 で`rebase`を前に進めます(画像でいう次のコミットまで)
 
+`git rebase --continue`するとエディタが立ち上がります
+
+その内容でよければ
+`:wq!`
+
+でこのコミットのコンフリトは終了。
+
+その後さらに積み上げていたコミットとHEAD比較が行われます
+
+もしそこでもコンフリクトがあったら
+対応します。なければsuccessと出ます
+
+この表示はまた起きた時の表示です
+
+
+```
+[detached HEAD b75affe] feat: add index.html
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+error: could not apply 6fb108e... fix: add p tag
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 6fb108e... fix: add p tag
+```
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/4-1.gif" />
+
+今回もどちらの変更も取り込みます。このように修正してください
+
+```html
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <div>main変更箇所</div>
+    これはfeature/aで作られました
+    <p>feature/aの修正</p>
+  </main>
+</body>
+</html>
+```
+
+終えたら
+`git add .`
+
+`git rebase --continue`
+
+`:wq!`
+
+で終えます
+
+
 もし失敗して
+
 rebaseをやめたい場合は
+
 `git rebase --abort`
 
 すれば以前の状態に戻ります
 
-よくコンフリクトに出会すとこのような名前があります
-```
-- Current Change
-- Incoming Change
-```
 
-これは次の通りです
+コミット比較が終わりrebaseが終了しました。
 
 ```
-Current Change 自分(上に表示されているもの)
-Incoming Change 相手(下に表示されている変更)
+[detached HEAD 42e0185] fix: add p tag
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/feature/a.
 ```
 
-VSCode上のコンフリクト時の見え方と意味を説明します
+このあとrebaseの場合は強制的にpushする必要があります。
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/11.png" />
+## rebaseを終えたブランチの強制push
 
-## rebase時の注意点
+これからrebaseした変更をpushしてリモートブランチを上書きます。
 
-rebaseするとコミット番号も変わります。
 
+```
+rebaseするとコミット番号も変わり、
 該当のリモートブランチで他の人がもし何か変更をpushしていたら影響が出ます。
 
 rebaseしたものをリモートにpushする際は
 
-必ず強制pushする必要があります
+必ず強制pushする必要がありますので
 
 その際に
 
@@ -571,7 +665,7 @@ rebaseしたものをリモートにpushする際は
 
 何か該当リモートブランチに変更があった場合「気づきを得るために」(他人の作業を上書きしないようにしたいとき)
 
-`git push --force-with-least origin head`
+`git push --force-with-lease origin head`
 
 を使うと良いです
 
@@ -581,9 +675,93 @@ rebaseしたものをリモートにpushする際は
  その際、rejectされた表示がされた場合そのリモートブランチに変更がないか確認してください。
 
  その変更を取り込んで対応する必要があります
+```
 
 
+ では
+
+`git push --force-with-lease origin head`
+
+を実行してください(大丈夫です。何かあった場合のみrejectされます。)
+
+```
+moritakjinoMBP2 :: ~/git/test 129 » git push --force-with-lease origin head
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 818 bytes | 818.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/kenmori/test.git
+ + 6fb108e...42e0185 head -> feature/a (forced update)
+```
+
+うまく行きました。
+
+上のgithubリンクからどうなっているかみてください
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/1.png" />
+
+コンフリクトが解消されてmergeできる状態になっています
+
+強制pushされたことが記述されていることに注意してください
 
 
+以上でrebase時のコンフリクト解消の方法の終わりです。
 
 
+## おしまい
+
+疲れましたね。慣れですので。いろいろコンフリクトを起こして何度も壊してくださいね。
+
+## WIP
+
+### その他よく起きるコンフリクト
+
+- git stash apply時にコンフリクト
+- git cherry-pick次のコンフリクト
+
+これらはそれぞれ
+
+HEAD(--ours)の方が現在のブランチになるので迷わないでしょう。
+
+### rebaseのコンフリクト対応が辛い時
+
+どうしてもrebaseでのコンフリクト解決が難しくなった場合
+
+自分はよく
+mainブランチから切り直して、現在のブランチのコミットをcherry-pickで積んで行って解決したりします
+
+### 用語
+よくコンフリクトに出会すとこのような名前があります
+```
+- Current Change
+- Incoming Change
+```
+
+これは次の通りです
+
+```
+Current Change 自分(上に表示されているもの)
+Incoming Change 相手(下に表示されている変更)
+```
+
+### VSCodeで簡単コンフリクト解決
+
+VSCode上のコンフリクト時の見え方と意味を説明します
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/11.png" />
+
+### 一人開発でコンフリクトの起こし方
+
+1. AとBのブランチを作って
+2. Aでファイルを更新してcommit、pushする
+3. Bに移動して同じファイルの同じ行を編集、commitして
+4. Aをmerge、もしくはrebaseする(`git merge A` or `git rebase A`)
+
+rebaseの勉強をする時はBのコミットを増やしてみるとよいです。ずーっとコンフリクトを解消してcontinueをして、を繰り返しやります。(上記でハンズオンした例です)
+
+
+[author](https://kenjimorita.jp/aboutme)
+[twitter](https://twitter.com/terrace_tech)
