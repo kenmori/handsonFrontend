@@ -2,27 +2,35 @@
 
 - コンフリクトとは
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/381711A7-008E-429A-8D64-462031E335B6.png" />
+同じファイル且つ同じ行の変更箇所が誰かによって違う変更(または削除)になっていて
+どちらの変更を採用すればいいかgitがわからない状態
 
-その前にmergeとrebaseのおさらい
+- mergeとrebaseのおさらい
+
+このようなグラフがあるとします
+
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/381711A7-008E-429A-8D64-462031E335B6.png" width="500" />
+
+
+画像左はmergeで、merge時にマージコミットをつくります
+
+右のrebaseは真ん中の作業ブランチをmainブランチでrebaseした状態
+
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/51734221-F5B5-4F30-A103-B6DE3748F2FE.png" />
 
-- 同じファイル且つ、同じ行の変更箇所が
-誰か(自分自身の場合もあります)によって違う変更(または削除)になっていて
-どちらを採用すればいいかgitがわからない状態
+一番左のブランチのコミット履歴の中で
+同じファイル&同じ行に対して違う変更がある場合
+真ん中のブランチでそのファイルを編集していたらコンフリクト発生します
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/CDE20698-49A7-4C1F-982E-1E31556B4BEF.png" />
 
+mergeしようとするとコンフリクトがおきます
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/A0010471-DBC2-47E5-8CDD-8875AAC6529C.png" />
 
 
-- コードの中での2つのコミット間における違いをgitが自動的に解決できない
-
-これを教えてあげるのがコンフリクト解消
-
-
+どちらを採用すればいいか教えてあげるのがコンフリクト解消
 ## mergeコンフリクト解消をしてみる
 
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/131B7847-77A2-463D-BCCA-9EABDF8F9724.png" />
@@ -474,11 +482,6 @@ pushし直します
 `git merge main`
 では前述の通り解決できると思います。
 
-`git rebase main`と何が違うのでしょうか
-
-- コミット履歴(コミット番号)が全て変わります
-
-
 `git rebase main`
 
 ```
@@ -715,7 +718,7 @@ To https://github.com/kenmori/test.git
 
 疲れましたね。慣れですので。いろいろコンフリクトを起こして何度も壊してくださいね。
 
-## WIP
+---
 
 ### その他よく起きるコンフリクト
 
@@ -762,6 +765,68 @@ VSCode上のコンフリクト時の見え方と意味を説明します
 
 rebaseの勉強をする時はBのコミットを増やしてみるとよいです。ずーっとコンフリクトを解消してcontinueをして、を繰り返しやります。(上記でハンズオンした例です)
 
+### コンフリクト解消クイズ
 
-[author](https://kenjimorita.jp/aboutme)
-[twitter](https://twitter.com/terrace_tech)
+1.
+
+mainブランチを`merge`した際のコンフリクトが発生しました。現在のブランチの方を採用して解消してください
+
+`<<<<<<<<<<<<HEAD`
+
+`<div>aaa</div>`
+
+`=================`
+
+`<div>bbb</div>`
+
+`>>>>>>>>>>>>>>>>>main`
+
+2.
+
+作業ブランチをmasterブランチでrebaseした際にコンフリクトが発生しました。
+
+`<<<<<<<<<<<<HEAD`
+
+`<div>aaa</div>`
+
+`=================`
+
+`<div>bbb</div>`
+
+`>>>>>>>>>>>>>>>>>1c416b5... feat: add index.htm`
+
+作業ブランチのコミットの方を採用してください
+
+3. rebaseした際にコンフリクトが起きて、解消した後しなくてはいけないことを教えてください
+
+4. rebaseが成功したあとしなくてはいけないことを教えてください
+
+### コンフリクト解消クイズ答え
+
+1.
+
+`<div>aaa</div>`
+
+2.
+
+`<div>bbb</div>`
+
+3.
+
+`git add .` でコンフリクト解消したものをaddします
+
+`git rebase --continue` 現在はrebase中にコンフリクトが発生した状態なので続けます
+
+4.
+
+`git push --force-with-lease origin head`
+
+rebaseしたブランチを`安全にpush`します
+
+## 参照
+- [Git Rebase Explained Simply](https://dev.to/jacobherrington/git-rebase-explained-simply-k0a)
+
+## me
+
+- [author](https://kenjimorita.jp/aboutme)
+- [twitter](https://twitter.com/terrace_tech)
