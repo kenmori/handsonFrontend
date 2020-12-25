@@ -1,4 +1,9 @@
-# conflict解消ができるようになるハンズオン
+# conflict解消ができるようになるハンズオン(コンフリクトとは、解消する方法)
+
+## わたしについて
+
+- [author](https://kenjimorita.jp/aboutme)
+- [twitter](https://twitter.com/terrace_tech)
 
 - コンフリクトとは
 
@@ -12,28 +17,28 @@
 <img src="https://terracetech.jp/wp-content/uploads/2020/12/381711A7-008E-429A-8D64-462031E335B6.png" width="500" />
 
 
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/51734221-F5B5-4F30-A103-B6DE3748F2FE.png" width="500"/>
+
 画像左はmergeで、merge時にマージコミットをつくります
 
 右のrebaseは真ん中の作業ブランチをmainブランチでrebaseした状態
 
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/51734221-F5B5-4F30-A103-B6DE3748F2FE.png" />
-
 一番左のブランチのコミット履歴の中で
 同じファイル&同じ行に対して違う変更がある場合
 真ん中のブランチでそのファイルを編集していたらコンフリクト発生します
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/CDE20698-49A7-4C1F-982E-1E31556B4BEF.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/CDE20698-49A7-4C1F-982E-1E31556B4BEF.png" width="500" />
 
 mergeしようとするとコンフリクトがおきます
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/A0010471-DBC2-47E5-8CDD-8875AAC6529C.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/A0010471-DBC2-47E5-8CDD-8875AAC6529C.png" width="500" />
 
 
 どちらを採用すればいいか教えてあげるのがコンフリクト解消
 ## mergeコンフリクト解消をしてみる
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/131B7847-77A2-463D-BCCA-9EABDF8F9724.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/131B7847-77A2-463D-BCCA-9EABDF8F9724.png" width="500" />
 
 
 まずコンフリクト環境を作る
@@ -248,7 +253,7 @@ moritakjinoMBP2 :: ~/git/test 1 »
 
 このようなコードが現れました(考え方は一緒なので上記と全く同じじゃなくても似ていればいいです)
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/conflict1.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/conflict1.png" width="500" />
 
 
 これは
@@ -453,7 +458,7 @@ github上で確認できます
 
 するとgithub上ではどうなっているでしょうか
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.10.03.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.10.03.png" width="500" />
 
 
 これはmainが誰かの変更を取り入れて更新されたのに
@@ -500,7 +505,7 @@ Could not apply 1c416b5... feat: add index.html
 
 こうなるはずです
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.43.14.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/スクリーンショット-2020-12-19-11.43.14.png" width="500" />
 
 
 `HEAD`がmainブランチ
@@ -517,9 +522,9 @@ Could not apply 1c416b5... feat: add index.html
 これが`rebase`する時と`merge`するときの挙動の違いです
 
 イラストで見てみましょう
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/7E9447AB-229F-4374-AB14-DD119CBF4AC3.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/7E9447AB-229F-4374-AB14-DD119CBF4AC3.png" width="500" />
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/5D5B39DA-EBA2-44B9-AC26-6F851652E507.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/5D5B39DA-EBA2-44B9-AC26-6F851652E507.png" width="500" />
 
 
 今回は両方とも生かすようにしましょう。
@@ -704,7 +709,7 @@ To https://github.com/kenmori/test.git
 
 上のgithubリンクからどうなっているかみてください
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/1.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/1.png" width="500"/>
 
 コンフリクトが解消されてmergeできる状態になっています
 
@@ -754,7 +759,7 @@ Incoming Change 相手(下に表示されている変更)
 
 VSCode上のコンフリクト時の見え方と意味を説明します
 
-<img src="https://terracetech.jp/wp-content/uploads/2020/12/11.png" />
+<img src="https://terracetech.jp/wp-content/uploads/2020/12/11.png" width="500" />
 
 ### 一人開発でコンフリクトの起こし方
 
@@ -825,8 +830,3 @@ rebaseしたブランチを`安全にpush`します
 
 ## 参照
 - [Git Rebase Explained Simply](https://dev.to/jacobherrington/git-rebase-explained-simply-k0a)
-
-## me
-
-- [author](https://kenjimorita.jp/aboutme)
-- [twitter](https://twitter.com/terrace_tech)
