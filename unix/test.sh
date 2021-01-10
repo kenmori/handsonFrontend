@@ -1,2 +1,5 @@
 #!/bin/sh
-echo "Hello! $3!!"
+
+readonly NAME #上書きさせない
+NAME="kenji"
+
