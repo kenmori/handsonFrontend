@@ -1,5 +1,7 @@
 #!/bin/sh
 
-cd ./img && ls -la
+HelloFunction () {
+  echo "hello $2 $1!!"
+}
 
-
+HelloFunction kenji morita

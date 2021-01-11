@@ -164,7 +164,7 @@ for P in $*; do echo $P; done
 
 このように書きます
 
-`$*`で任意の数の引数を受け取り(`[1, 2, 3]`のような変数になるイメージ)、変数`P`に一つづつ代入され
+`$*`で全部の引数をまとめて処理している。全ての引数を一つの変数を受け取り(`[1, 2, 3]`のような変数になるイメージ)、変数`P`に一つづつ代入され
 `echo $P`で出力する
 
 このように書き直して実行してみてください
@@ -185,15 +185,21 @@ sh test.sh 1 2 3 4
 ```sh
 #!/bin/sh
 
-ARRAY=("1" "2" "3")
-echo ${ARRAY[1]}
+array=("1" "2" "3")
+echo ${array[1]}
 
-for I in ${ARRAY[@]};do echo $I; done
+for I in ${arry[@]};do echo $I; done
 ```
+
+`arry[@] or arry[*]`で全ての要素をアクセスしている
 
 comandsに添字(go)を指定してgoコマンドがあれば1、なければ0を返す(`+`部分)
 
 `echo $+commands[go]`
+
+
+ifの基本的な書き方
+`if [ 条件 ] then コマンド fi`
 
 下記は1なら真なのでshファイル内で書いたもの。then以降が実行される
 
@@ -220,8 +226,6 @@ cd ./img && ls -la
 このように普段叩くコマンドをshから叩くことができる(コマンドの自動化)
 
 2.
-
-
 
 
 - echo (出力するコマンド)
@@ -329,4 +333,24 @@ xtrace          off
 同じになっている...調査必要
 
 
+
+- mapfileで列挙する
+
+`zmodload zsh/mapfile`
+
+でモジュールを追加
+
+`echo ${(k)mapfile}`
+
+`echo "${mapfile[some_file]}"`
+
+- 関数
+
+```sh
+HelloFunction () {
+  echo "hello $2 $1!!" # 引数を受け取る
+}
+
+HelloFunction kenji morita
+```
 
