@@ -1,5 +1,5 @@
 #!/bin/sh
 
-readonly NAME #上書きさせない
-NAME="kenji"
+cd ./img && ls -la
+
 
