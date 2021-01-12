@@ -65,10 +65,28 @@ echo "Hello, World!"
 構文
 
 ```sh
-
-HOGE="hoge" # 変数HOGEにhogeを代入している
+HOGE="hoge" # 変数HOGEにhogeを代入している。=の後は空白なし。くっつける
 FUGA="fuga" # 変数FUGAにfugaを代入している
+
+echo $HOGE$FUGA # 変数同士連結する場合はくっつける
 ```
+
+`sh test.sh`で実行すると`hogefuga`と出力される
+
+```sh
+NAME="kenji"
+echo "Hello! $NAME" # ダブルクォーテーションでは式が展開されるが...
+echo 'Hello! $NAME' # シングルだと展開されない
+```
+
+`sh test.sh`で実行すると
+
+```console
+Hello! kenji
+Hello! $NAME <-そのまま表示されることに注意
+```
+
+と出力される
 
 - echo (出力するコマンド)
 
