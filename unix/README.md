@@ -33,6 +33,8 @@ echo "Hello, World!"
 
 システムにこれからシェルスクリプトを書きますよという文字。(html宣言みたいなやつ。コピペで良い)  #(hash) + !(bang) = shebang(#!シェバング)
 
+「畑(#)にびっくりした隣(/)の(!)貧乏(bin)が隣(/)からシー(sh)と言われている」
+
 `sh test.sh`
 
 or
@@ -144,12 +146,82 @@ NAME="kenji"
 
 -  特殊文字
 
-
 ```sh
 * ? [ ' " \` \ $ ; & ( ) | ~ < > # % = スペース タブ 改行
 ```
 
 シェルスクリプトでこれらの文字を文字列の中で使う時は `\`を書いた後使う
+
+
+- 集合を扱う
+
+`sh test.sh 1 2 3`
+を実行した際にそれぞれシェルスクリプトが順番に`1 2 3`と出力するようにするには
+
+```sh
+for P in $*; do echo $P; done
+```
+
+このように書きます
+
+`$*`で任意の数の引数を受け取り(`[1, 2, 3]`のような変数になるイメージ)、変数`P`に一つづつ代入され
+`echo $P`で出力する
+
+このように書き直して実行してみてください
+
+```sh
+sh test.sh 1 2 3 4
+1
+2
+3
+4
+```
+
+になったかと思います
+
+- パラメータを渡さないでファイル内で記述する
+
+
+```sh
+#!/bin/sh
+
+ARRAY=("1" "2" "3")
+echo ${ARRAY[1]}
+
+for I in ${ARRAY[@]};do echo $I; done
+```
+
+comandsに添字(go)を指定してgoコマンドがあれば1、なければ0を返す(`+`部分)
+
+`echo $+commands[go]`
+
+下記は1なら真なのでshファイル内で書いたもの。then以降が実行される
+
+```sh
+if(( $+comands[go] )); then
+  echo "go: available"
+fi
+```
+### やってみよう
+
+1.
+
+`test.sh`と同階層に`/img`フォルダを作り、その中に画像を入れておき
+
+`test.sh`を以下のようにして実行する
+
+```sh
+#!/bin/sh
+cd ./img && ls -la
+```
+
+`sh test.sh`
+
+このように普段叩くコマンドをshから叩くことができる(コマンドの自動化)
+
+2.
+
+
 
 
 - echo (出力するコマンド)
@@ -168,3 +240,93 @@ PATH変数に入っているものを出力
 ```bash
 expr 1 * 2 //式を評価する
 ```
+
+
+### Q
+
+#### `/bin/sh`と`/bin/bash`の違い
+
+- Linuxのデフォルトはbash
+- `/bin/sh`は`bin/bash`へのシンボルリンクとなっている
+- `/bin/sh`で動かすのと`bin/bash`で動かすのでは結果が違う
+
+bashはPOSIXモードがオンになっていて古いコマンドと後方互換を保っているがshはそれをオフにしている
+
+```sh
+#!/bin/bash
+set -o
+```
+で実行すると
+
+```sh
+allexport       off
+braceexpand     on
+emacs           off
+errexit         off
+errtrace        off
+functrace       off
+hashall         on
+histexpand      off
+history         off
+ignoreeof       off
+interactive-comments    on
+keyword         off
+monitor         off
+noclobber       off
+noexec          off
+noglob          off
+nolog           off
+notify          off
+nounset         off
+onecmd          off
+physical        off
+pipefail        off
+posix           on
+privileged      off
+verbose         off
+vi              off
+xtrace          off
+```
+
+一方
+
+```sh
+#!/bin/sh
+set -o
+```
+で実行すると
+
+```sh
+allexport       off
+braceexpand     on
+emacs           off
+errexit         off
+errtrace        off
+functrace       off
+hashall         on
+histexpand      off
+history         off
+ignoreeof       off
+interactive-comments    on
+keyword         off
+monitor         off
+noclobber       off
+noexec          off
+noglob          off
+nolog           off
+notify          off
+nounset         off
+onecmd          off
+physical        off
+pipefail        off
+posix           on
+privileged      off
+verbose         off
+vi              off
+xtrace          off
+```
+
+同じになっている...調査必要
+
+
+
