@@ -210,11 +210,24 @@ fi
 ```
 ### やってみよう
 
+`./img`にある`png`ファイルを全て`jpg`にするスクリプトを書いてみよう
+
 1.
 
 `test.sh`と同階層に`/img`フォルダを作り、その中に画像を入れておき
 
 `test.sh`を以下のようにして実行する
+
+```sh
+index=1
+for file in ./img/*.png
+do
+  mv "$file" "./img${index}.jpg"
+  index=`expr $index + 1`
+done
+```
+
+
 
 ```sh
 #!/bin/sh
