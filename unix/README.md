@@ -367,3 +367,23 @@ HelloFunction () {
 HelloFunction kenji morita
 ```
 
+
+if条件
+
+```sh
+if [ "$1" -gt "$2" ]
+  then
+    echo "1番目の引数の方が2番目より大きい"
+  elif [ "$1" -eq "$2" ]
+  then
+    echo "1番目と2番目の引数は同じ"
+  elif [ "$1" -lt "$2" ]
+  then
+    echo "2番目の引数の方が1番目より大きい"
+  else
+    echo "引数が渡っていない"
+fi
+```
+
+[シェルスクリプトとMakefileの違い](https://www.clear-code.com/blog/2012/10/24.html)
+[シェルスクリプトとMakefileって何が違うんですか？シェルかCかの違いだけで同じカテゴリーのものですか？](https://jp.quora.com/shieru-sukuriputo-to-Makefile-tte-nani-ga-chigau-nde-suka-shieru-ka-C-ka-no-chigai-dake-de-onaji-kategori-no-mono-desu-ka)
