@@ -28,3 +28,11 @@
 
 [https://glitch.com/](https://glitch.com/)
 
+## React
+
+[ReactはなぜFiberで書き直されたのか？Reactの課題と将来像を探る](https://html5experts.jp/shumpei-shiraishi/23265/)
+
+
+## Test
+
+[リーダブルテストコード](https://qiita.com/yonetty/items/7787a539d77396a3807e)
