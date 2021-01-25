@@ -12,3 +12,22 @@ npmとは何か
 - ソフトウェアレジストリ
 - Webサイト
 
+## installation of the NPM
+- install package in the project
+- install Semver package
+- install Semver Pakage
+
+## Dependencies vs Development Dependencies
+
+## NPM pakcages version and package-lock.json file
+
+## Updating NPM-Node.js package Manager
+
+SE
+
+## NPM Script
+
+## Executable scripts in the NPM
+
+
+
