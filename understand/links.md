@@ -36,3 +36,8 @@
 ## Test
 
 [リーダブルテストコード](https://qiita.com/yonetty/items/7787a539d77396a3807e)
+
+## Clean Architecture
+
+[フロントエンドでClean Architectureを適用してみる(+サンプルコード)
+](https://qiita.com/ttiger55/items/50d88e9dbf3039d7ab66)
