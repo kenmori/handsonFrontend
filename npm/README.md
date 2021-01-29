@@ -19,6 +19,21 @@ npmとは何か
 
 ## Dependencies vs Development Dependencies
 
+dependencies
+- npm install --save react
+
+devDependencies
+- パッケージを作る時、testツール、ビルドツール、バンドルツール、タスクツール等開発時に使うパッケージはここ
+- エンドユーザーとしてアプリを作る分にはdependenciesでもdevDependencesでもどちらでも構わないが、できるだけ分けた方いい
+- 誰かのをクローンして開発するとき(そのライブラリのルートでインストールするとき)にnpm iするとnode_modulesに入るもの
+- devDependencesに入っているパッケージはライブラリを使用する分にはインストールされない
+
+
+
+
+
+
+
 ## NPM pakcages version and package-lock.json file
 
 ## Updating NPM-Node.js package Manager
