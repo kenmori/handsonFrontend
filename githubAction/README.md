@@ -5,7 +5,8 @@
 
 
 - Workflow
-  github内に定義するもの
+  githubのリポジトリ内に定義するもの
+  - イベントによってトリガーされるアクションを定義する
 - Job
   - workflow内に定義されるもの
   - 順番をstepに書く
@@ -16,3 +17,7 @@
 
 
 - 複数のJobは並列で実行可能
+
+## イベント
+
+[Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
