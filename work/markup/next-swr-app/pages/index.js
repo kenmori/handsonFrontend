@@ -2,6 +2,23 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+const proxyUrl = "https://cors-anywhere.herokuapp.com/" // localhostでリクエストするためのもの see: https://stackoverflow.com/a/43881141
+const apiKey = "a7e9c673d230401da4ea7c36834348ad";
+const url = `${proxyUrl}http://newsapi.org/v2/top-headlines?` +
+          'country=us&' +
+          `apiKey=${apiKey}`;
+const request = new Request(url);
+
+fetch(request)
+  .then(response => response.json())
+  .then((news) => {
+    console.log(news);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
   return (
     <div className={styles.container}>
       <Head>
