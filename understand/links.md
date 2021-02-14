@@ -14,7 +14,7 @@
 [How do I return the response from an asynchronous call?
 ](https://stackoverflow.com/questions/14220321/how-do-i-return-the-response-from-an-asynchronous-call)
 
-[Promise]()
+[Promise](https://azu.github.io/promises-book/)
 
 ### NetWork
 [一番分かりやすい OAuth の説明](https://qiita.com/TakahikoKawasaki/items/e37caf50776e00e733be)
@@ -41,3 +41,9 @@
 
 [フロントエンドでClean Architectureを適用してみる(+サンプルコード)
 ](https://qiita.com/ttiger55/items/50d88e9dbf3039d7ab66)
+
+
+
+## その他
+
+[HTML5のLocal Storageを使ってはいけない（翻訳）](https://techracho.bpsinc.jp/hachi8833/2019_10_09/80851)
