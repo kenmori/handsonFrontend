@@ -21,7 +21,7 @@ Docker
 Dockerimageを管理するDoker レジストリ
 
 
-DockerId 
+DockerId
 - githubのリポジトリにあたるものになる。慎重に
 
 自分のパソコン
