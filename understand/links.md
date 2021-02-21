@@ -28,10 +28,16 @@
 
 [https://glitch.com/](https://glitch.com/)
 
+
+## "30分"ぐらいでわかる「Kubernetes」について
+["30分"ぐらいでわかる「Kubernetes」について](https://www.slideshare.net/YuyaOhara/30kubernetes-81054893)
 ## React
 
 [ReactはなぜFiberで書き直されたのか？Reactの課題と将来像を探る](https://html5experts.jp/shumpei-shiraishi/23265/)
 
+## TypeScript
+
+[TypeScriptで関数の部分型を理解しよう](https://www.kabuku.co.jp/developers/learn-subtyping-of-function)
 
 ## Test
 
