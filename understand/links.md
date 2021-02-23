@@ -39,6 +39,7 @@
 
 [TypeScriptで関数の部分型を理解しよう](https://www.kabuku.co.jp/developers/learn-subtyping-of-function)
 
+[型の主従関係](https://speakerdeck.com/takefumiyoshii/typescript-falseliu-yi?slide=52)
 ## Test
 
 [リーダブルテストコード](https://qiita.com/yonetty/items/7787a539d77396a3807e)
