@@ -1,8 +1,15 @@
+import "babel-polyfill"
+
 type User = { id: number; name: string; gender: string; age: number };
 type Users = User[];
 
 class Table {
-  constructor(target: HTMLElement, users: Users[], headers: string[]) {
+  target: HTMLElement
+  table: HTMLElement
+  users: Users
+  currentUsers: Users
+  headers: string[]
+  constructor(target: HTMLElement, users: Users, headers: string[]) {
     this.target = target;
     this.table = document.createElement("table");
     this.users = users;
@@ -13,7 +20,7 @@ class Table {
   }
   createSortView() {
     const idEle = document.getElementById("js-sort-id");
-    idEle.textContent = "▼";
+    if(idEle) idEle.textContent = "▼";
   }
   createHeaders() {
     const thead = document.createElement("thead");
@@ -37,10 +44,10 @@ class Table {
       const tdName = document.createElement("td");
       const tdAge = document.createElement("td");
       const tdGender = document.createElement("td");
-      tdId.textContent = user["id"];
+      tdId.textContent = `${user["id"]}`;
       tdName.textContent = user["name"];
       tdGender.textContent = user["gender"];
-      tdAge.textContent = user["age"];
+      tdAge.textContent = `${user["age"]}`;
       frag.appendChild(tdId);
       frag.appendChild(tdName);
       frag.appendChild(tdGender);
@@ -51,7 +58,7 @@ class Table {
     }
     this.target.appendChild(this.table);
   }
-  set data(users: Users[]) {
+  set data(users: Users) {
     this.users = users;
   }
   get data() {
