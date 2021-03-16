@@ -75,3 +75,20 @@ grid-template-columns: repeat(3, 100px)
 
 #### ローの幅指定
 
+先程の
+`grid-template-columns`に対して行の高さ指定は
+
+```css
+grid-template-rows: 100px 100px 100px
+```
+
+です。
+
+3行それぞれ同じ100pxで指定しています。
+4行なら
+
+```css
+grid-template-rows: 100px 100px 100px 100px
+```
+
+です。
