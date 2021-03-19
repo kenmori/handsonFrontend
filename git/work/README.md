@@ -5,11 +5,13 @@
 
 ## 対象
 
-- `mac`の方
+- `mac`の方(winの方でもあまり違いはないみたいです)
 - unixがある程度操作できる人
 - `brew install git`している方
 - `git help`でなんか出てくること
 
+##　用語
+- 以前までの`master`ブランチが最近`main`ブランチという名前に変更になりましたがここでは`master`と呼ぶ事とします。
 
 ※以下今今じゃなくていいけど後々問題になる物
 - `git config --global user.name "GitHubのユーザ名"`
@@ -865,7 +867,7 @@ Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
   (use "git pull" to update your local branch)
 ```
 
-するとこのようにでます。
+するとこのようにでます。(一部これがでない方もいるみたいです。がその場合も#33へ進めます。ここで確認したいのは今のmasterローカルブランチがリモートブランチよりも遅れているということです。)
 あなたのブランチは2コミット遅れている。git pullを使ってローカルブランチをアップデートしてください
 
 と出ます。2コミットというのは`fix: add html`のコミットと`マージコミット`のことです。
