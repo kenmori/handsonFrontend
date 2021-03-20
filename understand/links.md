@@ -49,7 +49,10 @@
 [フロントエンドでClean Architectureを適用してみる(+サンプルコード)
 ](https://qiita.com/ttiger55/items/50d88e9dbf3039d7ab66)
 
+## ReadableCode
 
+[良いコードの書き方](https://qiita.com/alt_yamamoto/items/25eda376e6b947208996)
+[【JS・TS】コーディングTips集](https://qiita.com/k-penguin-sato/items/81fbf561d2c4b68c74cc)
 
 ## その他
 
