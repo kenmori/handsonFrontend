@@ -12,6 +12,7 @@ class Table {
   users: Users
   currentUsers: Users
   headers: string[]
+  headerTr: DocumentFragment
   constructor(target: HTMLElement, users: Users, headers: string[]) {
     this.target = target;
     this.table = document.createElement("table")
@@ -26,7 +27,9 @@ class Table {
 
   createHeaders() {
     const thead = document.createElement("thead");
+    thead.setAttribute("id", "js-thead")
     const headerTr = document.createElement("tr");
+    headerTr.setAttribute("id", "js-headers")
     const frag = document.createDocumentFragment();
     for (let header of this.headers) {
       const th = document.createElement("th");
@@ -34,7 +37,14 @@ class Table {
       th.textContent = header;
       frag.append(th);
     }
-    this.table.appendChild(thead).appendChild(headerTr).appendChild(frag);
+    this.setHeader(headerTr.appendChild(frag))
+    this.table.appendChild(thead).appendChild(headerTr)
+  }
+  setHeader(headerTr: DocumentFragment){
+    this.headerTr = headerTr
+  }
+  getHeader(){
+    return this.headerTr
   }
   updateTable(users: Users){
     const tbody = document.getElementById("tbody")
@@ -79,39 +89,43 @@ class Table {
 
 class SortTable extends Table {
   headers: string[]
-  currentSort: "ASC" | "DESC" | "NORMAL"
   users: Users
   static sortType = {ASC: "ASC", DESC: "DESC", NORMAL: "NORMAL"} as const
   constructor(target: HTMLElement, users: Users, headers: string[]){
     super(target, users, headers);
-    this.currentSort = SortTable.sortType.NORMAL
   }
   callback = (event: MouseEvent) => {
     console.log(event.target);
       if(event.target === null)  return
       const targetSort = (event.target as HTMLElement).getAttribute("data-sort") as "id" | "age"
       const sortStatus = (event.target as HTMLElement).getAttribute("data-status") as "ASC" | "DESC" | "NORMAL" | null
-      console.log(targetSort, sortStatus);
       if(targetSort === null) return
       let sortedData = this.getUsers();
+      const taregt = (event.target as HTMLElement)
       switch(sortStatus){
         case "NORMAL":
-          (event.target as HTMLElement).setAttribute("data-status", "ASC");
-          (event.target as HTMLElement).textContent = `${targetSort}▼`
+          taregt.setAttribute("data-status", "ASC");
+          taregt.classList.replace("normal", "asc")
+          this.updateTable(sortedData);
+          this.updateHeaders();
+          break;
         case "ASC":
           sortedData = [...this.getUsers()].sort((a, b) => {
           return a[targetSort] - b[targetSort]
         });
-        (event.target as HTMLElement).setAttribute("data-status", "DESC");
-        (event.target as HTMLElement).textContent = `${targetSort}▲`
+          taregt.setAttribute("data-status", "DESC");
+          taregt.classList.replace("asc", "desc")
+          this.updateTable(sortedData)
+          break;
         case "DESC":
           sortedData = [...this.getUsers()].sort((a, b) => {
             return b[targetSort] - a[targetSort]
           });
-          (event.target as HTMLElement).setAttribute("data-status", "NORMAL");
-          (event.target as HTMLElement).textContent = `${targetSort}+`
+          taregt.setAttribute("data-status", "NORMAL");
+          taregt.classList.replace("desc", "normal")
+          this.updateTable(sortedData)
+          break;
       }
-      super.updateTable(sortedData)
     }
   attachEvent(){
     this.headers.forEach(header => {
@@ -119,11 +133,33 @@ class SortTable extends Table {
       th?.addEventListener("click", this.callback)
     })
   }
+  updateHeaders(){
+    const tr = document.getElementById("js-headers");
+    const fragment = document.createDocumentFragment()
+    tr.childNodes.forEach((e) => {
+      console.log(e, "e");
+      fragment.appendChild(e)
+    })
+    tr?.innerHTML = ""
+    tr?.appendChild(fragment)
+  }
+  updateTable(users: Users){
+    const tbody = document.getElementById("tbody")
+    const childNodes = tbody?.childNodes ?? []
+    childNodes.forEach((node: ChildNode, i: number) => {
+      node.childNodes[0].textContent = String(users[i].id)
+      node.childNodes[1].textContent = String(users[i].name)
+      node.childNodes[2].textContent = String(users[i].gender)
+      node.childNodes[3].textContent = String(users[i].age)
+    })
+    this.setUsers(users)
+  }
+
   createSortView(headers?: string[]) {
     if(!headers) return
     headers.forEach((header) => {
       const sortTarget = document.getElementById(`js-${header}`);
-      if(sortTarget) sortTarget.textContent += "+";
+      if(sortTarget) sortTarget.classList.add("normal")
       if(sortTarget) sortTarget.setAttribute("data-status", "NORMAL");
       if(sortTarget) sortTarget.setAttribute("data-sort", `${header}`)
     })

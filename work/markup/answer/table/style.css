@@ -1,0 +1,21 @@
+.desc {
+  background: url("./src/img/desc.svg");
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+.asc {
+  background: url("./src/img/asc.svg");
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+th {
+  position: relative;
+}
+.normal {
+  background: url("./src/img/both.svg");
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
