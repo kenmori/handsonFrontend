@@ -140,7 +140,6 @@ class SortTable extends Table {
       console.log(e, "e");
       fragment.appendChild(e)
     })
-    tr?.innerHTML = ""
     tr?.appendChild(fragment)
   }
   updateTable(users: Users){
