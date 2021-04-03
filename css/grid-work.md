@@ -1,5 +1,7 @@
 # 触って覚えるCSSのgrid
 
+[author](http://kenjimorita.jp/)
+
 [ハンズオンコード](https://codesandbox.io/s/interesting-sea-vmwmk?file=/index.html)
 
 ## 基本用語
