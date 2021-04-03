@@ -541,5 +541,9 @@ WIP
 2.
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P7.png" width="600" />
 
+[仮の答え。なんかこんな感じになればいいです](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
+
 3.
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="600" />
+
+[こんな感じになればok](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
