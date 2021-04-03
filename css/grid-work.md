@@ -180,7 +180,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 と同じ意味
 
 
-## colum間でgapをつけたい
+## column間でgapをつけたい
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/8.png" width="600" />
 
@@ -470,7 +470,7 @@ WIP
 ```css
 .grid-item1 {
     grid-row: 1 / span 3;  /* grid-row: 1 / 4; と同じ */
-    grid-column: 3 / span 2; /* grid-colum: 3 / 5; と同じ */
+    grid-column: 3 / span 2; /* grid-column: 3 / 5; と同じ */
 }
 ```
 
