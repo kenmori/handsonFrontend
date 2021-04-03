@@ -8,25 +8,25 @@
 
 `display: grid`を指定した箇所はグリッドコンテナと呼ばれます
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P1.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P1.png" width="600" />
 
 グリッドコンテナ直下の要素は全てグリッドアイテムと呼ばれます
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P2.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P2.png" width="600" />
 
 それぞれのグリッドアイテムの境界線のことをラインと呼びます。
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P3.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P3.png" width="600" />
 
 
 グリッドアイテムをつなげた範囲をエリアと言います
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P4.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P4.png" width="600" />
 
 
 エリアには名前がつけることができます
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P5.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P5.png" width="600" />
 
 
 
@@ -61,7 +61,7 @@
 
 `grid-template-columns`
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/2.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/2.png" width="600" />
 
 ```css
 .grid {
@@ -72,7 +72,7 @@
 
 ### 3行を作る
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/3.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/3.png" width="600" />
 
 `grid-template-rows`
 
@@ -86,12 +86,12 @@
 
 ## このままだとコンテンツが多い場合溢れてしまいます
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/4.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/4.png" width="600" />
 
 
 ## autoを指定する
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/5.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/5.png" width="600" />
 
 ```css
 .grid {
@@ -103,7 +103,7 @@
 
 ## 1列目も可変にする
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-1.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-1.png" width="600" />
 
 ```css
 .grid {
@@ -115,7 +115,7 @@
 
 autoにすると要素が足りない時
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-2.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-2.png" width="600" />
 
 こうなる
 
@@ -126,7 +126,7 @@ autoにすると要素が足りない時
 
 minmaxで制御する
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-3.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/6-3.png" width="600" />
 
 
 ```css
@@ -158,7 +158,7 @@ grid-template-rows: 100px 200px 100px;
 
 ## gap
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/7.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/7.png" width="600" />
 
 一旦こちらの指定にしてください
 
@@ -182,7 +182,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 
 ## colum間でgapをつけたい
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/8.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/8.png" width="600" />
 
 ```css
 .grid {
@@ -197,7 +197,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 
 `repeat`は(繰り返す数, 幅or高)を指定します
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/9.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/9.png" width="600" />
 
 
 ```css
@@ -211,7 +211,8 @@ gap: <grid-row-gap> <grid-column-gap>;
 
 ## repeatの中で使えるauto-fill
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/10.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/10.png" width="600" />
+
 のように開発ツールの幅を変えてください
 
 ```css
@@ -224,7 +225,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 ```
 `auto-fill`を使うと親要素の分だけ空のカラムを作ります
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/11.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/11.png" width="600" />
 
 
 ## repeatの中で使えるauto-fit
@@ -239,7 +240,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 ```
 `auto-fill`を使うと親要素が広がった分だけカラムを作ります
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/12.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/12.png" width="600" />
 
 少しわかりづらいのでHTMLをこのようにしてください
 
@@ -267,7 +268,8 @@ gap: <grid-row-gap> <grid-column-gap>;
 ```
 
 auto-fillはこのようになり
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/13.png" width="400" />
+
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/13.png" width="600" />
 
 これは 最小は100pxだがそれを越えれば残りの余ったスペースを新たな空のグリッドで埋めて（フィルして）くれます
 
@@ -284,7 +286,7 @@ auto-fitはこのようになります
 
 これは 最小は100pxだがそれを越えれば余ったスペースは0になり、それぞれのカラムが1frになります。[仕様](https://drafts.csswg.org/css-grid/#auto-repeat)
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/14.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/14.png" width="600" />
 
 ### grid-template-columns: 1fr 1fr 2fr
 
@@ -300,7 +302,7 @@ auto-fitはこのようになります
 とはどんな状態でしょうか
 は分母4で、3カラム目が2/4であとは1/4ずつ
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/15.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/15.png" width="600" />
 
 
 ### repeat(3, 1fr) auto;`の意味は？
@@ -329,7 +331,7 @@ auto-fitはこのようになります
 
 autoのコンテンツ幅を引いたものを3つに分ける4カラムなもの
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/16.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/16.png" width="600" />
 
 ## align-content: center
 
@@ -358,7 +360,7 @@ heightとbackgroundを足したあと
 `align-content: center;`
 を指定してみてください
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/17.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/17.png" width="600" />
 
 
 グリッドコンテナ自体がheightに対して真ん中にきました
@@ -367,11 +369,11 @@ heightとbackgroundを足したあと
 
 align-itemをするとグリットアイテム内のコンテンツの位置が変わることに注目してください
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/18.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/18.png" width="600" />
 
 ## justfiy-self
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/19.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/19.png" width="600" />
 
 グリッドアイテムに指定します。グリッドアイテム内のコンテンツ始まり位置を制御します
 
@@ -379,13 +381,13 @@ align-itemをするとグリットアイテム内のコンテンツの位置が�
 
 ## align-self
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/20.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/20.png" width="600" />
 
 グリッドアイテムに指定します。グリッドアイテム内のコンテンツ始まり位置を制御します
 
 ## grid-template
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/21.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/21.png" width="600" />
 
 `grid-template`は
 `grid-template-rows`と`grid-template-columns`のショートハンドです
@@ -413,15 +415,110 @@ align-itemをするとグリットアイテム内のコンテンツの位置が�
 
 のように書くことができます。`". . ."`はグリッドアイテムの名前です。`header heafer herfer`でもなんでも良いです(後述)。「エリアには名前がつけることができます」を思い出してください
 
+
+## 範囲を決めるのには2つ方法がある
+
+### 1.グリッドアイテムにgrid-row, grid-columを指定する
+
+WIP
+
+grid-row, grid-columは
+どのエリアを含みたいかをグリッド線(ライン)で指定します。
+
+再掲
+
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P3.png" width="600" />
+
+
+```css
+.grid-item1 {
+    grid-row: 1 / 2;
+    grid-colum: 1 / 2;
+}
+```
+
+これは青い線の1から2の間で且つ、行の1/2を指定しています。
+
+こちらはどうでしょう
+
+```css
+.grid-item1 {
+    grid-row: 1 / 3;
+    grid-colum: 1 / 2;
+}
+```
+
+これは青い線の1から3の間と行の1/2を指定しています。
+
+このようにエリアを指定して、グリッドアイテムがどこの範囲を自分の範囲にするかを指定する方法があります。
+
+
+### 2.grid-templateで指定されたエリア名をgrid-row, grid-columとしてグリッドアイテムに付与する
+
+WIP
+
+例えば上記の
+
+```css
+.grid {
+    display: grid;
+    grid-template:
+        ". . ."100px
+        ". . ." 100px
+        ". . ." 100px / 100px 100px 100px;
+}
+```
+
+をちゃんと名前を付与してみます
+
+```css
+.grid {
+    display: grid;
+    grid-template:
+        "header header header" 100px
+        "contents contents contents" 100px
+        "footer footer footer" 100px / 100px 100px 100px;
+}
+```
+
+これは""内でカラムを作り、それが3行あることを示しています。
+行の最後にはその行の高さを指定して、
+最後`/`後は各カラムの幅を指定しています
+
+上記だと
+それぞれのグリッドアイテムに
+
+```css
+.grid-item1 {
+    grid-area: header;
+}
+```
+
+```css
+.grid-item2 {
+    grid-area: contents;
+}
+```
+
+```css
+.grid-item3 {
+    grid-area: footer;
+}
+```
+
+と指定します。
+
 ## 課題
 
 1.
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P6.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P6.png" width="600" />
 
+- 一行は100px
+- 1列目は100px。その他は親要素いっぱいに広がる
+[仮の答え](https://codesandbox.io/s/sharp-bohr-46hkc?file=/index.html)
 
 2.
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P7.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P7.png" width="600" />
 
 3.
-
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="600" />
