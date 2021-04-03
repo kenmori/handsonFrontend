@@ -416,12 +416,12 @@ align-itemをするとグリットアイテム内のコンテンツの位置が�
 ## 課題
 
 1.
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/P7.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P6.png" width="400" />
 
 
 2.
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/P8.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P7.png" width="400" />
 
 3.
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/P9.png" width="400" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="400" />
