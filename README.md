@@ -12,4 +12,8 @@
 
 `css/grid-work.md`
 
+## 【鍛えよう】reduceの使い方。reduceに強くなる記事。how to use reduce
+
+`javascript/reduce.md`
+
 等
