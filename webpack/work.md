@@ -1,5 +1,8 @@
 # Webpack(モジュールバンドラー)ハンズオン
 
+課題を始める前にここの右上の[star☆](https://github.com/kenmori/handsonFrontend/stargazers)を押下していただけるとやる気出ます。
+[作成者](http://kenjimorita.jp/)
+
 ここではwebpackについてハンズオンしていきます
 
 [Webpackは依存関係を考慮してそれぞれのjsを一本にまとめてくれるバンドルツールです](https://webpack.js.org/concepts/)
@@ -22,7 +25,11 @@ Webpackがどのように動くか
 
 ローカルにインストールしたwebpackが使えるようにパスを通す
 
+## パスを通す
+
 `export PATH=$PATH:./node_modules/.bin`
+
+[参照](https://qiita.com/soarflat/items/09be6ab9cd91d366bf71)
 
 `webpack`
 
