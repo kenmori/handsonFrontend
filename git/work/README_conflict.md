@@ -1,5 +1,8 @@
 # gitコンフリクト解消ができるようになるハンズオン(コンフリクトとは、解消する方法)
 
+課題を始める前にここの右上の[star☆](https://github.com/kenmori/handsonFrontend/stargazers)を押下していただけるとやる気出ます。
+[作成者](http://kenjimorita.jp/)
+
 ## わたし
 
 - [author](https://kenjimorita.jp/aboutme)

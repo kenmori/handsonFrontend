@@ -1,6 +1,10 @@
 
 # git初学者が手を動かして覚えるgitハンズオン
 
+課題を始める前にここの右上の[star☆](https://github.com/kenmori/handsonFrontend/stargazers)を押下していただけるとやる気出ます。
+[作成者](http://kenjimorita.jp/)
+
+
 前提
 
 ## 対象

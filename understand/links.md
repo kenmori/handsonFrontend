@@ -1,6 +1,9 @@
 
 ## Read
 
+課題を始める前にここの右上の[star☆](https://github.com/kenmori/handsonFrontend/stargazers)を押下していただけるとやる気出ます。
+[作成者](http://kenjimorita.jp/)
+
 ### git
 
 [Git初心者に捧ぐ！Gitの「これなんで？」を解説します。](https://kray.jp/blog/git-why-explanation/)
