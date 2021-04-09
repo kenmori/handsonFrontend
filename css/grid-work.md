@@ -418,11 +418,11 @@ align-itemをするとグリットアイテム内のコンテンツの位置が�
 
 ## 範囲を決めるのには2つ方法がある
 
-### 1.グリッドアイテムにgrid-row, grid-columを指定する
+### 1.グリッドアイテムにgrid-row, grid-columnを指定する
 
 WIP
 
-grid-row, grid-columは
+`grid-row`, `grid-column`は
 どのエリアを含みたいかをグリッド線(ライン)で指定します。
 
 再掲
@@ -433,7 +433,7 @@ grid-row, grid-columは
 ```css
 .grid-item1 {
     grid-row: 1 / 2;
-    grid-colum: 1 / 2;
+    grid-column: 1 / 2;
 }
 ```
 
@@ -444,7 +444,7 @@ grid-row, grid-columは
 ```css
 .grid-item1 {
     grid-row: 1 / 3;
-    grid-colum: 1 / 2;
+    grid-column: 1 / 2;
 }
 ```
 
@@ -452,8 +452,29 @@ grid-row, grid-columは
 
 このようにエリアを指定して、グリッドアイテムがどこの範囲を自分の範囲にするかを指定する方法があります。
 
+隣り合わせのラインは"/"を省略できます
 
-### 2.grid-templateで指定されたエリア名をgrid-row, grid-columとしてグリッドアイテムに付与する
+```css
+.grid-item1 {
+    grid-row: 1;  /* grid-row: 1 / 2; と同じ */
+    grid-column: 1; /* grid-column: 1 / 2; と同じ */
+}
+```
+
+#### span
+
+また
+
+`/`後の指定で、いくつ先のラインまで伸ばすかを指定することもできます
+
+```css
+.grid-item1 {
+    grid-row: 1 / span 3;  /* grid-row: 1 / 4; と同じ */
+    grid-column: 3 / span 2; /* grid-colum: 3 / 5; と同じ */
+}
+```
+
+### 2.grid-templateで指定されたエリア名をgrid-row, grid-columnとしてグリッドアイテムに付与する
 
 WIP
 
@@ -520,5 +541,9 @@ WIP
 2.
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P7.png" width="600" />
 
+[仮の答え。なんかこんな感じになればいいです](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
+
 3.
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="600" />
+
+[こんな感じになればok](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
