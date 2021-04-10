@@ -180,7 +180,7 @@ gap: <grid-row-gap> <grid-column-gap>;
 と同じ意味
 
 
-## colum間でgapをつけたい
+## column間でgapをつけたい
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/8.png" width="600" />
 
@@ -470,7 +470,7 @@ WIP
 ```css
 .grid-item1 {
     grid-row: 1 / span 3;  /* grid-row: 1 / 4; と同じ */
-    grid-column: 3 / span 2; /* grid-colum: 3 / 5; と同じ */
+    grid-column: 3 / span 2; /* grid-column: 3 / 5; と同じ */
 }
 ```
 
@@ -536,6 +536,13 @@ WIP
 
 - 一行は100px
 - 1列目は100px。その他は親要素いっぱいに広がる
+
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/スクリーンショット-2021-04-04-8.35.46.png" width="600">
+
+このようなコンテンツが多い時も対応できること
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/スクリーンショット-2021-04-04-8.35.02.png" width="600">
+
+
 [仮の答え](https://codesandbox.io/s/sharp-bohr-46hkc?file=/index.html)
 
 2.
@@ -543,7 +550,33 @@ WIP
 
 [仮の答え。なんかこんな感じになればいいです](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
 
+チェックポイントはコンテンツが増えても期待するように可変するか
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/スクリーンショット-2021-04-04-7.45.49.png" width="600" />
+
 3.
 <img src="https://terracetech.jp/wp-content/uploads/2021/04/grid-P8.png" width="600" />
 
 [こんな感じになればok](https://codesandbox.io/s/elegant-pascal-zx4q7?file=/index.html)
+
+4.
+
+[課題の為の写真素材](https://terracetech.jp/2021/04/04/download/)
+を使ってグリッドレイアウトに慣れていきましょう
+
+
+5.
+
+
+6.
+
+
+7.
+
+
+8.
+
+
+9.
+
+
+10.
