@@ -62,3 +62,25 @@
 ## その他
 
 [HTML5のLocal Storageを使ってはいけない（翻訳）](https://techracho.bpsinc.jp/hachi8833/2019_10_09/80851)
+
+[「クライアントが間違っている」と思ってはいけない](https://uxmilk.jp/4941)
+
+[Dockerとは何か](https://kitsune.blog/docker-summary#Docker%E3%81%A8VirtualBox%EF%BC%88Vagrant%EF%BC%89%E3%81%AE%E9%81%95%E3%81%84)
+
+[仮想DOMは本当に“速い”のか？ DOM操作の新しい考え方を、フレームワークを実装して理解しよう](https://eh-career.com/engineerhub/entry/2020/02/18/103000)
+
+メモ。課題に使いたい
+[Authentication with Supabase and React](https://dev.to/ruanmartinelli/authentication-with-supabase-and-react-32h4)
+
+[Multi-page applications](https://medium.com/a-beginners-guide-for-webpack-2/multi-page-applications-4ae2ebfabc37)
+
+[Becoming a CSS Grid Ninja!](https://elad.medium.com/becoming-a-css-grid-ninja-f4c6db018cc1)
+
+[New CSS Logical Properties!](https://elad.medium.com/new-css-logical-properties-bc6945311ce7)
+[翻訳](https://coliss.com/articles/build-websites/operation/css/new-css-logical-properties.html)
+
+[オプション含めたsshコマンドの使い方 【Linuxコマンド集】](https://eng-entrance.com/linux-command-ssh)
+
+[RTK](https://morioh.com/p/2fd83698eafb?f=5c21fb01c16e2556b555ab32)
+
+[webpack](https://www.webdesignleaves.com/pr/jquery/webpack_basic_01.html)

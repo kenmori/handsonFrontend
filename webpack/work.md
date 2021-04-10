@@ -7,14 +7,63 @@
 
 [Webpackは依存関係を考慮してそれぞれのjsを一本にまとめてくれるバンドルツールです](https://webpack.js.org/concepts/)
 
+ざっくり概要。
+
+webpackというものを使って、一つのjsを作ります。
+一つのjsというのは
+
+```html
+<script src="jquery.js"></script>
+<script src="2.js"></script>
+<script src="3.js"></script>
+```
+
+というのがあったとして
+
+`jquery.js`と`2.js`, `3.js`はそれぞれ読み込まれる順番や内部で参照している変数に依存しています
+
+
+```html
+<script src="3.js"></script>
+<script src="jquery.js"></script>
+<script src="2.js"></script>
+```
+
+これだと動かないケースがあります。3がjqueryが読み込まれているのを期待して書かれている場合などです。
+
+また、上記の場合httpリクエストを3回する必要があり、パフォーマンスコストが掛かります。
+
+このような問題を1つのjsとして依存関係(どのファイルがどのライブラリの読み込んで作られているか)を解決する為に
+バンドル(一つに束ねる)必要があります。この束ねる過程をビルドと言います。
+
+
+```html
+<script src="bundle.js"></script>
+```
+
+webpackはCSSやHTML,画像などのリソースをjsにすることができます。
+これをトランスパイル(変換)と言います。
+
+webpackは記述されたjsがプロジェクトで決められたコーディングルールで書かれているか、
+また、新しいJavaScript記述で書かれたものを古いブラウザでも解析できるようにしたりできます。
+それらの設定をwebpackの中の`loader`でします。
+
+一本のjsが出力された後にそのjsを圧縮したりする`plugin`もwebpackで設定することができます。
+
+
+webpackはローカルサーバーを立ち上げることができます。
+ファイル変更を検知して、ビルド、ブラウザをリロードして最新をそこに反映します。
+
+ざっくりですがそれが概要です。
+
 Webpackを理解するためにまずはこれらを理解しましょう
 
-- Entry・・・依存関係の解析を始めるファイル
-- Output・・・出力設定。出力するファイルやパスを設定する
-- Loaders
+- Entry・・・依存関係の解析を始めるファイル。上記説明でいう「どれが最初に読み込まれるjsか」です。上記の場合`1.js`です
+- Output・・・バンドルされたjsの出力設定。出力するファイル名やパスを設定する
+- Loaders・・・バンドルする前に実行する変換や検証
 - Plugins・・・バンドル時に実行されるさまざまなタスク
-- Mode
-- Browser Compatibility
+- Mode・・・バンドルされたjsを開発 or 製品としてビルドするか
+- Browser Compatibility・・・ブラウザ互換
 
 Webpackがどのように動くか
 
@@ -174,8 +223,17 @@ Webpackはこのように
 
 などフロントエンド開発では欠かせない存在になっています。
 
-## watchモード
+## ローカルサーバーを立ち上げる
 
+ローカルサーバーを立ち上げましょう。
+
+`yarn add -D webpack-dev-server`
+
+```json
+ "scripts": {
+    "dev": "webpack serve" // webpack 4からはこのように書く
+  }
+```
 
 
 ## npm scriptsにコマンドを書く
