@@ -1,4 +1,4 @@
-# 触って覚えるCSSのgrid
+# 触って覚えるgridハンズオン学習・練習
 
 [author](http://kenjimorita.jp/)
 
