@@ -15,11 +15,12 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     compress: true,
     open: true,
-    port: 9000,
+    host: '192.168.100.176',
+    port: 8080,
      // ルートディレクトリのファイルを監視
      watchContentBase: true,
      //バンドルされたファイルを出力する（実際に書き出す）
-     writeToDisk: true
+     writeToDisk: true,
   },
 }
 
