@@ -84,3 +84,5 @@
 [RTK](https://morioh.com/p/2fd83698eafb?f=5c21fb01c16e2556b555ab32)
 
 [webpack](https://www.webdesignleaves.com/pr/jquery/webpack_basic_01.html)
+
+[2018-09-28-hackerkiste-webpack-deep-dive](https://peerigon.github.io/talks/2018-09-28-hackerkiste-webpack-deep-dive/)

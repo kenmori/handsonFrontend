@@ -31,7 +31,7 @@ webpackというものを使って、一つのjsを作ります。
 
 これだと動かないケースがあります。3がjqueryが読み込まれているのを期待して書かれている場合などです。
 
-また、上記の場合httpリクエストを3回する必要があり、パフォーマンスコストが掛かります。
+また、上記の場合httpリクエストを3回する必要があり(roundtrip problem)、パフォーマンスコストが掛かります。
 
 このような問題を1つのjsとして依存関係(どのファイルがどのライブラリの読み込んで作られているか)を解決する為に
 バンドル(一つに束ねる)必要があります。この束ねる過程をビルドと言います。
@@ -60,12 +60,40 @@ Webpackを理解するためにまずはこれらを理解しましょう
 
 - Entry・・・依存関係の解析を始めるファイル。上記説明でいう「どれが最初に読み込まれるjsか」です。上記の場合`1.js`です
 - Output・・・バンドルされたjsの出力設定。出力するファイル名やパスを設定する
-- Loaders・・・バンドルする前に実行する変換や検証
-- Plugins・・・バンドル時に実行されるさまざまなタスク
+- [Loaders](https://webpack.js.org/loaders/)・・・バンドルする前や生成中に変換や検証。(任意のローダーを使い画像を文字列にしたり、lessをコンパイルしたcssにしたりする。)。個々のファイルレベルで機能する。
+
+下記は基本的なloaderです
+
+```text
+style-loader、css-loader、sass-loader、babel-loader、postcss-loader、file-loader、url-loader
+```
+
+- [Plugins](https://webpack.js.org/plugins/)・・・プラグインは、バンドルまたはチャンクレベルで機能する。webpackビルドシステム内にフックを登録し、Compilation（最適化されたバンドルモジュール）に機能を追加します。バンドル自体の作成方法の変更や、html内にstylesheet
+を追加したり、ライブラリを変数として開発時使えるようにしたり、さまざまな機能を持つプラグインがある
+
+下記は一般的なplugindです
+
+```text
+html-webpack-plugin、mini-css-extract-plugin、extract-text-webpack-plugin
+```
+
+プラグインやローダー
+
+[webpack-contrib](https://github.com/webpack-contrib)
+
 - Mode・・・バンドルされたjsを開発 or 製品としてビルドするか
 - Browser Compatibility・・・ブラウザ互換
 
 Webpackがどのように動くか
+
+
+- エントリファイルを見つけて、その内容をメモリにロードします
+- コンテンツ内の特定のテキストを照合し、それらを評価します（@importなど）
+- 以前の評価に基づいて依存関係を見つけ、それらで同じことを行います
+- それらすべてをメモリ内のバンドルにステッチします
+- 結果をファイルシステムに書き込む
+
+
 
 `yarn add -D webpack`
 
@@ -257,11 +285,38 @@ modeには`development` `production`等があります。
 ```json
 // package.json
 "scripts": {
-  "dev": "webpack --mode development --watch",
+  "dev": "webpack --mode development",
   "build": "webpack --mode production"
 }
 ```
 
+## ビルドしたら更新する
+
+```json
+  contentBase: path.join(__dirname, 'public'),
+  compress: true,
+  open: true, // ブラウザを立ち上げる
+  port: 9000,
+  // ルートディレクトリのファイルを監視
+  watchContentBase: true,
+  //バンドルされたファイルを出力する（実際に書き出す）
+  writeToDisk: true,
+```
+
+## localhostをスマホからアクセスできるようにする
+
+<img src="https://terracetech.jp/wp-content/uploads/2021/04/1-2.png" width="400px" />
+PC上のこちらにあるipアドレスを
+
+```json
+  devServer: {
+    host: '103.239.20.10', // ここに貼り付ける。
+    port: 8080,
+    disableHostCheck: true
+  },
+```
+
+サーバーを起動して画面をスマホからQRコードアクセスする。
 
 
 - [Manually Bundling an Application](https://www.youtube.com/watch?v=UNMkLHzofQI)
@@ -306,13 +361,7 @@ Loaders are transformations that are applied to the source code of a module.
 
 ローダーは他の言語からjsに変換します。例えばTypeScriptから
 
-
 `npm install --save-dev css-loader ts-loader`
-
-
-
-
-
 
 webpack+Babelの構成
 
@@ -335,3 +384,4 @@ and
 npm install react react-dom
 ```
 
+[Webpack Loaders and Plugins](https://imranhsayed.medium.com/webpack-loaders-and-plugins-e13f79fe6b32)
