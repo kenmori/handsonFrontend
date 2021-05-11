@@ -148,6 +148,14 @@ input.getAttribute("value") // "a"
 
 [ここでもう少し見やすいDOMプロパティやメソッドが見れます](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement)
 
+
+### まとめ
+
+- プロパティを使っていれば問題ない
+- フォーム関連の属性にはプロパティでアクセスする
+- data属性には`getAttribute` or `elem.dataset`
+- 非対応属性の設定には`setAttribute`,`getAttribute`
+
 ### 参考
 
 - [Element.setAttribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
