@@ -43,6 +43,15 @@ Error: Error serializing `.properties[0].last_scraped` returned from `getServerS
 Reason: `object` ("[object Date]") cannot be serialized as JSON. Please only return JSON serializable data types.
 ```
 
+### serch index
+
+[Atlas search](https://www.mongodb.com/atlas/search)
+
+http://localhost:3000/api/search?term=studio
+
+
+
+
 
 ## deploy
 
@@ -52,6 +61,9 @@ https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-exa
 
 https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
 
+
+
+[https://www.youtube.com/watch?v=aAupumVpqcE](https://www.youtube.com/watch?v=aAupumVpqcE)
 
 ## Example app using MongoDB
 

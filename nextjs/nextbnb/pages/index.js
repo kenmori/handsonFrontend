@@ -4,9 +4,11 @@ import { connectToDatabase } from '../util/mongodb'
 export default function Home({ properties }) {
   console.log(properties)
 
-  const book = (property) => {
-    // connectToDatabaseここではブラウザ側なので使えないのでapiを呼ぶ
-
+  const book = async (property) => {
+    // connectTojDatabaseここではブラウザ側なので使えないのでapiを呼ぶ
+    const data = await fetch(`/api/book?property_id=${property._id}&guest=Abo`)
+    const res = await data.json()
+    console.log(res);
   }
   return (
     <div>
@@ -22,9 +24,11 @@ export default function Home({ properties }) {
           <div>{property.summary}</div>
           <div>{property.address.street}</div>
           <div>{property.guests}</div>
+          <div>{property.amenities}</div>
+          <div>{property.description}</div>
           <div>{property.price}</div>
           {/* <div>{property.cleaningFee}</div> */}
-          <button onClick={() => book(property)}></button>
+          <button onClick={() => book(property)}>送信</button>
           </div>
         )
       })}
@@ -53,6 +57,8 @@ export async function getServerSideProps(context) {
       summary: property.summary,
       guests: property.accommodates,
       price: price.$numberDecimal,
+      description: property.description,
+      amenities: property.amenities
       // cleaning_fee: cleaningFee
     }
   })
