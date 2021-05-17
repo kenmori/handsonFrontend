@@ -33,6 +33,9 @@
 
 [https://glitch.com/](https://glitch.com/)
 
+## API
+
+[WebAPIについての説明](https://qiita.com/busyoumono99/items/9b5ffd35dd521bafce47)
 
 ## "30分"ぐらいでわかる「Kubernetes」について
 ["30分"ぐらいでわかる「Kubernetes」について](https://www.slideshare.net/YuyaOhara/30kubernetes-81054893)
