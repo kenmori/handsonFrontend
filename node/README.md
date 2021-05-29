@@ -1,7 +1,8 @@
-# nodeenv
+# nodenv
 
-[nodeenv](https://github.com/nodenv/nodenv#basic-github-checkout)
+[nodenv](https://github.com/nodenv/nodenv#basic-github-checkout)
 
+※windowsの人は[nodebrew](https://site-builder.wiki/posts/28784)を入れるといいかもです。nodenv対応していないかも
 ## なぜこれを設定するか、作業の流れ
 
 フロントではnode -vをプロジェクトごとに頻繁に変える & バージョン管理をしなくてはならない
