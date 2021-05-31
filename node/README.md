@@ -1,17 +1,26 @@
-# nodenv
+# nodenv 設定ハンズオン
 
-[nodenv](https://github.com/nodenv/nodenv#basic-github-checkout)
+<img src="https://terracetech.jp/wp-content/uploads/2021/05/無題220.png" width="400px" />
+
+[author](https://kenjimorita.jp/)
+
+[スター頂けるとやる気出ます](https://github.com/kenmori/handsonFrontend/stargazers)
+
+
+[nodenvドキュメント](https://github.com/nodenv/nodenv#basic-github-checkout)
 
 ※windowsの人は[nodebrew](https://site-builder.wiki/posts/28784)を入れるといいかもです。nodenv対応していないかも
-## なぜこれを設定するか、作業の流れ
+## なぜnodenvを設定するか、作業の流れ
 
-フロントではnode -vをプロジェクトごとに頻繁に変える & バージョン管理をしなくてはならない
+フロントエンド開発では`node`バージョンがプロジェクトごとに変わっていると頻繁に手動で変えなくてはならない or バージョン管理をしなくてはならない
 
-`nvm` とか `nodebrew`とかあるけれど
-これだと`node`を使っているプロジェクトをまたぐときに手動で切り替えないといけない
-`nodenv`は自動的に切り替えてくれる便利なもの & 流行り出している & 乗り換える人が多くなってきているのでお勧めしている
+nodeの管理は`nvm` とか `nodebrew`とかあるけれど、
 
-### 使うには
+これらは`node`を使っているプロジェクトをまたぐときに手動で切り替えないといけない(多分)
+
+`nodenv`はそれを自動的に切り替えてくれる便利なもの & 流行り出している & 乗り換える人が多くなってきているのでお勧めしている
+
+### nodenvを使うには？ざっくり流れ
 
 `nodenv`コマンドをinstallする(後述)
 -> PATHを通す
@@ -45,9 +54,9 @@
 
 ではやっていきましょう
 
-## install
+## nodenv install
 
-$ git clone git://github.com/nodenv/nodenv.git ~/.nodenv
+`$ git clone git://github.com/nodenv/nodenv.git ~/.nodenv`
 
 ```js
 Cloning into '/Users/moritakenji/.nodenv'...
@@ -59,10 +68,9 @@ Receiving objects: 100% (4021/4021), 732.74 KiB | 1.10 MiB/s, done.
 Resolving deltas: 100% (2636/2636), done.
 ```
 
-
 ## 実行可能な状態にする
 
-``cd ~/.nodenv && src/configure && make -C src`
+`cd ~/.nodenv && src/configure && make -C src`
 
 ## [shellにパスを通す](https://qiita.com/282Haniwa/items/a764cf7ef03939e4cbb1#path%E3%82%92%E9%80%9A%E3%81%99)
 
@@ -141,15 +149,17 @@ exec $SHELL -l
 
 globalとlocalでバージョンが違うことを確認してください
 
-cd ~/Desktop
+`cd ~/Desktop`
 
 で
-node -vをやるとglobalで設定したバージョンが
+`node -v`をやるとglobalで設定したバージョンが
 
-cd ~/Desktop/test
+`cd ~/Desktop/test`
 
 で
-node -vをやるとlocalで設定したバージョンが
+`node -v`をやるとlocalで設定したバージョンが
+
+### トラブルシューティング
 
 ※これで違う人は
 
@@ -158,7 +168,5 @@ node -vをやるとlocalで設定したバージョンが
 でチェックしてみてください
 何か言われてませんか
 
-
 ref:
 [nodenvの環境構築](https://qiita.com/282Haniwa/items/a764cf7ef03939e4cbb1#path%E3%82%92%E9%80%9A%E3%81%99)
-
