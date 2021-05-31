@@ -26,6 +26,12 @@ Resolving deltas: 100% (2636/2636), done.
 `echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.zshrc`
 `echo 'eval "$(nodenv init -)"' >> ~/.zshrc`
 
+## 初期化
+
+初期化。
+
+`$ ~/.nodenv/bin/nodenv init`
+
 ## シェルを起動し直す
 
 `exec $SHELL -l`
@@ -50,15 +56,24 @@ Resolving deltas: 100% (2636/2636), done.
 nodeを確認します
 [node](https://nodejs.org/ja/)
 
+奨励版を使いましょう
+
 ## globalのnodeにバージョンを指定
+
+globalに設定するということはマシンに設定するということ
 
 `nodenv global 14.8.0`
 
 ## localにnodeバージョンを指定する
 
+localに設定するということは特定のフォルダ内を特定のnodeバージョンにするということ
+
 `nodenv install 14.16.0`
 
-`cd ~/Desktop`
+`mkdir ~/Desktop/test`
+
+`cd test`
+
 
 `nodenv local 14.16.0`
 
@@ -80,6 +95,26 @@ exec $SHELL -l
 ```
 
 `node -v`で確認
+
+globalとlocalでバージョンが違うことを確認してください
+
+cd ~/Desktop
+
+で
+node -vをやるとglobalで設定したバージョンが
+
+cd ~/Desktop/test
+
+で
+node -vをやるとlocalで設定したバージョンが
+
+※これで違う人は
+
+`curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash`
+
+でチェックしてみてください
+何か言われてませんか
+
 
 ref:
 [nodenvの環境構築](https://qiita.com/282Haniwa/items/a764cf7ef03939e4cbb1#path%E3%82%92%E9%80%9A%E3%81%99)
