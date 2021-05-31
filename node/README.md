@@ -70,7 +70,7 @@ Resolving deltas: 100% (2636/2636), done.
 
 ## 実行可能な状態にする
 
-``cd ~/.nodenv && src/configure && make -C src`
+`cd ~/.nodenv && src/configure && make -C src`
 
 ## [shellにパスを通す](https://qiita.com/282Haniwa/items/a764cf7ef03939e4cbb1#path%E3%82%92%E9%80%9A%E3%81%99)
 
