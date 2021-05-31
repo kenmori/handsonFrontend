@@ -149,15 +149,15 @@ exec $SHELL -l
 
 globalとlocalでバージョンが違うことを確認してください
 
-cd ~/Desktop
+`cd ~/Desktop`
 
 で
-node -vをやるとglobalで設定したバージョンが
+`node -v`をやるとglobalで設定したバージョンが
 
-cd ~/Desktop/test
+`cd ~/Desktop/test`
 
 で
-node -vをやるとlocalで設定したバージョンが
+`node -v`をやるとlocalで設定したバージョンが
 
 ### トラブルシューティング
 
