@@ -557,3 +557,11 @@ fi
 ](http://yktwww.hatenablog.com/entry/2015/06/07/031523)
 
 [https://ssl.amulet.co.jp/cat-user-linux/command_line/fg-bg-jobs.html](https://ssl.amulet.co.jp/cat-user-linux/command_line/fg-bg-jobs.html)
+
+
+
+[https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes](https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes)
+
+[https://www.cyberciti.biz/faq/unix-linux-jobs-command-examples-usage-syntax/](https://www.cyberciti.biz/faq/unix-linux-jobs-command-examples-usage-syntax/)
+
+[プロセスとスレッドとの違い](https://www.youtube.com/watch?v=OrM7nZcxXZU)
