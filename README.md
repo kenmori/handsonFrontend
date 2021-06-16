@@ -16,4 +16,8 @@
 
 `javascript/reduce.md`
 
+## voltaの設定
+
+`node/volta.md`
+
 等
