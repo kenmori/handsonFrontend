@@ -67,12 +67,17 @@
 
 ## その他
 
+[プログラマが知るべき97のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
+
 [HTML5のLocal Storageを使ってはいけない（翻訳）](https://techracho.bpsinc.jp/hachi8833/2019_10_09/80851)
 
 [「クライアントが間違っている」と思ってはいけない](https://uxmilk.jp/4941)
 
 [Dockerとは何か](https://kitsune.blog/docker-summary#Docker%E3%81%A8VirtualBox%EF%BC%88Vagrant%EF%BC%89%E3%81%AE%E9%81%95%E3%81%84)
 
+[最短で使うDocker入門～Dockerを体験しよう](https://codezine.jp/article/detail/12830)
+[最短で使うDocker入門～Dockerを体験しよう3](https://codezine.jp/article/detail/12830?p=3)
+[Dockerのボリュームとバインドマウントの違い](https://losenotime.jp/docker-mount/)
 [仮想DOMは本当に“速い”のか？ DOM操作の新しい考え方を、フレームワークを実装して理解しよう](https://eh-career.com/engineerhub/entry/2020/02/18/103000)
 
 メモ。課題に使いたい
