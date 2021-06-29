@@ -3,7 +3,133 @@ import "babel-polyfill"
 type User = { id: number; name: string; gender: string; age: number };
 type Users = User[];
 
-
+[
+	{
+		"text": "部署A",
+		"value": "1",
+		"id": "1",
+		"parentId": "root",
+		"children": [
+			{
+				"text": "開発部",
+				"value": "2",
+				"id": "2",
+				"parentId": "1",
+				"children": [
+					{
+						"text": "Aプロジェクト",
+						"value": "3",
+						"id": "3",
+						"parentId": "2",
+						"children": [
+							{
+								"text": "Aチーム",
+								"value": "4",
+								"id": "4",
+								"parentId": "3",
+								"children": []
+							}
+						]
+					},
+					{
+						"text": "Bプロジェクト",
+						"value": "5",
+						"id": "5",
+						"parentId": "2",
+						"children": []
+					}
+				]
+			},
+			{
+				"text": "開発2課",
+				"value": "6",
+				"id": "6",
+				"parentId": "1",
+				"children": []
+			},
+			{
+				"text": "開発3課",
+				"value": "7",
+				"id": "7",
+				"parentId": "1",
+				"children": []
+			}
+		]
+	},
+	{
+		"text": "営業部",
+		"value": "8",
+		"id": "8",
+		"parentId": "root",
+		"children": [
+			{
+				"text": "営業1課",
+				"value": "9",
+				"id": "9",
+				"parentId": "8",
+				"children": []
+			},
+			{
+				"text": "営業2課",
+				"value": "10",
+				"id": "10",
+				"parentId": "8",
+				"children": []
+			},
+			{
+				"text": "営業3課",
+				"value": "11",
+				"id": "11",
+				"parentId": "8",
+				"children": []
+			}
+		]
+	},
+	{
+		"text": "人事部",
+		"value": "12",
+		"id": "12",
+		"parentId": "root",
+		"children": [
+			{
+				"text": "人事1課",
+				"value": "13",
+				"id": "13",
+				"parentId": "12",
+				"children": []
+			},
+			{
+				"text": "人事2課",
+				"value": "14",
+				"id": "14",
+				"parentId": "12",
+				"children": []
+			},
+			{
+				"text": "人事3課",
+				"value": "15",
+				"id": "15",
+				"parentId": "12",
+				"children": []
+			}
+		]
+	},
+	{
+		"text": "森田部",
+		"value": "17",
+		"id": "17",
+		"parentId": "root",
+		"children": [
+			{
+				"text": "人事1課",
+				"value": "18",
+				"id": "18",
+				"parentId": "17",
+				"children": []
+			}
+		]
+	}
+]
 
 class Table {
   target: HTMLElement
