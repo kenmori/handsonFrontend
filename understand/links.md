@@ -46,6 +46,8 @@
 
 [ReactはなぜFiberで書き直されたのか？Reactの課題と将来像を探る](https://html5experts.jp/shumpei-shiraishi/23265/)
 
+
+[React を深く知るための入り口](https://zenn.dev/panda_program/articles/deep-dive-into-react)
 ## TypeScript
 
 [TypeScriptで関数の部分型を理解しよう](https://www.kabuku.co.jp/developers/learn-subtyping-of-function)
@@ -97,3 +99,6 @@
 [webpack](https://www.webdesignleaves.com/pr/jquery/webpack_basic_01.html)
 
 [2018-09-28-hackerkiste-webpack-deep-dive](https://peerigon.github.io/talks/2018-09-28-hackerkiste-webpack-deep-dive/)
+
+
+[ちょうぜつ Advent Calendar 2019](https://qiita.com/advent-calendar/2019/memory-chan)
