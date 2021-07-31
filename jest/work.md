@@ -1,6 +1,6 @@
 # Jest ハンズオン勉強会
 
-<img src="https://gist.github.com/kenmori/0fa7426b2719f337eca5dcaa40f43068" width="600" />
+<img src="https://terracetech.jp/wp-content/uploads/2021/07/jest.png" width="600" />
 
 [jest公式](https://jestjs.io/)
 
