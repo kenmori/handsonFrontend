@@ -1,5 +1,15 @@
 # Jest ハンズオン勉強会
 
+<img src="https://gist.github.com/kenmori/0fa7426b2719f337eca5dcaa40f43068" width="600" />
+
+[jest公式](https://jestjs.io/)
+
+> Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+
+It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
+
+jestは、シンプルさに焦点を当てた楽しいJavaScriptテストフレームワークです。 Babel、TypeScript、Node、React、Angular、Vueなどを使用するプロジェクトで動作します！
+
 ## 前提
 
 このハンズオンではある程度コマンドなどの知識がある方が対象です
