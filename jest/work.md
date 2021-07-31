@@ -9,6 +9,7 @@
 - nodeが入っていること `node -v`
 - codeSandboxが扱えること
 
+※以後やる環境構築で苦戦している方は、sampleがありますのでそれをダウンロードしてプロジェクト直下で`npm install`してください
 
 **やること**
 
@@ -64,7 +65,6 @@ Ran all test suites.
  該当フォルダをVSCodeで開く
 
  ref: [codeでの開き方](https://github.com/kenmori/handsonFrontend/blob/master/git/work/README.md#5-%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A7vscode%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86%E9%A3%9B%E3%81%B0%E3%81%97%E3%81%A6%E3%82%82%E3%81%84%E3%81%84%E3%81%A7%E3%81%99)
-
 
 ## 関数を書く
 
@@ -157,6 +157,70 @@ test('adds undefined + 2 to equal NaN', () => {
 });
 ```
 
+## 書き方
+
+今まで下記のように
+
+```js
+test('adds 1 + 2 to equal 3', () => {
+  expect(add(1, 2)).toBe(3);
+});
+```
+
+書いてましたが、
+テスト内容をより詳しく書けます
+
+```js
+describe("add", () => {
+  test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+})
+```
+
+このように`describe`でくくります。関数の名前を第一引数に書いて、第二引数にアロー関数を渡し、その中でtestを実行します
+
+以下は describeでくくったテストケースを追加しています(3になる場合とNaNになる場合)
+まとまりを作ることができます。この場合add関数に対するテストという意味でまとまります
+
+```js
+describe("add", () => {
+  test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+
+  test('adds undefined + 2 to equal NaN', () => {
+    expect(add(undefined, 2)).toBe(NaN);
+  });
+})
+```
+
+さらに
+
+```js
+test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+```
+
+のtestは
+
+```js
+it('should do this thing', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+```
+
+に置き換え可能です
+違いはitはtestのエイリアスで、
+機能の違いはなく読みやすさです
+[ref](https://stackoverflow.com/a/56072272)
+
+公式はtestを使っていたりします
+
+
+その他、テストデータを使い回すには?、テストの書き方お作法等は、調べてみてください
+
 
 ## VSCode拡張をインストール
 
@@ -173,6 +237,50 @@ test('adds undefined + 2 to equal NaN', () => {
 色々なテストを試してみましょう
 
 ## jest課題
+
+1. このような関数があります。テストを書いてください。
+
+テストケース
+
+- aとbが"a"、"b"の時"ab"となる
+- aが"a", bが1の時-1が返る
+
+```js
+export function addString(a, b) {
+  if(typeof a === "string" || typeof b === "string"){
+    return a + b;
+  } else {
+    return -1
+  }
+}
+```
+
+2. このような関数があります。テストを書いてください。
+
+思いつくテストケースを考えて検証してください
+
+```js
+export function toNumber(str) {
+  return parseInt(str, 10)
+}
+```
+
+
+3. このような関数があります。テストを書いてください。
+
+思いつくテストケースを考えて検証してください
+
+```js
+const fruit = ["orange", "apple", "peach"];
+
+export function filterOrange(arr){
+  return arr.filter((e) => e === "orange")
+}
+```
+
+色々な
+[https://jestjs.io/docs/expect](matcher)
+
 
 ### Truthiness
 
@@ -192,4 +300,4 @@ WIP
 
 ### Exceptions
 
-[jest-changed-files](https://github.com/facebook/jest/blob/master/packages/jest-changed-files/README.md)
+
