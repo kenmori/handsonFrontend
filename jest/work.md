@@ -25,7 +25,7 @@ jestは、シンプルさに焦点を当てた楽しいJavaScriptテストフレ
 
 ## condeSandbox環境を作る
 
-[static site Template](https://codesandbox.io/s/static-90oxm);
+[static site Template](https://codesandbox.io/s/jest-for-static-site-g1ync);
 
 (静的サイトの方も触れれるようにstatic siteにしています)
 
@@ -253,7 +253,8 @@ it('should do this thing', () => {
 テストケース
 
 - aとbが"a"、"b"の時"ab"となる
-- aが"a", bが1の時-1が返る
+- aが"a", bが1の時"a1"が返る
+- aが1、bが1の時-1が返る
 
 ```js
 export function addString(a, b) {

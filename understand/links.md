@@ -21,6 +21,8 @@
 
 [Promise](https://azu.github.io/promises-book/)
 
+[wip](https://qiita.com/UTDoi/items/d49ea919818d9b519f93)
+
 ### Node.js
 
 [いまさら聞けないNode.js](https://knowledge.sakura.ad.jp/24148/)
