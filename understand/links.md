@@ -50,6 +50,8 @@
 
 
 [React を深く知るための入り口](https://zenn.dev/panda_program/articles/deep-dive-into-react)
+
+[react-book](https://github.com/softchris/react-book?ref=java5cript.com)
 ## TypeScript
 
 [TypeScriptで関数の部分型を理解しよう](https://www.kabuku.co.jp/developers/learn-subtyping-of-function)
