@@ -89,7 +89,7 @@ viteがしないこと
 
 ## 早速いじってみましょう
 
-1. `npm init @vitejs/app`
+1. `npm i @vitejs/app`
 
 
 2. `vite-js`
