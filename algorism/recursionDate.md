@@ -35,3 +35,6 @@ console.log(clear);
 
 [reduce](https://runkit.com/joelnet/5f1344792ad936001ad53c94)
 
+
+const isArray = (arr) => Array.isArray(arr) ? arr : []
+const {}
