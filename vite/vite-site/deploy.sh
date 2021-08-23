@@ -21,6 +21,6 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 ########下記、自分のgithubアカウント名と作ったリポジトリ名に置き換えてください########
-git push -f git@github.com:kenmori/vite-site.git master:gh-pages
+git push -f git@github.com:kenmori/vite-site2.git master:gh-pages
 
 cd -
