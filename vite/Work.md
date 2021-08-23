@@ -124,7 +124,7 @@ buildプレビュー
 
 ### test用のリポジトリを作って最初から作り直してみてください
 
-1. cd ~/Desktop デスクトップに移動
+1. cd ~/Desktop デスクトップに移動。 そこで`git init`
 
 2. `npm init @vitejs/app`
 
