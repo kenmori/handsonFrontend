@@ -124,9 +124,23 @@ buildプレビュー
 
 ### test用のリポジトリを作って最初から作り直してみてください
 
-1. 上記ハンズオンの10までして(もしくは先程のを使って)、プロジェクト直下で`git init`。リモートリポジトリにあげてください
+- 1. cd ~/Desktop デスクトップに移動
+- 2. `npm init @vitejs/app`
+- 3. vite-site
+- 4. vanilla [enter]
+- 5. vanilla [enter]
+- 6. cd vite-site
+- 7. npm install
+- 8. npm run dev
+- 9. githubにリポジトリを作る。リポジトリ名(vite-site)
 
-[参照](https://kbroman.org/github_tutorial/pages/init.html)
+<img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.06.28.png" width="400">
+
+- 10. git remote add origin https://github.com/kenmori/vite-site.git
+- 11. git branch -M main
+- 12. git push -u origin main
+
+<img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-22.22.52.png" width="400">
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.58.47.png" width="400">
 
