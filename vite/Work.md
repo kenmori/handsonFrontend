@@ -124,28 +124,38 @@ buildプレビュー
 
 ### test用のリポジトリを作って最初から作り直してみてください
 
-- 1. cd ~/Desktop デスクトップに移動
-- 2. `npm init @vitejs/app`
-- 3. vite-site
-- 4. vanilla [enter]
-- 5. vanilla [enter]
-- 6. cd vite-site
-- 7. npm install
-- 8. npm run dev
-- 9. githubにリポジトリを作る。リポジトリ名(vite-site)
+1. cd ~/Desktop デスクトップに移動
+
+2. `npm init @vitejs/app`
+
+3. vite-site
+
+4. vanilla [enter]
+
+5. vanilla [enter]
+
+6. cd vite-site
+
+7. npm install
+
+8. npm run dev
+
+9. githubにリポジトリを作る。リポジトリ名(vite-site)
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.06.28.png" width="400">
 
-- 10. git remote add origin https://github.com/kenmori/vite-site.git
-- 11. git branch -M main
-- 12. git push -u origin main
+10. git remote add origin https://github.com/kenmori/vite-site.git (ご自身のに変えてください)
+
+11. git branch -M main
+
+12. git push -u origin main
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-22.22.52.png" width="400">
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.58.47.png" width="400">
 
 
-3. shを作る([公式のこちらと同じことをやります](https://vitejs.dev/guide/static-deploy.html#github-pages))
+13. shを作る([公式のこちらと同じことをやります](https://vitejs.dev/guide/static-deploy.html#github-pages))
 
 `deploy.sh`を作って下記内容をコピペ
 
@@ -181,7 +191,7 @@ git push -f git@github.com:kenmori/vite-site.git master:gh-pages
 cd -
 ```
 
-4. `vite.config.js`を作って下記内容をコピペ
+14. `vite.config.js`を作って下記内容をコピペ
 
 [詳しくは公式のこちら](https://vitejs.dev/config/#config-file-resolving)
 
@@ -197,22 +207,22 @@ export default defineConfig({
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.53.51.png" width="400" />
 
 
-5. 今作った`sh deploy.sh`をプロジェクト直下(package.jsonがある場所)で叩く
+15. 今作った`sh deploy.sh`をプロジェクト直下(package.jsonがある場所)で叩く
 
 
-6. githubで確認する
+16. githubで確認する
 
 `gh-pages`にブランチを切り替える
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/1-1.png" width="400">
 
 
-7. リポジトリの右の方にある `setting` -> 左ペインにある `pages`を開く
+17. リポジトリの右の方にある `setting` -> 左ペインにある `pages`を開く
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.30.58.png" width="400">
 
 
-8. リンクを訪れる
+18. リンクを訪れる
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.31.33.png" width="400">
 
@@ -220,9 +230,9 @@ export default defineConfig({
 表示できていたら変更して再度deployしてみましょう
 
 
-7. 何かhtmlに変更を加えて deployしてみる
+19. 何かhtmlに変更を加えて deployしてみる
 
-8. 変わったか確認する。キャッシュが効いている可能性があるのでその場合はスーパーリロードしてみてください
+20. 変わったか確認する。キャッシュが効いている可能性があるのでその場合はスーパーリロードしてみてください
 
 
 ## 用語説明
