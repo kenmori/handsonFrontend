@@ -89,7 +89,7 @@ viteがしないこと
 
 ## 早速いじってみましょう
 
-1. `npm i @vitejs/app`
+1. `npm init @vitejs/app`
 
 
 2. `vite-js`
@@ -124,16 +124,12 @@ buildプレビュー
 
 ### test用のリポジトリを作って最初から作り直してみてください
 
-1. リポジトリを作ったらクローンして何かしらcommitしておいてください
+1. 上記ハンズオンの10までして(もしくは先程のを使って)、プロジェクト直下で`git init`。リモートリポジトリにあげてください
 
+[参照](https://kbroman.org/github_tutorial/pages/init.html)
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.06.28.png" width="400">
+<img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.58.47.png" width="400">
 
-[こちらのページの3あたりまで](https://github.com/kenmori/handsonFrontend/tree/master/git/work#3-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E5%86%85%E3%81%AB%E7%A7%BB%E5%8B%95%E3%81%99%E3%82%8B)
-
-githubのリポジトリ内に最初のコミットされていることを確認してください。変わらなければしてください
-
-2. 以前のハンズオン`10`までは同じです
 
 3. shを作る([公式のこちらと同じことをやります](https://vitejs.dev/guide/static-deploy.html#github-pages))
 
@@ -183,7 +179,12 @@ export default defineConfig({
 })
 ```
 
-5. 今作った`sh deploy.sh`をプロジェクト直下で叩く
+現状
+<img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.53.51.png" width="400" />
+
+
+5. 今作った`sh deploy.sh`をプロジェクト直下(package.jsonがある場所)で叩く
+
 
 6. githubで確認する
 
