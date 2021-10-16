@@ -6,7 +6,7 @@
 
 フロント開発のざっくり理解
 
-フロント開発は以下のことをします。
+フロント開発は以下のことをします
 
 - `npm`を使ってパッケージを管理する。その為には`node`を使う。`node`のバージョン管理をするために`nvm`を使う。`nvm`を使う為に`brew`などを使ってコマンドツール管理する
 
@@ -160,3 +160,9 @@ cat package.json
 ```
 
 dependenciesに`rimraf`が入っている
+
+
+WIP
+
+[peerDependencies](https://indepth.dev/posts/1187/npm-peer-dependencies)
+

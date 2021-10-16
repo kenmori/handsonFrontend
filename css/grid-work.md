@@ -61,7 +61,7 @@
 
 `grid-template-columns`
 
-<img src="https://terracetech.jp/wp-content/uploads/2021/04/2.png" width="600" />
+<img src="https://camo.githubusercontent.com/bb364e7f44bbf29a6ef8075a9537a917c3501b06044b52e51e8427738c882e16/68747470733a2f2f74657272616365746563682e6a702f77702d636f6e74656e742f75706c6f6164732f323032312f30342f332e706e67" width="600" />
 
 ```css
 .grid {
