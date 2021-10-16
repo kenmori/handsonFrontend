@@ -1,4 +1,4 @@
-# 20後には`find`コマンドが使いこなせるようになるハンズオン
+# 20分後には`find`コマンドが使いこなせるようになるハンズオン
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/10/linux.png" width="600" />
 
