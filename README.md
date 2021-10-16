@@ -27,6 +27,13 @@
 
 `html/propertyvsattribute.md`
 
+### jestハンズオン
+
+`jest/work.md`
+### findコマンドが使えるようになるハンズオン
+
+`linux/find/work1.md`
+
 ### appendChild vs innerHTML vs insertAjust
 
 
