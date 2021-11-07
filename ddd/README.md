@@ -1,8 +1,5 @@
 # 知っておきたいDDD
 
-
-fafafaafa
-
 ## モデリング
 
 一意な識別子(エンティティの発見)
@@ -131,3 +128,4 @@ public class EmployeeValidator extends Validator {
 ### 参照
 
 「実践ドメイン駆動設計」から学ぶDDDの実装入門 翔泳社
+
