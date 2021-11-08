@@ -16,8 +16,3 @@ pwd
  - `\du`
 
 `create database test;`
-
-
-
-
-
