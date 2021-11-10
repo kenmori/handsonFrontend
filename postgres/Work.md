@@ -1,18 +1,22 @@
- docker pull postgres
+
+docker 
 
 
- docker run --name postgres-0 -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:latest
+yarn add express
 
-  docker ps
+node server.js
 
-docker exec -it postgres-0 bash
+curl localhost:5000
 
-pwd
+create Dockerfile
+
+docker build . --tag node-server
 
 
+docker run --name node-server-app -p 5000:5000 -d node-server
 
- psql -U postgres
 
- - `\du`
+docker exec -it node-server-app bash
 
-`create database test;`
+
+## https://www.youtube.com/watch?v=Dm0CmZz-QyI
