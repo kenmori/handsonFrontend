@@ -4,6 +4,29 @@
 
 `input`の値を`output`の値として出力すること
 
+関数の引数に入力を渡し、実行した結果(出力)をconsole.logで示してください
+
+例えば
+
+```js
+function input (pram){
+ // ここを実装して返す
+ // pramを出力の値に変換する
+ return "出力" //　出力値
+}
+const output = input("入力") // 入力値を関数に渡す
+console.log(output)
+```
+
+上の例だと
+
+```txt
+input "入力"
+output "出力"
+```
+
+です
+
 ## 1
 
 input: `"abc"`
@@ -20,7 +43,6 @@ output: `"abc"`
 
 input: `"abcdefd"`
 output: `4`
-
 
 ## 4
 
@@ -62,5 +84,25 @@ output `false`
 
 ## 10
 
-input: `[{id: "a", value: 1}, {id: "b", value: 2}, {id: "c", value: 3}]`
-output: `{ids: ["a", "b", "c"]}, entities: {a: {value: 1}, b: {value: 2}, c: {value: 3} }`
+input:
+
+```js
+[
+  { id: "a", value: 1 },
+  { id: "b", value: 2 },
+  { id: "c", value: 3 }
+]
+```
+
+output:
+
+```js
+{
+  ids: ["a", "b", "c"],
+  entities: {
+    a: { value: 1 },
+    b: { value: 2 },
+    c: { value: 3 }
+  }
+}`
+```
