@@ -29,57 +29,130 @@ output "出力"
 
 ## 1
 
-input: `"abc"`
-output: `["a", "b", "c"]`
+input:
+
+```js
+"abc"
+```
+
+output:
+
+```js
+["a", "b", "c"]
+```
 
 ## 2
 
-input: `["a", "b", "c"]`
-output: `"abc"`
+input:
+
+```js
+["a", "b", "c"]
+```
+
+output:
+
+```js
+"abc"
+```
 
 ## 3
 
 - Find `e`, and then return index of e as number
 
-input: `"abcdefd"`
+input:
+
+```js
+"abcdefd"
+```
+
 output: `4`
 
 ## 4
 
 - Filter odd number
 
-input `[1, 2, 3, 4, 5, 6, 7]`
-output `[1, 3, 5, 7]`
+input
+
+```js
+[1, 2, 3, 4, 5, 6, 7]
+```
+
+output
+
+```js
+[1, 3, 5, 7]
+```
 
 ## 5
 
 - map
 
-input `["a", "b", "c"]`
-output `{0: "a", 1, "b", 2: "c"}`
+input
+
+```js
+["a", "b", "c"]
+```
+
+output
+
+```js
+{0: "a", 1, "b", 2: "c"}
+```
 
 ## 6
 
 - map
 
-input `["a", "b", "c"]`
-output `{a: 0, b: 1, c: 2}`
+input
+
+```js
+["a", "b", "c"]
+```
+
+output
+
+```js
+{ a: 0, b: 1, c: 2 }
+```
 
 ## 7
 
-input `["a", "b", "c"]`
-output `{sum: "abc", length: 3}`
+input
+
+```js
+["a", "b", "c"]
+```
+
+output
+
+```js
+{sum: "abc", length: 3}
+```
 
 ## 8
 
-input `["a", "b", "c"]`
-output `[{0: "a"}, {1: "b"}, {2: "c"}]`
+input
+
+```js
+["a", "b", "c"]
+```
+
+output
+
+```js
+[{0: "a"}, {1: "b"}, {2: "c"}]
+```
 
 ## 9
 
 Serch "e" element, if not exist, return false
 
-input `["a", "b", "c"]`
+input
+
+```js
+["a", "b", "c"]
+```
+
 output `false`
 
 ## 10
@@ -105,4 +178,138 @@ output:
     c: { value: 3 }
   }
 }`
+```
+
+## 11
+
+input
+
+```js
+[1, 2, 3, 4]
+```
+
+output
+
+```js
+{sum: 10, ids: [{ 1: { value: 1 }, 2: { value: 2 }, 3: { value: 3 }, 4: { value: 4 }}]}
+```
+
+## 13
+
+input
+
+```js
+[1, 2, 3, 4, 5]
+```
+
+and
+
+```js
+[3, 4, 5, 10, 9]
+```
+
+output
+
+```js
+[4, 6, 8, 14, 14]
+```
+
+## 14
+
+two sum
+
+input
+
+```js
+[1, 9, 10, 3, 4, 2, 9]
+```
+
+and
+
+```js
+18
+```
+
+output
+
+```js
+[9,9]
+```
+
+if second input is 17, return false
+
+## 15
+
+input
+
+```js
+[
+  {
+    value: 1,
+    children: [
+      { value: 1, children: [ { value: 1, children: []}] }
+    ]
+  },
+  { value: 2,
+    children: [
+      { value: 1, children: [ { value: 1, children: [{value: 1: children:[]
+        }]}]
+      }
+    ]
+  }
+]
+```
+
+output
+
+```js
+
+```
+
+## 11
+
+input
+
+```js
+```
+
+output
+
+```js
+```
+
+## 11
+
+input
+
+```js
+```
+
+output
+
+```js
+```
+
+## 11
+
+input
+
+```js
+```
+
+output
+
+```js
+```
+
+## 11
+
+input
+
+```js
+```
+
+output
+
+```js
 ```
