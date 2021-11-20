@@ -15,12 +15,12 @@
 
 1. iTerm.app(or ターミナル.app)を立ち上げてください。vscodeのTERMINALでもいいです
 
-2. testfindというディレクトリを作り、その中にindex.htmlを作ります。
+2. `testfind`というディレクトリをDownload上に作り、その中に`index.html`を作ります。
 それをコマンドで検索してみます
 
 ### 1.ディレクトリを作ります
 
-`mkdir testfind`
+`cd ~/Downloads && mkdir testfind`
 
 ### 2.作ったディレクトリに移動します
 
@@ -32,7 +32,7 @@
 
 ### 4. 現在のディレクトリ内容を確認
 
-`ls`
+`ls `
 
 `index.html`
 と出力される
@@ -49,7 +49,7 @@
 
 ## find
 
-### 1. findを使う
+### 1. `find`を使う
 
 findの構文
 
@@ -70,11 +70,11 @@ testfind/index.html
 
 ※`\`は`*`をエスケープさせるものです
 
-### 3. Downloadsディレクトリ内で練習
+### 3. `Downloads`ディレクトリ内で練習
 
 `Downloads`の中を使います
 
-Dowonloadsの中を見るには
+`Downloads`の中を見るには
 
 `ls ~/Downloads`
 
@@ -118,7 +118,7 @@ find [パス] -type f
 find ~/Downloads/*test* -type f
 ```
 
-`./testfind/index.html`と出てきました
+`/Users/yourusername/Downloads/testfind/index.html`と出てきました
 
 このように特定の位置からtestが含まれるパスにあるファイルを見つけ出します
 
@@ -136,7 +136,7 @@ find [パス] -type d
 find ~/Downloads/*test* -type d
 ```
 
-`./testfind`と出ます
+`/Users/yourusername/Downloads/testfind`と出ます
 
 このように特定の位置にある`test`が含まれるディレクトリを検索できます
 
@@ -157,6 +157,7 @@ find . -type d -name tesfind
 ```
 
 1は`testfind`という名前のディレクトリとファイルを全て
+
 2は `testfind`という名前のディレクトリ全て
 
 
@@ -165,17 +166,17 @@ find . -type d -name tesfind
 止めるときは
 `ctr + c`
 
-### ダウンロードディレクトリの中でディレクトリの名前がtestfindのそれを見つけてください
+### [演習] `Downloads`ディレクトリの中でディレクトリ名が`testfind`のそれを見つけてください
 
 答えは一番下
 
 ### Advance
 
-findで見つけたあとそれに対してアクション(`-exec`)を実行しましょう
+`find`で見つけたあとそれに対してアクション(`-exec`)を実行しましょう
 
 #### -exec練習1
 
-testfind内のindex.htmlを同じフォルダの同階層にzipで圧縮する
+`testfind`内の`index.html`を同じフォルダの同階層にzipで圧縮する
 
 `find ./testfind -name \*.html -exec zip ./testfind/test.zip {} \;`
 
@@ -198,8 +199,14 @@ index.html test.zip
 
 となっている
 
-つまりこれで、GUIを使わずにコマンドで探して、圧縮できるようになりました
-例えばこれで、画像を全てあるコマンドを通して圧縮するとかまとめるとか、削除するとかできそうです
+これで、GUIを使わずにコマンドで探して、
+
+圧縮できるようになりました
+
+他に、
+画像を全てあるコマンドを通して圧縮するとかまとめるとか、
+
+削除するとかできそうです
 
 ## 所で先ほどの`{} \;`てなに？
 
@@ -216,11 +223,14 @@ index.html test.zip
 
 `find . -cmin -60`
 
+```txt
 .
 ./testfind
 ./testfind/index.html
 ./testfind/test.zip
-./testping.zip
+```
+
+※上記は私の場合
 
 ## 60分以内に変更されたファイルを探す
 
@@ -230,27 +240,30 @@ index.html test.zip
 
 `find / -amin -60`
 
+検索が止まらなそうな場合`ctr + c`で抜けてください
+
 お疲れ様でした!
 
+---
 
 ### 課題
 
-1. Donwloadsディレクトリの中に新たに`testfind`というディレクトリを作って、カレントから検索してみてください。
+1. `Downloads`ディレクトリの中に新たに`testfind`というディレクトリを作って、カレントから検索してみてください。
 作るところから全てコマンドを使ってやること
 
-2. Downloadsにディレクトリtestfind2を作って、カレントからディレクトリ名`testf`以下は任意の文字列で検索をしてください
+2. `Downloads`にディレクトリ`testfind2`を作って、カレントからディレクトリ名`testf`以下は任意の文字列で検索をしてください
 作るところから全てコマンドを使ってやること
 
-3. -typeを使ってDownloads内にあるtestfindのディレクトリを全て検索してください
+3. `-type`を使って`Downloads`内にある`testfind`のディレクトリを全て検索してください
 
-4. Downloadsにある`png`ファイルを全て探して出力してください
+4. `Downloads`にある`png`ファイルを全て探して出力してください
 
-5. 今探し出したpngファイルの中でその中で好きな文字列を含むpngファイルをzipしてください。zipディレクトリ名は`testping.zip`です
+5. 今探し出した`png`ファイルの中でその中で好きな文字列を含む`png`ファイルを`zip`してください。zipディレクトリ名は`testping.zip`です
 
 6. 今作った`zip`ディレクトリをfindで探してください
 
 
-7. findとexecを使ってこの課題で作ったindex.htmlを削除してください(削除コマンド。`rm -f`)
+7. `find`と`exec`を使ってこの課題で作った`index.html`を削除してください(削除コマンド。`rm -f`)
 
 8. 他のfindで条件検索できる判別式を使ってマスターしてください
 
@@ -286,8 +299,8 @@ index.html test.zip
 
 - `-name`, `-type`など、何か判別式をつけ忘れてないですか
 
-### このページの答え
+### このページの演習の答え
 
-- ダウンロードディレクトリの中でディレクトリの名前がtestfindのそれを見つけてください
+- ダウンロードディレクトリの中でディレクトリの名前が`testfind`のそれを見つけてください
 
 `find ~/Downloads -type d -name testfind`
