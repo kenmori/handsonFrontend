@@ -230,11 +230,18 @@ index.html test.zip
 ./testfind/test.zip
 ```
 
+※変更されたファイルとはパーミッションやオーナーが変更されたの意味
+
 ※上記は私の場合
 
-## 60分以内に変更されたファイルを探す
+## 60分以内に編集されたファイルを探す
 
 `find / -mmin -60`
+
+※編集されたファイルとは、touchなどのコマンドでファイルの中身、データが編集されたの意味
+
+
+[find's mtime and ctime options](https://unix.stackexchange.com/questions/338303/finds-mtime-and-ctime-options)
 
 ## 60分以内にアクセスしたファイルを探す
 

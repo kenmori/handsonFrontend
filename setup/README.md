@@ -84,6 +84,19 @@ Mac OS Catalinaから標準になった
 `open -a TextEdit ~/dotfiles2/.zshrc`
 でテキストEditを開き以下を設定
 
+shellが`~/.zshrc`を参照していて、
+
+`dotfiles2/zshrc`を参照するように変えたいとき
+
+
+`ln -s ~/dotfiles2/.zshrc ~/.zshrc`
+
+`~/.zshrc`が存在しているとリンクを作れないので、`~/.zshrcc`など適当にバックアップ的に変更しておく
+
+`mv .zshrc .zshrcc`
+
+
+
 ```
 alias vi="nvim"
 alias vim="nvim"
@@ -467,8 +480,20 @@ pythonを実行
 plugins(... web-search)
 
 
+WIP
 
 
+### zsh-navigation-tools
+
+https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools
+
+### zsh-autosuggestions
+
+### sudo
+
+### zsh-syntax-hightlighting
+
+plugins=(git sudo copydir copyfile copybuffer dirhistory history zsh-autosuggestions fastfile)
 
 
 
@@ -480,6 +505,11 @@ plugins(... web-search)
 `option + command + space`
 
 
+### history search
+
+brew install pip
+
+percol search
 
 
 
