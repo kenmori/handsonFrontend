@@ -335,6 +335,30 @@ Client <- Screen <- Session <- Windows <- pain
 
 ### Tmux
 
+- Tmux Plugin Managerを入れる
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+
+
+[ref](https://girigiribauer.com/tech/20200427/)
+
+Tmux Plugin Managerをインストールすることでプラグインが使えるようになる
+
+
+`.tmux.conf` tmuxの設定ファイル
+
+- tmux.confを変更したのに反映されない場合は
+
+`tmux kill-server`
+
+
+[.tmux.confの一例](https://raw.githubusercontent.com/girigiribauer/dotfiles/master/.tmux.conf)
+
+[https://girigiribauer.com/tech/20200427/](https://girigiribauer.com/tech/20200427/)
+
+
+
+
+---------------------------
 clientがTmuxサーバー立ち上げる
 - Sessonはscreen同様複数立ち上げられる
 - Session上にwindowsが複数立ち上げられる
@@ -414,11 +438,16 @@ setopt auto_pushd
 
 ### history設定
 
-`echo $HISTFILE`
-`/Users/kenjimorita/.zsh_history`
+- 履歴ファイルの保存先
+`echo HISTFILE=${$HOME}/.zsh_history`
 
 option
   `https://zsh.sourceforge.io/Doc/Release/Options.html#Options`
+
+
+
+- 重複を記録しない
+`setopt hist_ignore_dups`
 
 ### ohmyz.sh
 
@@ -489,15 +518,52 @@ https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools
 
 ### zsh-autosuggestions
 
+`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+add zsh-autosuggestions to Plugin
+
+
 ### sudo
 
 ### zsh-syntax-hightlighting
 
 plugins=(git sudo copydir copyfile copybuffer dirhistory history zsh-autosuggestions fastfile)
 
+### powerlevel10k
+
+[powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+homebrewでinstall
+https://github.com/romkatv/powerlevel10k#homebrew
+
+最後のzshrcの場所は任意で変える
+
+`ZSH_THEME="powerlevel10k/powerlevel10k"`
 
 
 
+ダイヤモンド型に見えるならyes
+アイコンの表示を
+```
+Install Meslo Nerd Font -> y
+unicode 1
+時計 2
+
+y
+```
+
+`p10k configure`
+で設定を変えられる
+
+
+### zsh起動と共にtmuxを立ち上げる
+
+`[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux`
+
+
+###
+
+[backgroundプロセスの本来の使い方](https://qiita.com/kamykn/items/2fd1293c0bb5a8aa5ebd)
 
 
 
@@ -506,11 +572,6 @@ plugins=(git sudo copydir copyfile copybuffer dirhistory history zsh-autosuggest
 
 
 ### history search
-
-brew install pip
-
-percol search
-
 
 
 
