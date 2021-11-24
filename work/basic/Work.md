@@ -27,6 +27,32 @@ output "出力"
 
 です
 
+※例えば、問題文のoutputやinputが
+
+```js
+{0: "a", 1, "b", 2: "c"}
+```
+
+のような記述の場合
+
+node上でコンソール出力すると
+
+```js
+{"0": "a", "1", "b", "2": "c"}
+```
+
+になります。
+`ChromeDevTools`の`Console`上では
+
+```js
+{0: "a", 1, "b", 2: "c"}
+```
+
+です。どちらも同じ意味として捉えて構いません
+
+※なるべく効率よく出力することを目指しましょう
+※問題の番号は変更されることがあります。jsに問題文をコメント入れてコメントアウトしておくことをお勧めします
+
 ## 1
 
 input:
@@ -145,7 +171,7 @@ output
 
 ## 9
 
-Serch "e" element, if not exist, return false
+Search "e" element, if not exist, return false
 
 input
 
@@ -194,7 +220,54 @@ output
 {sum: 10, ids: [{ 1: { value: 1 }, 2: { value: 2 }, 3: { value: 3 }, 4: { value: 4 }}]}
 ```
 
+## 12
+
+input
+
+```js
+"abcdefg"
+```
+
+output
+
+```js
+"gfedcba"
+```
+
+don't use reverse method
+
 ## 13
+
+input
+
+```js
+{1: "a", 2: "b", 3: "c"}
+```
+
+output
+
+```js
+[['1', 'a'],['2', 'b'], ['3', 'c']]
+```
+## 14
+
+Return the result of adding the elements next to each other as an array.
+
+input
+
+```js
+[1, 2, 4, 10, 12]
+```
+
+output
+
+```js
+[3, 6, 14, 22]
+```
+
+## 15
+
+Add the numbers in the same index of the two arrays and return to the new array.
 
 input
 
@@ -214,83 +287,93 @@ output
 [4, 6, 8, 14, 14]
 ```
 
-## 14
+## 16
 
-two sum
+[chunk](https://lodash.com/docs/4.17.15#chunk)
+
+WIP
+
+## 17
+
+[difference](https://lodash.com/docs/4.17.15#difference)
+
+WIP
+
+
+-----
+
+below is WIP
+
+## 16
+
+*two sum*
+
+Please return the combination of the second argument, the element whose value is the sum. If not, return false
 
 input
 
 ```js
-[1, 9, 10, 3, 4, 2, 9]
+[1, 9, 10, 3, 4, 2, 6]
 ```
 
 and
 
 ```js
-18
+8
 ```
 
 output
 
 ```js
-[9,9]
+[2,6]
 ```
 
-if second input is 17, return false
+if second input is 3, return [1, 2]
+if second input is 20, return false
 
-## 15
+don't use `for(){ for(){}}`
+
+## 17
+
+中間と一番最初を抜き取る
 
 input
 
 ```js
-[
-  {
-    value: 1,
-    children: [
-      { value: 1, children: [ { value: 1, children: []}] }
-    ]
-  },
-  { value: 2,
-    children: [
-      { value: 1, children: [ { value: 1, children: [{value: 1: children:[]
-        }]}]
-      }
-    ]
-  }
-]
+[1, 2, 3, 4, 5, 6, 7 ,8 ,9, 10]
 ```
 
 output
 
 ```js
-
+[5, 2, 1]
 ```
-
-## 11
 
 input
 
 ```js
+[1, 2, 3, 4, 5, 6, 7 ,8 ,9, 10, 11]
 ```
 
 output
 
 ```js
+[6, 3, 1]
 ```
-
-## 11
 
 input
 
 ```js
+[1, 2, 3, 4, 5, 6, 7 ,8 ,9, 10, 11, 12, 13, 14, 15]
 ```
 
 output
 
 ```js
+[8, 4, 2, 1]
 ```
 
-## 11
+## 18
 
 input
 
@@ -302,7 +385,31 @@ output
 ```js
 ```
 
-## 11
+## 19
+
+input
+
+```js
+```
+
+output
+
+```js
+```
+
+## 20
+
+input
+
+```js
+```
+
+output
+
+```js
+```
+
+## 20
 
 input
 
