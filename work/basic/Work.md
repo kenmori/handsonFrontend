@@ -225,6 +225,72 @@ output
 input
 
 ```js
+[ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
+```
+
+output
+
+```js
+{ 0: "a", 1: "b", 2: "c" }
+```
+
+## 13
+
+input
+
+```js
+ { a: 1, b: 2, c: 3 }
+ ```
+
+ output
+
+ ```js
+  { a: 2, b: 4, c: 6 }
+```
+
+## 14
+
+input
+
+```js
+'type=listing&page=2&rowCount=10'
+```
+
+output
+
+```js
+{type: "listing", page: "2", rowCount: "10"}
+```
+
+## 15
+
+Create countDown function.
+
+Don't write
+
+```js
+function a(){
+  count(3)
+  count(2)
+  count(1)
+  count(0)
+}
+```
+
+input 3
+
+output
+
+3
+2
+1
+0
+
+## 16
+
+input
+
+```js
 "abcdefg"
 ```
 
@@ -236,7 +302,7 @@ output
 
 don't use reverse method
 
-## 13
+## 17
 
 input
 
@@ -249,7 +315,7 @@ output
 ```js
 [['1', 'a'],['2', 'b'], ['3', 'c']]
 ```
-## 14
+## 18
 
 Return the result of adding the elements next to each other as an array.
 
@@ -265,7 +331,7 @@ output
 [3, 6, 14, 22]
 ```
 
-## 15
+## 19
 
 Add the numbers in the same index of the two arrays and return to the new array.
 
@@ -287,24 +353,23 @@ output
 [4, 6, 8, 14, 14]
 ```
 
-## 16
+## 20
 
 [chunk](https://lodash.com/docs/4.17.15#chunk)
 
 WIP
 
-## 17
+## 21
 
 [difference](https://lodash.com/docs/4.17.15#difference)
 
 WIP
 
-
 -----
 
 below is WIP
 
-## 16
+## 22
 
 *two sum*
 
@@ -333,7 +398,7 @@ if second input is 20, return false
 
 don't use `for(){ for(){}}`
 
-## 17
+## 23
 
 中間と一番最初を抜き取る
 
@@ -373,7 +438,20 @@ output
 [8, 4, 2, 1]
 ```
 
-## 18
+## 24
+
+Don't use reduce, for
+
+input
+
+3456
+
+output
+
+17
+
+
+## 25
 
 input
 
@@ -385,7 +463,7 @@ output
 ```js
 ```
 
-## 19
+## 26
 
 input
 
@@ -397,7 +475,7 @@ output
 ```js
 ```
 
-## 20
+## 27
 
 input
 
@@ -409,14 +487,4 @@ output
 ```js
 ```
 
-## 20
-
-input
-
-```js
-```
-
-output
-
-```js
-```
+## 参照
