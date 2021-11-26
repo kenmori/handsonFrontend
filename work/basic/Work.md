@@ -14,8 +14,7 @@ function input (pram){
  // pramを出力の値に変換する
  return "出力" //　出力値
 }
-const output = input("入力") // 入力値を関数に渡す
-console.log(output)
+console.log(input("入力")) // 入力値を実行した結果をoutput。値を出力する
 ```
 
 上の例だと
@@ -27,14 +26,13 @@ output "出力"
 
 です
 
-※例えば、問題文のoutputやinputが
+また、問題文のoutputやinputが
 
 ```js
 {0: "a", 1, "b", 2: "c"}
 ```
 
 のような記述の場合
-
 node上でコンソール出力すると
 
 ```js
@@ -48,7 +46,8 @@ node上でコンソール出力すると
 {0: "a", 1, "b", 2: "c"}
 ```
 
-です。どちらも同じ意味として捉えて構いません
+です。
+どちらも同じ意味として捉えて構いません
 
 ※なるべく効率よく出力することを目指しましょう
 ※問題の番号は変更されることがあります。jsに問題文をコメント入れてコメントアウトしておくことをお勧めします
@@ -83,7 +82,7 @@ output:
 
 ## 3
 
-- Find `e`, and then return index of e as number
+- Find `e`, and then return index of e as number. 
 
 input:
 
@@ -217,7 +216,17 @@ input
 output
 
 ```js
-{sum: 10, ids: [{ 1: { value: 1 }, 2: { value: 2 }, 3: { value: 3 }, 4: { value: 4 }}]}
+{
+  sum: 10,
+  ids: [
+    {
+      1: { value: 1 },
+      2: { value: 2 },
+      3: { value: 3 },
+      4: { value: 4 }
+    }
+  ]
+}
 ```
 
 ## 12
@@ -225,7 +234,11 @@ output
 input
 
 ```js
-[ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
+[
+  ['0', 'a'],
+  ['1', 'b'],
+  ['2', 'c']
+]
 ```
 
 output
@@ -277,14 +290,20 @@ function a(){
 }
 ```
 
-input 3
+input
+
+```js
+3
+```
 
 output
 
+```js
 3
 2
 1
 0
+```
 
 ## 16
 
@@ -307,14 +326,49 @@ don't use reverse method
 input
 
 ```js
-{1: "a", 2: "b", 3: "c"}
+{ 1: "a", 2: "b", 3: "c" }
 ```
 
 output
 
 ```js
-[['1', 'a'],['2', 'b'], ['3', 'c']]
+[
+  ['1', 'a'],
+  ['2', 'b'],
+  ['3', 'c']
+]
 ```
+
+## 18
+
+input
+
+```js
+[
+  ["1","2"],
+  [[[3]]]
+];
+```
+
+output
+
+```js
+ ['1', '2', '3']
+```
+
+## 19
+
+input
+
+```js
+[1, 1, [2, 2], [[3, [4], 3], 2]]
+```
+
+output
+
+ [1, 1, 2, 2, 3, 4, 3, 2]
+
+
 ## 18
 
 Return the result of adding the elements next to each other as an array.
@@ -455,12 +509,16 @@ output
 
 input
 
+use recursion (call function in function)
+
 ```js
+[1, 2, 3, 4, 5]
 ```
 
 output
 
 ```js
+15
 ```
 
 ## 26
