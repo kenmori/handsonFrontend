@@ -27,3 +27,25 @@ function sumOfDigits(num){
 }
 console.log(sumOfDigits(3023))
 ```
+
+
+## 19
+
+
+[...arr.toString().split(",")]
+
+
+
+## sum
+
+```js
+function sum(arr){
+    if(arr.length === 0){
+       return 0
+    } else {
+        const [head, ...tail] = arr
+        return head + sum(tail)
+    }
+}
+sum([1, 2, 3, 4, 5])
+```
