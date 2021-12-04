@@ -1,4 +1,4 @@
-# 言語ハンズオン
+# 言語チャレンジ
 
 この課題の進め方
 
@@ -50,8 +50,57 @@ node上でコンソール出力すると
 どちらも同じ意味として捉えて構いません
 
 ※なるべく効率よく出力することを目指しましょう
-※問題の番号は変更されることがあります。jsに問題文をコメント入れてコメントアウトしておくことをお勧めします
+※問題の番号は変更されることがあります。jsに問題文をコメント入れてコメントアウトしておくことをお勧めしますoi
 
+## スタンス
+
+言語チャレンジはあくまでinputとoutputがあっているかを主眼を置いていて
+必ずしも森田の`apporve`が森田のベストの解答ということではないです(森田ならこう書くみたいなところは伝えていないです)
+それには理由があります
+
+- input outputの型があっているので答えとしては問題ない
+- もっといい方法や書き方、改善まで全ての人にレビューしていく、教えるのは大変
+- 森田にとってのベストの解答が塾外の誰かが見た時にそうではない
+- 自分なりのベストを調べ尽くしてほしい
+- サクサク進めることで言語を学ぶ楽しさを味わってほしい
+
+と思っているからです
+そこのところをうまい具合に補足していただけると助かります
+
+## お願い
+
+今後は言語チャレンジのPRフォーマットは以下です
+
+---
+# [Lesson3](https://github.com/kenmori/handsonFrontend/blob/master/work/basic/Work.md#3)
+
+input:  "abcdefd"
+output: 4
+
+## [Stackblitz](https://stackblitz.com/edit/node-npnpq6?file=users/yukamuramatsu/3.js)
+Last commit: [d7076ec](https://github.com/kenmori/node-morikenjuku/commit/d7076ec7ad4c351f0a802dbef6c5a78e6d49471b)
+
+`node ./users/yukamuramatsu/3.js`
+
+---
+
+でお願いしたいです。
+https://github.com/kenmori/node-morikenjuku/pull/45
+
+特にみやすいと思ったのを決めでやってます
+
+あと、[number].jsの中に
+
+// input:  "abcdefd"
+// output: 4
+
+をコメントアウトして書いてもらえますか
+
+---
+
+## getting start
+
+でははじめましょう
 ## 1
 
 input:
@@ -523,14 +572,18 @@ output
 
 ## 26
 
+Remove "not", "so" element. not use Iterator method(map, forEach,...etc) and Iterator(for, while)
+
 input
 
 ```js
+['today', 'was', 'not', 'so', 'great']
 ```
 
 output
 
 ```js
+[['today', 'was', 'great'], ['not', 'so']]
 ```
 
 ## 27
