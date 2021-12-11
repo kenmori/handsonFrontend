@@ -14,7 +14,7 @@ function input (pram){
  // pramを出力の値に変換する
  return "出力" //　出力値
 }
-console.log(input("入力")) // 入力値を実行した結果をoutput。値を出力する
+ // 入力値を実行した結果をoutput。値を出力する
 ```
 
 上の例だと

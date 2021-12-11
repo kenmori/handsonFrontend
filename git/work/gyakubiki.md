@@ -1,8 +1,3 @@
-# advance-git
+# 逆引きgit
 
 - `git branch --show-current`
-
--
-
-
-

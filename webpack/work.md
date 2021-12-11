@@ -46,12 +46,11 @@ webpackはCSSやHTML,画像などのリソースをjsにすることができま
 
 webpackは記述されたjsがプロジェクトで決められたコーディングルールで書かれているか、
 また、新しいJavaScript記述で書かれたものを古いブラウザでも解析できるようにしたりできます。
-それらの設定をwebpackの中の`loader`でします。
+それらをwebpackの中の`loader`で設定します。
 
 一本のjsが出力された後にそのjsを圧縮したりする`plugin`もwebpackで設定することができます。
 
-
-webpackはローカルサーバーを立ち上げることができます。
+また、webpackはローカルサーバーを立ち上げることができます。
 ファイル変更を検知して、ビルド、ブラウザをリロードして最新をそこに反映します。
 
 ざっくりですがそれが概要です。
@@ -71,7 +70,7 @@ style-loader、css-loader、sass-loader、babel-loader、postcss-loader、file-l
 - [Plugins](https://webpack.js.org/plugins/)・・・プラグインは、バンドルまたはチャンクレベルで機能する。webpackビルドシステム内にフックを登録し、Compilation（最適化されたバンドルモジュール）に機能を追加します。バンドル自体の作成方法の変更や、html内にstylesheet
 を追加したり、ライブラリを変数として開発時使えるようにしたり、さまざまな機能を持つプラグインがある
 
-下記は一般的なplugindです
+下記は一般的なpluginです
 
 ```text
 html-webpack-plugin、mini-css-extract-plugin、extract-text-webpack-plugin
@@ -86,19 +85,17 @@ html-webpack-plugin、mini-css-extract-plugin、extract-text-webpack-plugin
 
 Webpackがどのように動くか
 
+1. エントリファイルを見つけて、その内容をメモリにロードします
+2. コンテンツ内の特定のテキストを照合し、それらを評価します（@importなど）
+3. 以前の評価に基づいて依存関係を見つけ、それらで同じことを行います
+4. それらすべてをメモリ内のバンドルにステッチします
+5. 結果をファイルシステムに書き込む
 
-- エントリファイルを見つけて、その内容をメモリにロードします
-- コンテンツ内の特定のテキストを照合し、それらを評価します（@importなど）
-- 以前の評価に基づいて依存関係を見つけ、それらで同じことを行います
-- それらすべてをメモリ内のバンドルにステッチします
-- 結果をファイルシステムに書き込む
-
-
+ではやってみましょう
 
 `yarn add -D webpack`
 
 `yarn add -D webpack-cli`
-
 
 ローカルにインストールしたwebpackが使えるようにパスを通す
 
@@ -113,7 +110,6 @@ Webpackがどのように動くか
 と叩く
 
 webpackを利用するために`webpack.config.js`を作る
-
 
 ```js
 // 絶対パスを指定する必要があるので
@@ -239,7 +235,6 @@ console.log(result.name)
 開発はsrc配下のjsを編集していって、
 開発後はどこかのサーバーにあげる際にビルドをしてjsを生成し、それを配置、htmlを返すという方法が一般的です。
 
-
 Webpackはこのように
 
 - 機能ごとに開発を進めていくことができる
@@ -265,7 +260,6 @@ Webpackはこのように
 
 
 ## npm scriptsにコマンドを書く
-
 
 ```js
 mode: 'development'
@@ -367,7 +361,7 @@ webpack+Babelの構成
 
 ### 関連ツールをインストールする
 
-```schell
+```zsh
 npm install -D webpack webpack-cli babel-loader @babel/core  @babel/preset-env @babel/preset-react
 ```
 
