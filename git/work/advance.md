@@ -33,6 +33,7 @@
 
 `README.md`を編集した状態にします
 
+### usecase
 
 この時、
 同僚に今すぐみてほしいバグがあると伝えられました
@@ -40,9 +41,9 @@
 どうしますか
 
 - commitする?
- -> まだやりかけでコミットしたくない
+-> まだやりかけでコミットしたくない
 - stashする?
-　-> 後々どのスタッシュか覚えていなくてはいけない
+-> 後々どのスタッシュか覚えていなくてはいけない
 
 これだけならどちらかにすればいいとおもうのですが
 依存パッケージを修正して、node_modulesなどに更新があるブランチで作業していた場合
@@ -51,12 +52,15 @@
 この状態を保ちつつブランチを切り替えて作業をしたい、
 この場合 `git worktree`が有効です
 
+## worktree
+
 `git worktree add 作業ツリーのパス ブランチname`
 
 
 `git worktree add ./worktree/dev master`
 
-```
+
+```sh
 ❯ git worktree add ./worktree/dev master
 Preparing worktree (checking out 'master')
 HEAD is now at 420e475 Merge pull request #60 from haru-programming/feature/takeda_task01
@@ -82,9 +86,10 @@ git status
 
 `git worktree add worktree/hotfix -b hotfix1`
 
+```sh
 Preparing worktree (new branch 'hotfix1')
 HEAD is now at 420e475 Merge pull request #60 from haru-programming/feature/takeda_task01
-
+```
 
 #### その他usecase
 
@@ -114,7 +119,8 @@ worktree/*
 
 リモートブランチにpushされていて且つshareされたブランチに対してやらないこと
 
-#### ハンズオン
+### ハンズオン
+
 何かファイルを変更する
 
 README.mdの任意なところに
@@ -141,12 +147,13 @@ git commit -m "fix: as 4"
 
 git log --oneline
 
-```
+```sh
 9a1ef59 (HEAD -> feature/b) fix: as 4
 0eb9954 fix: as 3
 85e7818 fix: as 2
 89951d6 fix: as 1
 ```
+
 こうなっているはず
 
 `git checkout -b feature/b-2`
@@ -155,19 +162,21 @@ git log --oneline
 ベースコミットを決める。親のコミットに移動する必要がある
 
 `git rebase -i HEAD~3`
+
 or
+
 `git rebase -i 656ca3bc009871d33397d68899bd5228361f6c5e`
 
 Rebase 656ca3b..af1e5c9 onto 656ca3b (3 commands)↲
 
-
 ```sh
- 1 pick 67fa7e4 fix: as 123↲                                                             
+  1 pick 67fa7e4 fix: as 123
   2 s 7181a42 fix: as 2↲
   3 s af1e5c9 fix: as 3↲
   4 ↲
   5 # Rebase 656ca3b..af1e5c9 onto 656ca3b (3 commands)↲
   6 #↲
+```
 
 `:wq!`
 
@@ -180,30 +189,30 @@ gitのデフォルトエディタviを呼び出す時macはvimを使おうとす
 
 enter押すと
 
-```
-  1 fix: as combine↲                                                                          
+```sh
+  1 fix: as combine
   2 # This is a combination of 4 commits.↲
   3 # This is the 1st commit message:↲
-  4 ↲
-  5 fix: as 1↲
-  6 ↲
+  4
+  5 fix: as 1
+  6
   7 # This is the commit message #2:↲
-  8 ↲
-  9 fix: as 2↲
- 10 ↲
+  8
+  9 fix: as 2
+ 10
  11 # This is the commit message #3:↲
- 12 ↲
- 13 fix: as 3↲
- 14 ↲
+ 12
+ 13 fix: as 3
+ 14
  15 # This is the commit message #4:↲
- 16 ↲
+ 16
  17 fix: as 4↲
- 18 ↲
+ 18
 ```
 
 `:wq!`
 
-```
+```sh
 773e79d (HEAD -> feature/b-2) fix: as combine
 815f106 fix: 123
 52d7113 fix: add space
@@ -213,13 +222,12 @@ enter押すと
 
 `git checkout -`
 
-
 ### 特定の過去のコミットメッセージを変更する
 
 最新のだったら
 `git commit --amend`
 
-```
+```sh
 commit 1a1929510ea46e8d2df36a417b9c2e9894bbb2c3 (HEAD -> feature/b)
 Author: 森田賢二 <kenjimorita@moritakenjinoMacBook-Pro.local>
 Date:   Sat Dec 11 14:16:05 2021 +0900
@@ -239,7 +247,7 @@ Date:   Sat Dec 11 11:23:14 2021 +0900
 
 `git rebase HEAD~2`
 
-```
+```sh
   1 pick 656ca3b fix: space↲
   2 pick 1a19295 fix: 123↲
   3 ↲
@@ -249,25 +257,24 @@ Date:   Sat Dec 11 11:23:14 2021 +0900
 
 ここではコミットメッセージは変更しない。gitにどんなアクションをしたいかを伝える
 
-```
+```sh
   1 reword 656ca3b fix: space↲
   2 pick 1a19295 fix: 123↲
   3 ↲
-  ```
-
+```
 
   閉じる
 
   そうするともう一度エディタが立ち上がる
 ここでコミットメッセージを変える
 
- ```
+ ```sh
  1 fix: add space↲
  ```
 
  git log --oneline
 
- ```
+ ```sh
  commit 815f106aef3999ca6548e7c8fa9cb20693e4773c (HEAD -> feature/b)
 Author: 森田賢二 <kenjimorita@moritakenjinoMacBook-Pro.local>
 Date:   Sat Dec 11 14:16:05 2021 +0900
@@ -292,12 +299,10 @@ Date:   Sat Dec 11 11:23:14 2021 +0900
 git reset HEAD --hard
 などの方法もあるが
 
-
 `git reflog`を使う方法
 
 
-
-```
+```sh
 773e79d (HEAD -> feature/b-2) HEAD@{0}: checkout: moving from feature/b to feature/b-2
 9a1ef59 (feature/b) HEAD@{1}: checkout: moving from feature/b-2 to feature/b
 773e79d (HEAD -> feature/b-2) HEAD@{2}: rebase (finish): returning to refs/heads/feature/b-2
@@ -318,15 +323,15 @@ b76a65d HEAD@{5}: rebase (squash): # This is a combination of 2 commits.
 `0eb9954 HEAD@{13}: commit: fix: as 3`
 の状態まで戻りたい
 
+`git branch feature/modoritai 0eb9954`
 
-git branch feature/modoritai 0eb9954
+`git branch`
 
-git branch
+`git checkout feature/modoritai`
 
-git checkout feature/modoritai
+`git log`
 
-git log
-```
+```sh
 commit af1e5c9a5d0b82ecc52b40c078851b964508510d (HEAD -> feature/modoritai, modoritai)
 Author: 森田賢二 <kenjimorita@moritakenjinoMacBook-Pro.local>
 Date:   Sat Dec 11 14:16:30 2021 +0900
@@ -348,10 +353,8 @@ Date:   Sat Dec 11 14:16:05 2021 +0900
 
 戻れている
 
-
 ---
 WIP
-
 
 ### submodules
 
@@ -361,7 +364,6 @@ WIP
 - サブモジュールの実際のコンテンツはメインプロジェクト(親リポジトリ)に保存されない。親リポジトリの一部ではない
 - `cat .gitmodules`で見れる
 - submoduleはブランチではなく特定のコミットにcheckoutする
-
 
 既にsubmodulesを採用しているリポジトリを見る
 `git clone https://github.com/apache/airflow.git`
@@ -377,6 +379,3 @@ WIP
 3. by author: --author
 4. by file: -- <filename>
 5. by branch: -- branch
-
-
-
