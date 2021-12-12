@@ -158,7 +158,6 @@ squashはコミットを一つにまとめたいときに便利です。
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/12/スクリーンショット-2021-12-12-9.00.25.png" width="300">
 
-
 注意は
 
 **リモートブランチにpushされていて且つshareされたブランチに対してやらないこと**
@@ -169,7 +168,6 @@ squashはコミットを一つにまとめたいときに便利です。
 今回は手動でできるようになるためのハンズオンです
 
 [元記事](https://kenjimorita.jp/git-git-rebase-i-squash/)
-
 
 1. 任意のブランチでファイルを変更していきます
 

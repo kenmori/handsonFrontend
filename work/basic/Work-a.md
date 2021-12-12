@@ -34,8 +34,6 @@ console.log(sumOfDigits(3023))
 
 [...arr.toString().split(",")]
 
-
-
 ## sum
 
 ```js
