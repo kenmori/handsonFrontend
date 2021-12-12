@@ -131,7 +131,7 @@ output:
 
 ## 3
 
-- Find `e`, and then return index of e as number. 
+- Find `e`, and then return index of e as number.
 
 input:
 
@@ -402,7 +402,7 @@ input
 output
 
 ```js
- ['1', '2', '3']
+['1', '2', '3']
 ```
 
 ## 19
@@ -415,8 +415,9 @@ input
 
 output
 
- [1, 1, 2, 2, 3, 4, 3, 2]
-
+```js
+[1, 1, 2, 2, 3, 4, 3, 2]
+```
 
 ## 18
 
@@ -458,19 +459,71 @@ output
 
 ## 20
 
-[chunk](https://lodash.com/docs/4.17.15#chunk)
+input
 
-WIP
+```js
+ ["a", "b", "c", "d"]
+ ```
 
-## 21
+ and 2
 
-[difference](https://lodash.com/docs/4.17.15#difference)
+ output
 
-WIP
+ ```js
+  [["a", "b"],["c", "d"]]
+  ```
 
------
+input
 
-below is WIP
+```js
+ ["a", "b", "c", "d"]
+ ```
+
+ output
+
+ ```js
+  [["a", "b","c"], ["d"]]
+  ```
+
+## 21 intersection
+
+input
+
+```js
+[2, 1], [2, 3]
+```
+
+output
+
+```js
+[2]
+```
+
+and
+
+input
+
+```js
+[5, 1], [2, 6]
+```
+
+output
+
+```js
+[]
+```
+
+and
+
+```js
+[2, 1, 6], [2, 3, 6]
+```
+
+output
+
+```js
+[2, 6]
+```
 
 ## 22
 
@@ -547,11 +600,15 @@ Don't use reduce, for
 
 input
 
+```js
 3456
+```
 
 output
 
+```js
 17
+```
 
 
 ## 25
