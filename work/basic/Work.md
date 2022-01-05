@@ -419,7 +419,7 @@ output
 [1, 1, 2, 2, 3, 4, 3, 2]
 ```
 
-## 18
+## 20
 
 Return the result of adding the elements next to each other as an array.
 
@@ -435,7 +435,7 @@ output
 [3, 6, 14, 22]
 ```
 
-## 19
+## 21
 
 Add the numbers in the same index of the two arrays and return to the new array.
 
@@ -457,7 +457,7 @@ output
 [4, 6, 8, 14, 14]
 ```
 
-## 20
+## 22
 
 input
 
@@ -485,7 +485,7 @@ input
   [["a", "b","c"], ["d"]]
   ```
 
-## 21 intersection
+## 23 intersection
 
 input
 
@@ -525,7 +525,7 @@ output
 [2, 6]
 ```
 
-## 22
+## 24
 
 *two sum*
 
@@ -554,7 +554,7 @@ if second input is 20, return false
 
 don't use `for(){ for(){}}`
 
-## 23
+## 25
 
 中間と一番最初を抜き取る
 
@@ -594,7 +594,7 @@ output
 [8, 4, 2, 1]
 ```
 
-## 24
+## 26
 
 Don't use reduce, for
 
@@ -611,7 +611,7 @@ output
 ```
 
 
-## 25
+## 27
 
 input
 
@@ -627,7 +627,7 @@ output
 15
 ```
 
-## 26
+## 28
 
 Remove "not", "so" element. not use Iterator method(map, forEach,...etc) and Iterator(for, while)
 
@@ -643,7 +643,7 @@ output
 [['today', 'was', 'great'], ['not', 'so']]
 ```
 
-## 27
+## 29
 
 input
 
