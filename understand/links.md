@@ -12,6 +12,10 @@
 ### SPA
 [SPA開発におけるWeb API設計入門エンドポイント編](https://www.hypertextcandy.com/web-api-url-design-primer)
 
+### API設計
+
+[RESTful APIのURI設計(エンドポイント設計)](https://qiita.com/NagaokaKenichi/items/6298eb8960570c7ad2e9)
+
 ### npm
 [【初心者向け】NPMとpackage.jsonを概念的に理解する](https://qiita.com/righteous/items/e5448cb2e7e11ab7d477)
 ### 非同期
