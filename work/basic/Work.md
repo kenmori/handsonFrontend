@@ -645,9 +645,18 @@ output
 
 ## 29
 
+no debule
+
 input
 
 ```js
+["a", "b", "c", "a", "c", "d"]
+```
+
+output
+
+```js
+["a", "b", "c", "d"]
 ```
 
 output
