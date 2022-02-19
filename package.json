@@ -1,0 +1,27 @@
+{
+  "name": "handsonfrontend",
+  "version": "1.0.0",
+  "description": "## handson ### git初学者が手を動かして覚えるgitハンズオン",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "prettier": "2.5.1"
+  },
+  "scripts": {
+    "lint": "eslint ./work/lesson28/src/js/**/*.js",
+    "format": "prettier --write ./work/lesson28/src/js/**/*.js",
+    "fix": "yarn format && yarn lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenmori/handsonFrontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenmori/handsonFrontend/issues"
+  },
+  "homepage": "https://github.com/kenmori/handsonFrontend#readme"
+}
