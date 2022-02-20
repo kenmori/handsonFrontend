@@ -47,3 +47,34 @@ function sum(arr){
 }
 sum([1, 2, 3, 4, 5])
 ```
+
+## 30
+
+```js
+const arr = [2, 2, 5, 2, 2, 2, 4, 5, 5, 9];
+
+function foo (array) {
+  let a = [],
+    b = [],
+    arr = [...array], // clone array so we don't change the original when using .sort()
+    prev;
+
+  arr.sort();
+  for (let element of arr) {
+    if (element !== prev) {
+      a.push(element);
+      b.push(1);
+    }
+    else ++b[b.length - 1];
+    prev = element;
+  }
+
+  return [a, b];
+}
+```
+
+
+
+## 参照
+
+[30](https://stackoverflow.com/questions/5667888/counting-the-occurrences-frequency-of-array-elements)
