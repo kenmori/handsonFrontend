@@ -1,6 +1,6 @@
-# interView JavaScript
+# JavaScript Interview Questions and Answers
 
-こちらは[Front-end-Developer-Interview-Questions/](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/)のアンサーページです。
+こちらは[Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/)のアンサーページです。
 
 ## イベントの委任について説明してください。
 
