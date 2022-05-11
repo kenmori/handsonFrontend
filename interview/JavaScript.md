@@ -15,4 +15,4 @@ A. イベントの委任とは、親要素にイベントを与えることに�
 
 ## 参照元
 
-- [hogehoge](hogehoge)
+- [JavaScript Event Delegation（英語サイト）](https://www.javascripttutorial.net/javascript-dom/javascript-event-delegation/)
