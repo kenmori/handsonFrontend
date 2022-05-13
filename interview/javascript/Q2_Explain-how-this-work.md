@@ -1,10 +1,10 @@
 # JavaScript Interview Questions and Answers
 
-こちらは[Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/)のアンサーページです。
+こちらは[Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/)の解答ページです。
 
 ## JavaScript において、"this"はどのように機能するかを説明してください。
 
-### ES6 において、this の機能が以前と変わった点を一つ挙げて下さい。
+## ES6 において、this の機能が以前と変わった点を一つ挙げて下さい。
 
 A. this の主な使用用途は、オブジェクト内のプロパティにアクセスすることです。this は呼び出し元となる関数の種類によって、参照する対象が変化します。
 
@@ -16,23 +16,23 @@ A. this の主な使用用途は、オブジェクト内のプロパティにア
 - 間接的に呼び出される関数
 - アロー関数
 
-##### 通常の関数内で使用する this
+#### 通常の関数内で使用する this
 
 この場合、this はグローバルオブジェクト（ブラウザ上では window オブジェクト）を参照します。同じ条件でも、ストリクトモードを使用した場合、this には undefined が割り当てられます。
 
-##### オブジェクトのメソッド内で使用する this
+#### オブジェクトのメソッド内で使用する this
 
 この場合、this は現在メソッドを呼び出しているオブジェクトを参照します。
 
-##### コンストラクタ関数内で使用する this
+#### コンストラクタ関数内で使用する this
 
 この場合、this は生成されたインスタンスを参照します。
 
-##### 間接的に呼び出される関数内で使用する this
+#### 間接的に呼び出される関数内で使用する this
 
 .call メソッドや.apply メソッドを使用する場合、関数内の this は指定されたオブジェクトを参照します。
 
-##### アロー関数内で使用する this
+#### アロー関数内で使用する this
 
 ES6 で新たに追加されたアロー関数を使用する場合、this の参照先は関数内で決められることはありません。アロー関数内の this には、関数の外側（親となる関数）で設定された値が継承されます。この特徴から、アロー関数はオブジェクトのメソッドとしては向いていません。
 
