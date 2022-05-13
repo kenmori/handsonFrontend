@@ -2,9 +2,7 @@
 
 こちらは [Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/) の解答ページです。
 
-## JavaScript において、"this"はどのように機能するかを説明してください。
-
-## 　 ES6 において、this の機能が以前と変わった点を一つ挙げて下さい。
+## JavaScript において、"this"はどのように機能するかを説明してください。また ES6 において、this の機能が以前と変わった点を一つ挙げて下さい。
 
 A. this の主な使用用途は、オブジェクト内のプロパティにアクセスすることです。this は呼び出し元となる関数の種類によって、参照する対象が変化します。
 
