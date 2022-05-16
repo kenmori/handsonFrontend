@@ -1,10 +1,10 @@
 # JavaScript Interview Questions and Answers
 
-こちらは[Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/)のアンサーページです。
+こちらは [Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/) の解答ページです。
 
 ## イベントの委任について説明してください。
 
-A. イベントの委任とは、親要素にイベントを与えることによって、その子要素にイベントを伝達させる仕組みのことです。
+イベントの委任とは、親要素にイベントを与えることによって、その子要素にイベントを伝達させる仕組みのことです。
 
 この仕組みにより、効率よくイベントを設定することが可能になります。
 
