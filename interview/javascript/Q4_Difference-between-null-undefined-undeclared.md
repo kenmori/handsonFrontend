@@ -34,6 +34,12 @@ console.log(a === null) // false
 また、typeof メソッドを使用して調べることも適していません。
 undefined は undefined だと判定されますが、null は object であると判定されてしまうためです。
 
+### undeclaredであるかを確認する方法
+
+undeclaredな変数を使用したり、代入しようとするとReferenceErrorが起こりundeclaredな変数であることを確認できます。
+
+例外として、sctiptモードでない場合にundeclaredな変数へ値を代入してもReferenceErrorは起こらないので確認が難しいです。
+
 ## 参照元
 
 - [JavaScript Interviews: What’s the Difference Between a Variable That’s null, undefined, or undeclared?](https://betterprogramming.pub/javascript-interviews-whats-the-difference-between-a-variable-that-s-null-undefined-or-cb1c8f41e6c3)
