@@ -2,7 +2,7 @@
 
 こちらは [Front-end-Developer-Interview-Questions](https://h5bp.org/Front-end-Developer-Interview-Questions/questions/javascript-questions/) の解答ページです。
 
-## クロージャとは何でしょうか。使い方や使う理由を説明して下さい。
+## クロージャとは何か説明して下さい。また、使い方や使う理由を説明して下さい。
 
 ### クロージャとは
 
