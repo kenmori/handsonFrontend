@@ -6,7 +6,7 @@
 
 ### クロージャとは
 
-クロージャとは、関数の中に設置された関数が、外側のスコープにある変数への参照を保持することができるという特質のことです。
+クロージャとは、関数の中に設置された関数が、外側のスコープにある変数への参照を保持することができる特質のことです。
 
 その関数を実行することで、通常は関数の外からは参照出来ない、関数内で宣言された変数へのアクセスが可能となります。
 
@@ -28,3 +28,4 @@
 
 - [クロージャー](https://jsprimer.net/basic/function-scope/#closure)
 - [Closure in JavaScript](https://www.tutorialsteacher.com/javascript/closure-in-javascript)
+- [JavaScript Closure Tutorial – How Closures and Lexical Scope Work in JS](https://www.freecodecamp.org/news/javascript-closure-lexical-scope/)
