@@ -124,7 +124,7 @@ buildプレビュー
 
 ### test用のリポジトリを作って最初から作り直してみてください
 
-1. cd ~/Desktop デスクトップに移動。 そこで`git init`
+1. ローカル環境にtest用フォルダを作成し、そこで`git init`
 
 2. `npm init @vitejs/app`
 
@@ -148,14 +148,18 @@ buildプレビュー
 
 11. git branch -M main
 
-12. git push -u origin main
+12. git add . 
+
+13. git commit -m "適当なコミットメッセージ"
+
+14. git push origin main
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-22.22.52.png" width="400">
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.58.47.png" width="400">
 
 
-13. shを作る([公式のこちらと同じことをやります](https://vitejs.dev/guide/static-deploy.html#github-pages))
+15. shを作る([公式のこちらと同じことをやります](https://vitejs.dev/guide/static-deploy.html#github-pages))
 
 `deploy.sh`を作って下記内容をコピペ
 
@@ -191,7 +195,7 @@ git push -f git@github.com:kenmori/vite-site.git master:gh-pages
 cd -
 ```
 
-14. `vite.config.js`を作って下記内容をコピペ
+16. `vite.config.js`を作って下記内容をコピペ
 
 [詳しくは公式のこちら](https://vitejs.dev/config/#config-file-resolving)
 
@@ -207,22 +211,22 @@ export default defineConfig({
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-23-21.53.51.png" width="400" />
 
 
-15. 今作った`sh deploy.sh`をプロジェクト直下(package.jsonがある場所)で叩く
+17. 今作った`sh deploy.sh`をプロジェクト直下(package.jsonがある場所)で叩く
 
 
-16. githubで確認する
+18. githubで確認する
 
 `gh-pages`にブランチを切り替える
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/1-1.png" width="400">
 
 
-17. リポジトリの右の方にある `setting` -> 左ペインにある `pages`を開く
+19. リポジトリの右の方にある `setting` -> 左ペインにある `pages`を開く
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.30.58.png" width="400">
 
 
-18. リンクを訪れる
+20. リンクを訪れる
 
 <img src="https://terracetech.jp/wp-content/uploads/2021/08/スクリーンショット-2021-08-21-15.31.33.png" width="400">
 
@@ -230,9 +234,9 @@ export default defineConfig({
 表示できていたら変更して再度deployしてみましょう
 
 
-19. 何かhtmlに変更を加えて deployしてみる
+21. 何かhtmlに変更を加えて deployしてみる
 
-20. 変わったか確認する。キャッシュが効いている可能性があるのでその場合はスーパーリロードしてみてください
+22. 変わったか確認する。キャッシュが効いている可能性があるのでその場合はスーパーリロードしてみてください
 
 
 ## 用語説明
