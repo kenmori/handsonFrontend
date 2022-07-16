@@ -75,6 +75,10 @@
 [良いコードの書き方](https://qiita.com/alt_yamamoto/items/25eda376e6b947208996)
 [【JS・TS】コーディングTips集](https://qiita.com/k-penguin-sato/items/81fbf561d2c4b68c74cc)
 
+## DB
+[やさしい図解で学ぶ　ER図　表記法一覧](https://qiita.com/ramuneru/items/32fbf3032b625f71b69d)
+
+[やさしい図解で学ぶ　中間テーブル　多対多　概念編](https://qiita.com/ramuneru/items/db43589551dd0c00fef9)
 ## その他
 
 [プログラマが知るべき97のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
@@ -89,6 +93,7 @@
 [最短で使うDocker入門～Dockerを体験しよう3](https://codezine.jp/article/detail/12830?p=3)
 [Dockerのボリュームとバインドマウントの違い](https://losenotime.jp/docker-mount/)
 [仮想DOMは本当に“速い”のか？ DOM操作の新しい考え方を、フレームワークを実装して理解しよう](https://eh-career.com/engineerhub/entry/2020/02/18/103000)
+
 
 メモ。課題に使いたい
 [Authentication with Supabase and React](https://dev.to/ruanmartinelli/authentication-with-supabase-and-react-32h4)

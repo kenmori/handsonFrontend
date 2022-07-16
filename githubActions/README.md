@@ -32,21 +32,24 @@
 
 ### 2.
 
-その中に`learn-github-actions.yml`を作成
+その中に`github-actions.yml`を作成
 
 ### 3.
 
 ```yml
-name: learn-github-actions
+name: github-actions
 on: [push]
 jobs:
-  check-bats-version:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
-```
-
-
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: ci
+        run: npm ci
+      - name: ESLint
+        run: npm run lint
