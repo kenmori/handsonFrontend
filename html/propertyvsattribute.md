@@ -31,7 +31,7 @@ DOMプロパティとattributesに設定されている属性はお互い対に�
 まず
 標準な属性とは`id`や`type`や`value`などであり
 
-`type`は`[(HTMLInputElement)](https://html.spec.whatwg.org/#the-input-element)`では標準だが`[body(HTMLBodyElement)](https://html.spec.whatwg.org/#the-body-element)`では非標準だったりする。
+`type`は [(HTMLInputElement)](https://html.spec.whatwg.org/#the-input-element) では標準だが [body(HTMLBodyElement)](https://html.spec.whatwg.org/#the-body-element) では非標準だったりする。
 
 例えば
 これは [aタグのHTMLAnchorElement](https://html.spec.whatwg.org/#the-a-element)ですが
