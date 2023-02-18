@@ -75,6 +75,10 @@
 [良いコードの書き方](https://qiita.com/alt_yamamoto/items/25eda376e6b947208996)
 [【JS・TS】コーディングTips集](https://qiita.com/k-penguin-sato/items/81fbf561d2c4b68c74cc)
 
+## Algorithm
+
+[Kadane’s Algorithm — (Dynamic Programming) — How and Why does it Work?](https://medium.com/@rsinghal757/kadanes-algorithm-dynamic-programming-how-and-why-does-it-work-3fd8849ed73d)__________________________
+
 ## DB
 [やさしい図解で学ぶ　ER図　表記法一覧](https://qiita.com/ramuneru/items/32fbf3032b625f71b69d)
 
