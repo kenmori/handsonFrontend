@@ -52,7 +52,7 @@ index
       - scriptsからjsを読み込む
       - scriptsからtsを読み込む
       - CDNを読み込む
-    - tailwindを使いたい場合
+    - tailwindを設定する方法
 - Astroの特徴
   - Astro vs JSX
 - トラブルシューティング
@@ -600,7 +600,7 @@ bodyタグ直前で読み込まれている様子
 
 [code](https://github.com/kenmori/astro-example/pull/10)
 
-#### tailwindを使いたい場合
+#### tailwindを設定する方法
 
 [ドキュメント](https://docs.astro.build/en/guides/integrations-guide/tailwind/#manual-install)
 
@@ -650,6 +650,11 @@ h1に `text-sm`を付与する
  // index.astro, page.astro
   <h1 class="text-sm">Welcome to <span class="text-gradient">もりけん塾<span></h1>
 ```
+
+完成系
+<img src="https://terracetech.jp/wp-content/uploads/2023/02/スクリーンショット-2023-02-18-21.32.29.png" width=300>
+
+[code](https://github.com/kenmori/astro-example/pull/11)
 
 
 [参照](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
