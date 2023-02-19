@@ -101,7 +101,7 @@ https://docs.astro.build/en/getting-started/)
 
 
 #### リポジトリを作るためgithubと繋げる
-- 左上のの`Connect repository`から新たにリポジトリを作成しましょう
+- 左上の`Connect repository`から新たにリポジトリを作成しましょう
 
 #### 不要なコードを削除する
 
