@@ -89,14 +89,19 @@ index
 [getting start](
 https://docs.astro.build/en/getting-started/)
 
+`Launch basic template`を押す
 <img src="https://terracetech.jp/wp-content/uploads/2023/02/a1.png">
 
 `stackblitz`
+
+- サインインがまだの方はサインインしてから始めてください
+- 左上の`Fork`を押す
 
 <img src="https://terracetech.jp/wp-content/uploads/2023/02/a2.png">
 
 
 #### リポジトリを作るためgithubと繋げる
+- 左上のの`Connect repository`から新たにリポジトリを作成しましょう
 
 #### 不要なコードを削除する
 
@@ -607,10 +612,10 @@ bodyタグ直前で読み込まれている様子
 [tailwind/font-size](https://tailwindcss.com/docs/font-size)
 
 
-astroで使うための｀@astrojs/tailwind`と実際の`tailwind-css`
+astroで使うための`@astrojs/tailwind`と実際の`tailwind-css`
 をインストールする
 
- npm install @astrojs/tailwind tailwind-css
+npm install @astrojs/tailwind tailwindcss
 
  `tailwind.config.cjs`をroot直下に作って以下をコピペ
 
