@@ -1,0 +1,19 @@
+{
+  "name": "lesson30",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test-view": "npx playwright codegen http://localhost:3000/login.html",
+    "test": "npx playwright test ./src/test/login.spec.js"
+  },
+  "devDependencies": {
+    "vite": "^2.4.4"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.32.3",
+    "chance": "^1.1.10",
+    "date-fns": "^2.29.3"
+  }
+}

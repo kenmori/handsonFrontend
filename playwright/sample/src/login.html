@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        if (localStorage.getItem("token")) window.location.href = "./index.html";
+    </script>
+    <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/drawer-menu.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <header class="header" id="js-header">
+        <div class="header__inner">
+            <h1 class="title title--top title--center" id="js-title"><a href="./" class="header__link">news</a></h1>
+            <nav class="header__nav" id="global-nav" data-name="drawer-menu" aria-hidden="true">
+                <div class="header__nav-inner">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item"><a href="./register.html" class="header__link" tabindex="2">Sign up</a></li>
+                        <li class="header__nav-item"><a href="./login.html" class="header__link" tabindex="3">Login</a></li>
+                    </ul>
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                        <li class="header__nav-item"><a href="#" class="header__link">Dummy link</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <button type="button" id="js-hamburger-button" class="header__hamburger" aria-controls="global-nav" aria-expanded="false" tabindex="1">
+                <span class="header__hamburger-bar">
+                    <span class="header__hamburger-text">メニューを開閉する</span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <form class="form box" id="js-form">
+        <div class="form__title" id="is-form-title">
+            <h1 class="title form__title-text">▶︎ Login</h1>
+            <a class="form__title-link" href="./register.html">Sign Up</a>
+        </div>
+        <div class="form__inner">
+            <div class="form__item">
+                <label for="userid">User ID <span class="form__notion">(Name or E-mail)</span></label>
+                <input type="text" class="form__item-input js-form-userid" id="userId" name="userId" tabindex="1" required>
+                <p class="error"></p>
+            </div>
+            <div class="form__item">
+                <label for="password">Password</label>
+                <button class="form__eye js-eye-icon" aria-label="パスワードが表示されます" type="button" tabindex="3"></button><input type="password" class="form__item-input js-form-password" id="password" name="password" aria-describedby="confirm-password-constraints" tabindex="2" required>
+                <p class="error" id="confirm-password-constraints" data-name="password-error"></p>
+            </div>
+            <p class="form__text"><a class="form__check-link" href="./forgotpassword.html">パスワードをお忘れの方はこちら</a></p>
+            <div class="form__button">
+                <input type="button" name="submitButton" class="js-submit-button" value="Login" disabled>
+                <p class="error"></p>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
