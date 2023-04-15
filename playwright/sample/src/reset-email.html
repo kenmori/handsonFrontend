@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./css/reset.css" type="text/css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css">
+        <script>if (!localStorage.getItem("token")) window.location.href = "./login.html";</script>
+        <script type="module" src="./js/reset-email.js"></script>
+        <script src="./js/contents/main.js" defer></script>
+        <title>メールアドレス変更ページ</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__inner">
+                <h1 class="title title--top"><a href="./" class="header__link">haru news</a></h1>
+                <button class="header__button" id="js-user-menu-button" type="button"><img src="./img/img-user.png" alt="ユーザー管理画面" width="60" height="60" decoding="async"></button>
+            </div>
+            <div class="user-menu" id="js-user-menu" role="dialog">
+                <button class="user-menu__icon" id="js-close-icon" aria-label="Close">&times;</button>
+                <span class="user-menu__img"><img src="./img/img-user.png" alt="ユーザー画像"></span>
+                <p class="user-menu__name" id="js-username"></p>
+                <p class="user-menu__email" id="js-email"></p>
+                <ul class="user-menu__list">
+                    <li class="user-menu__item"><a href="./reset-email.html" class="user-menu__link">メールアドレス変更</a></li>
+                    <li class="user-menu__item"><a href="./reset-password.html" class="user-menu__link">パスワード変更</a></li>
+                </ul>
+                <button class="user-menu__button" id="js-logout-button" type="button">Logout</button>
+            </div>
+        </header>
+        <div class="setting">
+            <div class="setting__inner">
+                <div class="setting__menu">
+                    <span class="setting__img"><img src="./img/img-user.png" alt="ユーザー画像"></span>
+                    <ul class="setting__menu-list">
+                        <li class="setting__menu-item is-active">メールアドレス変更</li>
+                        <li class="setting__menu-item"><a href="./reset-password.html" class="user-menu__link">パスワード変更</a></li>
+                    </ul>
+                </div>
+                <div class="scallop-down"></div>
+                <div class="setting__body">
+                    <form class="form">
+                        <h2 class="title title--green">▶︎ Change email address</h2>
+                        <div class="form__item">
+                            <label for="email">新規E-mailアドレス入力<span class="form__required">必須</span></label>
+                            <input type="email" class="form__item-input js-form-email" id="email" name="email" autocomplete="off" aria-describedby="email-constraints" tabindex="1" required>
+                            <p class="error" id="email-constraints"></p>
+                        </div>
+                        <div class="form__item">
+                            <label for="confirmEmail">確認のためのE-mailアドレス入力<span class="form__required">必須</span></label>
+                            <input type="email" class="form__item-input js-form-confirm-email" id="confirmEmail" name="confirmEmail" aria-describedby="confirm-email-constraints" tabindex="2" required>
+                            <p class="error" id="confirm-email-constraints" data-name="confirm-email-error"></p>
+                        </div>
+                        <div class="form__item">
+                            <label for="password">登録済みPassword入力<span class="form__notion"> ( 本人確認のため )</span><span class="form__required">必須</span></label>
+                            <button class="form__eye js-eye-icon" aria-label="パスワードが表示されます" type="button" tabindex="4"></button><input type="password" class="form__item-input js-form-password" id="password" name="password" aria-describedby="password-constraints" tabindex="3" required>
+                            <p class="error" id="password-constraints" data-name="current-password-error"></p>
+                        </div>
+                        <div class="form__button form__button--narrow">
+                            <input type="button" name="submitButton" class="js-submit-button" value="Submit" disabled>
+                            <p class="error"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

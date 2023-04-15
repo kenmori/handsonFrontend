@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./css/reset.css" type="text/css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css">
+        <script>if (!localStorage.getItem("token")) window.location.href = "./login.html";</script>
+        <script src="./js/contents/main.js" defer></script>
+        <script type="module" src="./js/contents/slideshow.js"></script>
+        <script type="module" src="./js/contents/tab.js"></script>
+        <title>Haru news</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__inner">
+                <h1 class="title title--top"><a href="./" class="header__link">haru news</a></h1>
+                <button class="header__button header__link" id="js-user-menu-button" type="button"><img src="./img/img-user.png" alt="ユーザー管理画面" width="60" height="60" decoding="async"></button>
+            </div>
+            <div class="user-menu" id="js-user-menu" role="dialog">
+                <button class="user-menu__icon" id="js-close-icon" aria-label="Close">&times;</button>
+                <span class="user-menu__img"><img src="./img/img-user.png" alt="ユーザー画像"></span>
+                <p class="user-menu__name" id="js-username"></p>
+                <p class="user-menu__email" id="js-email"></p>
+                <ul class="user-menu__list">
+                    <li class="user-menu__item"><a href="./reset-email.html" class="user-menu__link">メールアドレス変更</a></li>
+                    <li class="user-menu__item"><a href="./reset-password.html" class="user-menu__link">パスワード変更</a></li>
+                </ul>
+                <button class="user-menu__button" id="js-logout-button" type="button">Logout</button>
+            </div>
+        </header>
+        <div class="slideshow">
+            <div class="slideshow__inner">
+                <button id="js-button-previous" class="slideshow__arrow js-button-arrow"><img src="./img/icon-arrow-previous.svg" alt="戻る" width="512" height="512" decoding="async"></button>
+                <div id="js-pict" class="slideshow__pict">
+                    <ul id="js-pict-list" class="slideshow__pict-list"></ul>
+                </div>
+                <button id="js-button-next" class="slideshow__arrow js-button-arrow"><img src="./img/icon-arrow-next.svg" alt="進む" width="512" height="512" decoding="async"></button>
+            </div>
+            <div id="js-pagination" class="pagination">
+                <ul id="js-pagination-list" class="pagination__list"></ul>
+                <p class="slideshow__counter"><span id="js-counter-current"></span>/<span id="js-counter-all" class="slideshow__counter-item"></span></p>
+            </div>
+        </div>
+        
+        <h2 class="title title--sub">＼ Today's News ／</h2>
+        <ul class="tab__nav-list" id="js-tabNav"></ul>
+    </body>
+</html>
