@@ -8,6 +8,7 @@
 適宜ドキュメントを参考にして設定してください
 
 ※あくまでどんなものなのか触れるだけのハンズオンです
+
 ※sampleプロジェクトは[@fuwafuwahappy](https://twitter.com/fuwafuwahappy)さんのご提供です。ありがとうございました
 
 ## テストの種類
@@ -96,12 +97,19 @@ test('if sign up clicked, show content include username input', async ({ page })
 
 ### 正常系
 
-1. `login.html`でEmail項目がinvalidの時にエラ-文言が出ることをテストしてください
-2. `login.html`で利用規約をclickしたらモーダルがオープンされることをテストしてください
+1. `register.html`でEmail項目がinvalidの時にエラ-文言が出ることをテストしてください
+2. `register.html`で利用規約をclickしたらモーダルがオープンされることをテストしてください
+
+- `register.spec.js`としてテストを書くこと
+- package.json内のコマンド、テストへのパスも変更すること
+- テストのtitleもちゃんと何をテストしているのか書く
+- 画像を生成するなら画像の名前も一意にすること
 
 
 ### 解答
 
+<details>
+<summary>解答</summary>
 1.
 
 ```js
@@ -122,6 +130,8 @@ test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
   await page.screenshot({ path: "./src/playwright/login/modal-open.png" });
 });
 ```
+
+</details>
 
 ## トラブルシューティング
 
@@ -163,7 +173,8 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 ```
 yarn devした後、別のターミナル立ち上げてplaywright/sample下に移動し、yarn test-view
 
-- 
+- testでこける
+  - testのタイトルが重複していませんか
 
 - testが動かない
   - sampleディレクトリ直下でyarn testしてますか
