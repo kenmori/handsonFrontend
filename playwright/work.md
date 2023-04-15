@@ -12,6 +12,7 @@
 ※sampleプロジェクトは[@fuwafuwahappy](https://twitter.com/fuwafuwahappy)さんのご提供です。ありがとうございました
 
 ## テストの種類
+
 - ユニットテスト(Unit Test)
   - 関数やコンポーネントに対するテスト
 - インテグレーションテスト(Integration Test)
@@ -23,7 +24,6 @@
   - UIが予期せぬ変更をされていないか、スナップショットとして結果を残し差分を検知するようなテスト
 - クロスブラウザテスト(Cross Browser Test)
   複数のブラウザでの振る舞い、見え方を比較するテスト
-
 
 ## テストを書く目的
 
@@ -44,7 +44,6 @@
 - テスト収録でテストコードを生成してくれる
 and more...
 
-
 ## fork or cloneしてください
 
 `https://github.com/kenmori/handsonFrontend`からfork or cloneしてください
@@ -53,7 +52,7 @@ and more...
 
 ターミナルを立ち上げて
 `https://github.com/kenmori/handsonFrontend/tree/master/playwright/sample`
-にcdで移動してください
+に`cd`で移動してください
 
 ## yarn test-view
 
@@ -61,24 +60,24 @@ and more...
 
 ## テストする動作を収録してインスペクターに追加する
 
-testフォルダをsrc直下に作ってください
+testフォルダをsrc直下に作ってください(作ってあればそれを活かす)
 
 その中に`login.spec.js`
 を作る
-中身は空
+中身は一旦空にしましょう
 
-## npx playwright install
+## `npx playwright install`
 
 ターミナルで
 `npx playwright install`を実行してください
 
-## sample直下にいることを書くにることを確認して
+## sample直下にいることを確認して
 
 `yarn`を実行してください
 
-## playwright inspectorを立ち上げる
+次に`playwright inspector`を立ち上げる
 
-他にlocalhostが立ち上がっていないことを確認して
+(他にlocalhostが立ち上がっていないことを確認して)
 
 `yarn dev`
 をして
@@ -86,7 +85,6 @@ testフォルダをsrc直下に作ってください
 を実行してください
 
 `localhost:3000`で画面遷移すればok
-
 
 ## テストしたいアクションをしてください
 
@@ -96,7 +94,6 @@ playwright inspectorの内容を
 
 `login.spec.js`にコピペしてください
 
-
 ## テスト
 
 例えば、
@@ -104,7 +101,6 @@ playwright inspectorの内容を
 - sign up押下した時に画面が表示されること
 
 をテストする場合はこちらです
-
 
 ```js
 test('if sign up clicked, show content include username input', async ({ page }) => {
@@ -155,15 +151,11 @@ test('if sign up clicked, show content include username input', async ({ page })
 });
 ```
 
-
-
 ## yarn test
 
 <img src="https://kenjimorita.jp/wp-content/uploads/2023/04/スクリーンショット-2023-04-15-15.37.50.png" width="400" />
 
 画像が生成されます
-
-
 ## 課題
 
 ### 正常系
@@ -181,34 +173,54 @@ test('if sign up clicked, show content include username input', async ({ page })
 
 <details>
 <summary>解答</summary>
-1.
+
+1. インスペクタはclickコードを生成しますが実はblur指定です。正しいイベントに直したり微調整しましょう
 
 ```js
 test('if email input fill "fafafa", error message appear', async ({ page }) => {
   await page.goto('http://localhost:3000/register.html');
   await page.getByLabel('E-mail必須').fill('fafafa');
-  await page.getByLabel('E-mail必須').blur();
+  await page.getByLabel('E-mail必須').blur(); //
   await page.screenshot({ path: "./src/playwright/login/email-error-message.png" });
 });
 ```
 
-2.
+[https://playwright.dev/docs/api/class-locator#locator-blur](https://playwright.dev/docs/api/class-locator#locator-blur)
+
+2. locatorsを使いこなそう
 
 ```js
 test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
   await page.goto('http://localhost:3000/register.html');
-  await page.locator('#js-checkbox-link').click(); // linkをclick
+  await page.locator('#js-checkbox-link').click(); // locatorで指定してもいいです
   await page.screenshot({ path: "./src/playwright/login/modal-open.png" });
 });
 ```
 
+[https://playwright.dev/docs/locators](https://playwright.dev/docs/locators)
+
 </details>
+
+
+## Tips
+
+### ターミナルは3つ立ち上げておくといいです
+
+- `yarn dev`でサーバーを立ち上げるターミナル
+- `yarn test-view` でインスペクタを立ち上げるターミナル
+- `yarn test` でテストを実行するターミナル
+
+### インスペクターにある機能を使いこなそう
+
+- Recordingを止めて右上にあるx印でテストコードを初期化する
+- Recordingを止めてlocatorを使って要素を検出して利用する
+
 
 ## トラブルシューティング
 
 - 立ち上がらない
   - `killall node` 立ち上げているlocalhostを一回全部止めてください
-  - localを立ち上げ直す
+  - localを`yarn dev`で立ち上げ直す
 
  - Errorが出る
 
