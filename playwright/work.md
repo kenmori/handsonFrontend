@@ -25,6 +25,16 @@
   複数のブラウザでの振る舞い、見え方を比較するテスト
 
 
+## テストを書く目的
+
+- 開発者が動作確認をする事ももちろんやりますが、面倒なケースもあります。それらをテストコードを書いて正しい動作をしていることを
+示します。
+- リファクタリング後にデグレっていないことをテストコードを書いておけば示すことができます
+- テストを先に書くことで、それを「仕様書風」にして、足りていない振る舞いなどを浮かび上げることが前もってできます
+- テストケースを見て足りていないテストがあればそこがバグになりうることがわかります
+- レビュワーがわざわざ動作確認まですることを避けることができます。もちろんやる事もあります
+- テストを書いて品質を保つことで安心安全に開発、デプロイできます
+
 ## playwright
 
 - E2Eテスト自動化ツール
@@ -34,57 +44,118 @@
 - テスト収録でテストコードを生成してくれる
 and more...
 
-何も考えずenter
+
+## fork or cloneしてください
+
+`https://github.com/kenmori/handsonFrontend`からfork or cloneしてください
 
 ## cdでsampleプロジェクトに移動
 
-handsonFrontend/playwright/sample
+ターミナルを立ち上げて
+`https://github.com/kenmori/handsonFrontend/tree/master/playwright/sample`
+にcdで移動してください
 
 ## yarn test-view
 
-<img src="https://kenjimorita.jp/wp-content/uploads/2023/04/page.gif" />
+<img src="https://kenjimorita.jp/wp-content/uploads/2023/04/page.gif"　width="400" />
 
 ## テストする動作を収録してインスペクターに追加する
 
-`/src/test/login.spec.js`
+testフォルダをsrc直下に作ってください
+
+その中に`login.spec.js`
 を作る
+中身は空
 
-playwright inspectorの内容をそこにはる
+## npx playwright install
 
-[テスト]
+ターミナルで
+`npx playwright install`を実行してください
+
+## sample直下にいることを書くにることを確認して
+
+`yarn`を実行してください
+
+## playwright inspectorを立ち上げる
+
+他にlocalhostが立ち上がっていないことを確認して
+
+`yarn dev`
+をして
+`yarn test-view`
+を実行してください
+
+`localhost:3000`で画面遷移すればok
+
+
+## テストしたいアクションをしてください
+
+アクションを収録する録画が始まっています
+
+playwright inspectorの内容を
+
+`login.spec.js`にコピペしてください
+
+
+## テスト
+
+例えば、
 
 - sign up押下した時に画面が表示されること
+
+をテストする場合はこちらです
+
 
 ```js
 test('if sign up clicked, show content include username input', async ({ page }) => {
   await page.goto('http://localhost:3000/login.html');
   await page.getByRole('link', { name: 'Sign Up' }).click();
-  await page.getByText('Login ▶︎ Sign Up UserName必須 E-mail必須 Password ( 8文字以上の大小英数字 )必須 利用規約に同意しました ( 規約').click();
+  await expect(page).toHaveTitle(/Sign Up/)
 });
 ```
 
-画像を生成したい
+これはページのタイトルがSign Upになっていることを確認していて
+ちゃんと`login.html`から`register.html`に遷移していることが確認できるテストです
 
-## スナップショットを作る関数を加える
+試しに
 
- await page.screenshot({ path: `xxxx.png` })
+```js
+test('if sign up clicked, show content include username input', async ({ page }) => {
+  await page.goto('http://localhost:3000/login.html');
+  await page.getByRole('link', { name: 'Sign Up' }).click();
+  // await expect(page).toHaveTitle(/Sign Up/)
+  await expect(page).toHaveTitle(/fafa/)
+});
+```
+
+こうしてみてください。
+タイトルが出鱈目な文字列にしてテストが通らないことを確認してみてください
+
+
+## 画像を生成して画面が正しいことを証明するテスト
+
+スナップショットを作る関数を加える流ことでできます
+
+ `await page.screenshot({ path: "xxxx.png" })`
 
  生成したい場所のpathを記述する。タイトルはtestのタイトルを要約したものでも良いです
 
 ```js
- await page.screenshot({ path: `./src/playwright/login/if-sign-up-clicked.png` })
+ await page.screenshot({ path: "./src/playwright/login/if-sign-up-clicked.png" })
 ```
 
-最終的に
+最終的にこのようにテストがかけました。
 
 ```js
 test('if sign up clicked, show content include username input', async ({ page }) => {
-  await page.goto('http://localhost:3000/login.html');
-  await page.getByRole('link', { name: 'Sign Up' }).click();
-  await page.getByText('Login ▶︎ Sign Up UserName必須 E-mail必須 Password ( 8文字以上の大小英数字 )必須 利用規約に同意しました ( 規約').click();
+  await page.goto('http://localhost:3000/login.html'); // playwrightがページ遷移する。
+  await page.getByRole('link', { name: 'Sign Up' }).click(); // クリック
+  await page.getByText('Login ▶︎ Sign Up UserName必須 E-mail必須 Password ( 8文字以上の大小英数字 )必須 利用規約に同意しました ( 規約').click(); // TODO コンテンツの中身が正しければいいのでそのように置き換える
   await page.screenshot({ path: "./src/playwright/login/if-sign-up-clicked.png" })
 });
 ```
+
+
 
 ## yarn test
 
