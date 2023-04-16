@@ -5,11 +5,12 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "test-view": "npx playwright codegen http://localhost:3000/login.html",
-    "test": "npx playwright test ./src/test/login.spec.js"
+    "test-view": "playwright codegen http://localhost:3000/login.html",
+    "test": "playwright test ./src/test/*.js"
   },
   "devDependencies": {
-    "vite": "^2.4.4"
+    "vite": "^2.4.4",
+    "playwright": "1.32.3"
   },
   "dependencies": {
     "chance": "^1.1.10",

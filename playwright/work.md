@@ -46,12 +46,12 @@ and more...
 
 ## fork or cloneしてください
 
-`https://github.com/kenmori/handsonFrontend`からfork or cloneしてください
+このリポジトリ、[https://github.com/kenmori/handsonFrontend](https://github.com/kenmori/handsonFrontend)からfork or cloneしてください
 
 ## cdでsampleプロジェクトに移動
 
 ターミナルを立ち上げて
-`https://github.com/kenmori/handsonFrontend/tree/master/playwright/sample`
+`playwright/sample`
 に`cd`で移動してください
 
 ## yarn test-view
@@ -130,7 +130,7 @@ test('if sign up clicked, show content include username input', async ({ page })
 
 ## 画像を生成して画面が正しいことを証明するテスト
 
-スナップショットを作る関数を加える流ことでできます
+スクリーンショットを作る関数を加えることでできます
 
  `await page.screenshot({ path: "xxxx.png" })`
 
@@ -180,7 +180,7 @@ test('if sign up clicked, show content include username input', async ({ page })
 test('if email input fill "fafafa", error message appear', async ({ page }) => {
   await page.goto('http://localhost:3000/register.html');
   await page.getByLabel('E-mail必須').fill('fafafa');
-  await page.getByLabel('E-mail必須').blur(); //
+  await page.getByLabel('E-mail必須').blur(); // here
   await page.screenshot({ path: "./src/playwright/login/email-error-message.png" });
 });
 ```
@@ -192,8 +192,8 @@ test('if email input fill "fafafa", error message appear', async ({ page }) => {
 ```js
 test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
   await page.goto('http://localhost:3000/register.html');
-  await page.locator('#js-checkbox-link').click(); // locatorで指定してもいいです
-  await page.screenshot({ path: "./src/playwright/login/modal-open.png" });
+  await page.locator('#js-checkbox-link').click ();
+  await expect(page.locator('#js-modal-inner')).toContainText("利用規約")
 });
 ```
 
@@ -214,7 +214,6 @@ test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
 
 - Recordingを止めて右上にあるx印でテストコードを初期化する
 - Recordingを止めてlocatorを使って要素を検出して利用する
-
 
 ## トラブルシューティング
 
@@ -259,5 +258,22 @@ yarn devした後、別のターミナル立ち上げてplaywright/sample下に�
 - testでこける
   - testのタイトルが重複していませんか
 
-- testが動かない
+- testが動かない、スクリーンショットが生成されない
   - sampleディレクトリ直下でyarn testしてますか
+  - 別のテストをしていませんか?
+  - 別のlocalhostを立ち上げていませんか?
+  - 以下を試して再度立ち上げ直し、実行してみてください
+  
+  ```
+    - 1. killall node
+      2. pwdでsample直下にいることを確認
+      3. yarn dev
+      4. 別ターミナルを開く
+      5. 別ターミナルでpwdでsample直下にいることを確認
+      6. yarn test
+  ```
+
+  - vscodeの拡張でplaywrightをインストールして設定していませんか？
+    - その場合configファイルが作られてこのプロジェクトの設置とバッティングします
+    - vscode拡張の設定の方が正しいと思いますが、それはまだWIPですのであくまでドキュメントに沿ってください
+
