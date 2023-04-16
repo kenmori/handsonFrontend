@@ -56,8 +56,6 @@ and more...
 
 ## yarn test-view
 
-<img src="https://kenjimorita.jp/wp-content/uploads/2023/04/page.gif"　width="400" />
-
 ## テストする動作を収録してインスペクターに追加する
 
 testフォルダをsrc直下に作ってください(作ってあればそれを活かす)
@@ -187,7 +185,10 @@ test('if email input fill "fafafa", error message appear', async ({ page }) => {
 
 [https://playwright.dev/docs/api/class-locator#locator-blur](https://playwright.dev/docs/api/class-locator#locator-blur)
 
-2. locatorsを使いこなそう
+2. locatorsを使いこなそう。jestのように書くこともできます。(習っていないことですみません)
+スクリーンショットを撮らず、モーダルを開いたらその対象要素にテキストが含まれていることをテストすることで、
+表示されていることを確認する手法を身につけましょう。
+スクリーンショットを毎回撮るのはテスト実行速度が重くなることがあると思います
 
 ```js
 test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
