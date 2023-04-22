@@ -1,4 +1,4 @@
-# playwrightに触れるハンズオン
+# playwright(読み方: プレイライト)に触れるハンズオン
 
 <img src="https://kenjimorita.jp/wp-content/uploads/2023/04/playwright.png" />
 
@@ -156,10 +156,16 @@ test('if sign up clicked, show content include username input', async ({ page })
 画像が生成されます
 ## 課題
 
-### 正常系
-
 1. `register.html`でEmail項目がinvalidの時にエラ-文言が出ることをテストしてください
 2. `register.html`で利用規約をclickしたらモーダルがオープンされることをテストしてください
+3. 毎回`page`オブジェクトからgoto関数で指定するのは冗長ですので、テストを始める前に一回だけ指定してください
+4. 毎回テスト関数の中にスクリーンショットを書くのは大変です。一つのテストが終わるたびにスクリーンショットを実行するように一括指定してください。
+5. あるページのテストのあるテストでは同じ動作を記述して最後の動作だけ違うテストを書きたいケースがあります。
+  例えば
+  passwordのinputに"Nfekfa4o"と記入して、blurした時とclickした時ケースです。
+  これらは入力するまでのアクションは一緒です。
+  最後のテストケース(clickとblur)までのアクションを共通化してください。
+  さらにそれぞれのtestの後にはスクリーンショットを生成してください
 
 - `register.spec.js`としてテストを書くこと
 - package.json内のコマンド、テストへのパスも変更すること
@@ -188,7 +194,8 @@ test('if email input fill "fafafa", error message appear', async ({ page }) => {
 2. locatorsを使いこなそう。jestのように書くこともできます。(習っていないことですみません)
 スクリーンショットを撮らず、モーダルを開いたらその対象要素にテキストが含まれていることをテストすることで、
 表示されていることを確認する手法を身につけましょう。
-スクリーンショットを毎回撮るのはテスト実行速度が重くなることがあると思います
+こちらのTextに利用規約という文字があれば立ち上がっていることが確定されると思います。
+スクリーンショットを撮るより簡単なテスト方法の一例です。
 
 ```js
 test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
@@ -196,6 +203,46 @@ test('if riyoukiyaku clicked, modal is open', async ({ page }) => {
   await page.locator('#js-checkbox-link').click ();
   await expect(page.locator('#js-modal-inner')).toContainText("利用規約")
 });
+```
+
+3. トップレベルに
+
+```js
+test.beforeEach(async ({ page }, testInfo) => {
+  await page.goto('http://localhost:3000/register.html');
+});
+```
+
+と書けば、毎回書かずに済みます
+
+4. このようにすると記述が一回で済みます。またそれぞれのテストに応じた画像名を指定できます
+
+```js
+ test.afterEach(async ({page}, testInfo) => {
+    await page.screenshot({ path: `./playwright/screenshots/register/${testInfo.title}.png` });
+  })
+```
+
+5. describeを用いて何に対してのテストケースか、親を持たせます。その中でそれぞれのtestが始まる前に実行されるbeforeEach関数の中に共通したいアクションなどを記述します
+
+```js
+test.describe("password", () => {
+  test.beforeEach(async ({page}) => {
+    await page.goto('http://localhost:3000/register.html');
+    await page.getByLabel('password').fill("Nfekfa4o"); // 共通化
+  })
+  test.afterEach(async ({page}, testInfo) => {
+    await page.screenshot({ path: `./playwright/screenshots/register/${testInfo.title}.png` });
+  })
+  test('blur', async ({ page }) => {
+    await page.getByLabel('password').blur();
+    // some
+  });
+  test('click', async ({ page }) => {
+    await page.getByLabel('password').click();
+    // some
+  });
+})
 ```
 
 [https://playwright.dev/docs/locators](https://playwright.dev/docs/locators)
@@ -264,7 +311,6 @@ yarn devした後、別のターミナル立ち上げてplaywright/sample下に�
   - 別のテストをしていませんか?
   - 別のlocalhostを立ち上げていませんか?
   - 以下を試して再度立ち上げ直し、実行してみてください
-  
   ```
     - 1. killall node
       2. pwdでsample直下にいることを確認
