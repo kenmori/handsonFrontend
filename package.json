@@ -11,6 +11,7 @@
     "prettier": "2.5.1"
   },
   "scripts": {
+    "start": "npx serve",
     "lint": "eslint ./work/lesson28/src/js/**/*.js",
     "format": "prettier --write ./work/lesson28/src/js/**/*.js",
     "fix": "yarn format && yarn lint"
