@@ -9,7 +9,7 @@
     "test": "playwright test ./src/test/*.js"
   },
   "devDependencies": {
-    "vite": "^2.4.4",
+    "vite": "^2.9.16",
     "playwright": "1.32.3"
   },
   "dependencies": {
