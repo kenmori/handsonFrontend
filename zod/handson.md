@@ -29,11 +29,69 @@ https://github.com/kenmori/zod-hanson-with-vanilajs
 > 簡潔に言えば、ZodライブラリはJavaScriptのデータバリデーションのためのツールであり、データが特定の形式やルールに適合しているかどうかを確認するためのスキーマを提供します。これにより、信頼性の高いデータ処理を実現できます。
 
 
-```js
-const mySchema = z.string().email();
+### まずはSchemaを定義しましょう。
 
-// mySchema.parse('fafaf@gmail.com'); // => "ken"
-// mySchema.parse(12); // => throws ZodError
+```js
+const mySchema = z.string()
+```
+
+です。
+schemaはルールです。
+
+ではそのルールに対して値があっているか検証します。
+検証するときは
+schemaが持っているparseメソッドを使います。
+
+```js
+const value = "abc"
+mySchema.parse(value)
+```
+
+これはvalueを検証しています。
+schemaはstringですのでstringかどうかを検証しています
+
+これはvalidです。
+
+では
+number型を入れてみます
+
+```js
+const value = 123
+mySchema.parse(value)
+```
+
+これはErrorになります。zodは特別なErrorオブジェクトをthrowします
+
+このように値がschemaに対して正しいかどうかを検証するのですね。
+これだけでは何故zodを使うのかわからないと思います。
+
+### schemaでemailとして正しい文字列かどうかを検証してみましょう
+
+```js
+const emailSchema = z.string().email()
+```
+
+このようにstring()が返すスキーマオブジェクトのemaiメソッドを使って定義します
+
+値がemail形式になっているか検証してみましょう
+
+```js
+const maybyEmail = 'fafaf@gmail.com'
+emailSchema.parse(maybyEmail); // => "ken"
+````
+
+こちらは問題なくvalidになります
+
+ではemailSchemaに対して通常の文字列をinputにしてみましょう
+
+```js
+emailSchema.parse("ken"); // => throws ZodError
+```
+
+エラーになります
+
+WIP
+
 
 const nameElement = document.getElementById('js-name');
 
