@@ -89,14 +89,14 @@ viteがしないこと
 
 ## 早速いじってみましょう
 
-1. `npm init @vitejs/app`
+1. `npm create vite@latest`  
 
 
 2. `vite-js`
 
 3. `vanilla`
 
-4. `vanilla`
+4. `JavaScript`
 
 5. 作られているのを確認
 
@@ -114,7 +114,7 @@ viteがしないこと
 
 `dist`が作られる
 
-12. `npm run serve`
+12. `npm run preview` 
 
 buildプレビュー
 `http://localhost:5000/`
@@ -126,13 +126,13 @@ buildプレビュー
 
 1. ローカル環境にtest用フォルダを作成し、そこで`git init`
 
-2. `npm init @vitejs/app`
+2. `npm create vite@latest` 
 
 3. vite-site
 
 4. vanilla [enter]
 
-5. vanilla [enter]
+5. JavaScript[enter]
 
 6. cd vite-site
 
