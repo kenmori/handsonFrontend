@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/token.js" defer></script>
+  <script src="./js/logout.js" defer></script>
+  <script src="./js/slideshow.js" defer></script>
+  <script type="module" src="./js/tabMenu.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="inner">
+      <button type="button" class="logout-button" id="js-logout-button">ログアウト</button>
+    </div>
+  </header>
+  <main>
+    <div class="mv" id="js-mv">
+      <div class="mv__slide slide" id="js-slide">
+        <ul class="slide__list" id="js-slide-list">
+        </ul>
+      </div>
+    </div>
+    <section class="news" id="js-news">
+      <div class="news__inner">
+        <h1 class="news__title">Today's News</h1>
+        <p class="news__sub-title"><span>Click on the comment icon to see the comments</span></p>
+        <div class="news-tab">
+          <ul class="news-tab__menu" id="js-tab-menu"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

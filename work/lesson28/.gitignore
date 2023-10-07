@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+package-lock.json
+package.json
+*.local
+vite.config.js
+
+
