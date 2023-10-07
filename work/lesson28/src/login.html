@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/login.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <div class="login-page">
+      <div class="inner">
+        <div class="login-form">
+          <ul class="tab-menu">
+            <p class="tab-menu__item --selected">ログイン</p>
+            <a href="register.html" class="tab-menu__item">会員登録</a>
+          </ul>
+          <div class="form-wrapper">
+            <form action="" id="js-login-form">
+              <dl>
+                <div class="form-item">
+                  <dt class="form-title">
+                    <label for="username">ユーザー名</label>
+                  </dt>
+                  <dd class="form-field">
+                    <input type="text" id="username" placeholder="ユーザー名" required>
+                  </dd>
+                </div>
+                <div class="form-item">
+                  <dt class="form-title">
+                    <label for="password">パスワード</label>
+                  </dt>
+                  <dd class="form-field password-field">
+                    <input type="password" id="password" class="password" placeholder="password" required>
+                    <button class="password-icon is-hide" type="button" id="js-password-icon"></button>
+                  </dd>
+                </div>
+              </dl>
+              <div class="login-form__submit">
+                <button id="js-login-button" class="" type="submit" disabled>
+                  送信
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="login-page__foot">
+            <a href="forgotpassword.html" class="forgot-link">パースワードをお忘れの方はこちら</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
